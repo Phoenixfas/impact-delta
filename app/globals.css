@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ------------------------------------------------------------------------
+     1. COLOR SYSTEM (Light-Themed Corporate Palette)
+     ------------------------------------------------------------------------ */
+  --background: #FFFFFF;             /* Pure White - Hero & Primary Sections */
+  --surface-white: #FFFFFF;          /* Pure White Card/Container Background */
+  --surface-subtle: #F8FAFC;         /* Ultra-light Slate 50 - Alternating Sections */
+  --surface-muted: #F1F5F9;          /* Soft Accent Slate 100 */
+  --surface-elevated: #FFFFFF;       /* Elevated Modal/Floating Card Background */
+
+  /* Typography / Text Palette */
+  --foreground: #0F172A;             /* Deep Near-Black (Slate 900) - Primary Body & Headlines */
+  --text-muted: #475569;             /* Refined Slate 600 - Secondary Body & Descriptions */
+  --text-subtle: #94A3B8;            /* Soft Slate 400 - Captions, Metadata & Overlines */
+
+  /* Corporate Blues & Accents */
+  --primary: #003E95;                /* Sophisticated Deep Corporate Blue - Brand Anchor */
+  --primary-hover: #002D6E;          /* Darkened Primary for Interactive States */
+  --primary-light: #EBF4FF;          /* High-Contrast Tint for Badges & Highlights */
+  --secondary: #00A7F5;              /* Vibrant Secondary Blue - Interactive Accents & CTAs */
+  --secondary-hover: #0088CC;        /* Secondary Hover State */
+  --tertiary: #92DCFF;               /* Subtle Electric Cyan - Glows & Micro-accents */
+
+  /* Signature Brand Gradient */
+  --gradient: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--secondary) 60%,
+    var(--tertiary) 100%
+  );
+  --gradient-corporate: linear-gradient(
+    135deg,
+    #003E95 0%,
+    #00A7F5 60%,
+    #92DCFF 100%
+  );
+
+  /* ------------------------------------------------------------------------
+     2. BORDERS & STRUCTURAL LINES (Ultra-Fine Slate Precision)
+     ------------------------------------------------------------------------ */
+  --border-subtle: #F1F5F9;          /* Slate 100 - Ultra-fine Container Dividers */
+  --border-default: #E2E8F0;         /* Slate 200 - Interactive Card & Input Borders */
+  --border-focus: #003E95;           /* Primary Focus State Border */
+  --border-accent: rgba(0, 167, 245, 0.25); /* Subtle Blue Border for Featured Modules */
+
+  /* ------------------------------------------------------------------------
+     3. DIFFUSED SHADOW SYSTEM (Soft Layered Depth, Non-Harsh)
+     ------------------------------------------------------------------------ */
+  --shadow-diffused-sm: 0 4px 20px -2px rgba(15, 23, 42, 0.04),
+                        0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  --shadow-diffused-md: 0 12px 32px -4px rgba(15, 23, 42, 0.06),
+                        0 4px 12px -2px rgba(15, 23, 42, 0.03);
+  --shadow-diffused-lg: 0 24px 48px -8px rgba(15, 23, 42, 0.08),
+                        0 8px 24px -4px rgba(0, 62, 149, 0.04);
+  --shadow-diffused-xl: 0 36px 72px -12px rgba(15, 23, 42, 0.10),
+                        0 16px 36px -6px rgba(0, 62, 149, 0.06);
+  --shadow-glow-blue: 0 16px 40px -8px rgba(0, 167, 245, 0.20);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface-white: var(--surface-white);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-muted: var(--surface-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-tertiary: var(--tertiary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==========================================================================
+   LENIS SMOOTH SCROLL STYLING
+   ========================================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   BASE STYLING & SELECTION
+   ========================================================================== */
+html {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #003E95;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   UTILITY & GLASSMORPHISM CLASSES
+   ========================================================================== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-card-subtle {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(241, 245, 249, 0.9);
+}
+
+.glass-card-elevated {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 167, 245, 0.18);
+  box-shadow: var(--shadow-diffused-lg);
+}
+
+.shadow-diffused-sm {
+  box-shadow: var(--shadow-diffused-sm);
+}
+
+.shadow-diffused-md {
+  box-shadow: var(--shadow-diffused-md);
+}
+
+.shadow-diffused-lg {
+  box-shadow: var(--shadow-diffused-lg);
+}
+
+.shadow-diffused-xl {
+  box-shadow: var(--shadow-diffused-xl);
+}
+
+.shadow-glow {
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.text-gradient {
+  background: var(--gradient-corporate);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
