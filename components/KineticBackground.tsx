@@ -65,7 +65,7 @@ export default function KineticBackground() {
       vy: 0,
       speed: 0,
       isHovered: false,
-      radius: 180,
+      radius: 200,
     };
 
     // Ambient floating colored fluid orbs
@@ -137,7 +137,7 @@ export default function KineticBackground() {
 
       // 2. Initialize Kinetic Lattice Warp Grid
       gridParticles = [];
-      const spacing = Math.max(48, Math.min(68, Math.floor(width / 24)));
+      const spacing = Math.max(48, Math.min(64, Math.floor(width / 26)));
       const cols = Math.ceil(width / spacing) + 2;
       const rows = Math.ceil(height / spacing) + 2;
 
@@ -145,7 +145,7 @@ export default function KineticBackground() {
         for (let j = 0; j < rows; j++) {
           const originX = (i - 0.5) * spacing;
           const originY = (j - 0.5) * spacing;
-          
+
           gridParticles.push({
             x: originX,
             y: originY,
@@ -153,10 +153,10 @@ export default function KineticBackground() {
             originY,
             vx: 0,
             vy: 0,
-            size: 1.4,
-            baseAlpha: 0.22,
-            alpha: 0.22,
-            color: "#94A3B8", // Slate 400
+            size: 1.6,
+            baseAlpha: 0.3,
+            alpha: 0.3,
+            color: "#64748B", // Slate 500
           });
         }
       }
@@ -222,8 +222,8 @@ export default function KineticBackground() {
           mouse.prevX = mouse.x;
           mouse.prevY = mouse.y;
           // Smooth spring-like lerp to mouse
-          mouse.x += (mouse.targetX - mouse.x) * 0.14;
-          mouse.y += (mouse.targetY - mouse.y) * 0.14;
+          mouse.x += (mouse.targetX - mouse.x) * 0.15;
+          mouse.y += (mouse.targetY - mouse.y) * 0.15;
         }
 
         const dx = mouse.x - mouse.prevX;
@@ -236,8 +236,9 @@ export default function KineticBackground() {
         mouse.speed *= 0.9;
       }
 
-      // Dynamic cursor radius based on velocity
-      const dynamicRadius = Math.min(260, mouse.radius + mouse.speed * 4);
+      // Dynamic cursor network web radius
+      const dynamicRadius = Math.min(270, mouse.radius + mouse.speed * 4);
+      const dynamicRadiusSq = dynamicRadius * dynamicRadius;
 
       // --- CLEAR CANVAS WITH PRISTINE LIGHT THEMED SURFACE ---
       ctx.fillStyle = "#F8FAFC"; // Ultra-clean Light Slate 50
@@ -287,24 +288,27 @@ export default function KineticBackground() {
           0,
           mouse.x,
           mouse.y,
-          dynamicRadius * 1.5
+          dynamicRadius * 1.4
         );
-        const glowIntensity = Math.min(0.22, 0.08 + (mouse.speed / 40) * 0.14);
+        const glowIntensity = Math.min(0.24, 0.09 + (mouse.speed / 40) * 0.14);
         cursorGlow.addColorStop(0, `rgba(0, 167, 245, ${glowIntensity})`);
         cursorGlow.addColorStop(0.4, `rgba(146, 220, 255, ${glowIntensity * 0.5})`);
         cursorGlow.addColorStop(1, "rgba(255, 255, 255, 0)");
 
         ctx.fillStyle = cursorGlow;
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, dynamicRadius * 1.5, 0, Math.PI * 2);
+        ctx.arc(mouse.x, mouse.y, dynamicRadius * 1.4, 0, Math.PI * 2);
         ctx.fill();
       }
       ctx.restore();
 
-      // --- LAYER 2: ELASTIC KINETIC LATTICE / PARTICLE WARP MESH ---
+      // --- LAYER 2: ELASTIC KINETIC LATTICE + NETWORK WEB CONNECTIONS ---
       ctx.save();
       const springFactor = 0.045;
       const damping = 0.86;
+
+      // Active particles list within mouse interaction zone for network web mesh
+      const activeParticles: { p: Particle; dist: number; dx: number; dy: number }[] = [];
 
       for (let i = 0; i < gridParticles.length; i++) {
         const p = gridParticles[i];
@@ -314,9 +318,8 @@ export default function KineticBackground() {
           const dx = p.x - mouse.x;
           const dy = p.y - mouse.y;
           const distSq = dx * dx + dy * dy;
-          const rSq = dynamicRadius * dynamicRadius;
 
-          if (distSq < rSq && distSq > 0.01) {
+          if (distSq < dynamicRadiusSq && distSq > 0.01) {
             const dist = Math.sqrt(distSq);
             const force = (1 - dist / dynamicRadius) * (18 + mouse.speed * 0.75);
             const angle = Math.atan2(dy, dx);
@@ -325,8 +328,9 @@ export default function KineticBackground() {
             p.vx += Math.cos(angle) * force * 0.12;
             p.vy += Math.sin(angle) * force * 0.12;
 
-            // Illuminate particles near cursor
-            p.alpha = Math.min(0.85, p.baseAlpha + (1 - dist / dynamicRadius) * 0.65);
+            // Illuminate particles in network web
+            p.alpha = Math.min(1.0, p.baseAlpha + (1 - dist / dynamicRadius) * 0.7);
+            activeParticles.push({ p, dist, dx, dy });
           } else {
             p.alpha += (p.baseAlpha - p.alpha) * 0.08;
           }
@@ -343,16 +347,97 @@ export default function KineticBackground() {
 
         p.x += p.vx;
         p.y += p.vy;
+      }
 
-        // Render Dot
-        ctx.fillStyle = p.alpha > 0.35 
-          ? `rgba(0, 167, 245, ${p.alpha})` 
-          : `rgba(148, 163, 184, ${p.alpha})`; // Slate 400 default, Cyan accent when active
-        
+      // --- 2A. DRAW NETWORK WEB LINES (Mouse-to-Particle & Particle-to-Particle) ---
+      if (mouse.x > -500 && activeParticles.length > 0) {
+        // 1. Draw Direct Spider-Web Lines to Mouse Cursor
+        for (let i = 0; i < activeParticles.length; i++) {
+          const { p, dist } = activeParticles[i];
+          const proximity = 1 - dist / dynamicRadius;
+          const lineAlpha = Math.pow(proximity, 1.15) * 0.65; // Crisp, luminous web line
+
+          ctx.strokeStyle = `rgba(0, 167, 245, ${lineAlpha})`;
+          ctx.lineWidth = Math.max(0.75, proximity * 1.8);
+
+          ctx.beginPath();
+          ctx.moveTo(mouse.x, mouse.y);
+          ctx.lineTo(p.x, p.y);
+          ctx.stroke();
+        }
+
+        // 2. Draw Inter-Particle Constellation Network Web Mesh
+        const maxNeighborDist = 100;
+        const maxNeighborDistSq = maxNeighborDist * maxNeighborDist;
+
+        for (let i = 0; i < activeParticles.length; i++) {
+          for (let j = i + 1; j < activeParticles.length; j++) {
+            const p1 = activeParticles[i].p;
+            const p2 = activeParticles[j].p;
+
+            const pdx = p1.x - p2.x;
+            const pdy = p1.y - p2.y;
+            const pDistSq = pdx * pdx + pdy * pdy;
+
+            if (pDistSq < maxNeighborDistSq) {
+              const pDist = Math.sqrt(pDistSq);
+              const linkProximity = 1 - pDist / maxNeighborDist;
+              const avgDistToMouse = (activeParticles[i].dist + activeParticles[j].dist) / 2;
+              const mouseProximity = 1 - avgDistToMouse / dynamicRadius;
+              const meshAlpha = Math.min(0.65, linkProximity * mouseProximity * 0.8);
+
+              if (meshAlpha > 0.03) {
+                // Gradient connection line between nodes
+                ctx.strokeStyle = `rgba(0, 62, 149, ${meshAlpha})`;
+                ctx.lineWidth = Math.max(0.6, linkProximity * 1.4);
+
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+              }
+            }
+          }
+        }
+
+        // 3. Draw Center Cursor Core Node & Pulse Ring
+        ctx.fillStyle = "#00A7F5";
         ctx.beginPath();
-        const drawSize = p.alpha > 0.4 ? p.size * 1.35 : p.size;
-        ctx.arc(p.x, p.y, drawSize, 0, Math.PI * 2);
+        ctx.arc(mouse.x, mouse.y, 3.5, 0, Math.PI * 2);
         ctx.fill();
+
+        ctx.strokeStyle = "rgba(0, 167, 245, 0.45)";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, 8, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // --- 2B. RENDER ALL PARTICLES ---
+      for (let i = 0; i < gridParticles.length; i++) {
+        const p = gridParticles[i];
+
+        if (p.alpha > 0.5) {
+          // Highly active node in network web: Vibrant Sky Blue with glowing ring
+          ctx.fillStyle = `rgba(0, 167, 245, ${p.alpha})`;
+          ctx.beginPath();
+          const drawSize = p.size * 1.4;
+          ctx.arc(p.x, p.y, drawSize, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Outer subtle cyan glow ring
+          ctx.strokeStyle = `rgba(146, 220, 255, ${p.alpha * 0.5})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, drawSize + 2, 0, Math.PI * 2);
+          ctx.stroke();
+        } else {
+          // Default particle
+          ctx.fillStyle = `rgba(100, 116, 139, ${p.alpha})`; // Slate 500
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
       ctx.restore();
 

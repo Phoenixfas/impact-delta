@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Sparkles, Menu, X, ArrowUpRight } from "lucide-react";
 import { useSmoothScroll } from "./SmoothScroll";
+import Image from "next/image";
 
 interface NavLink {
   label: string;
@@ -199,16 +200,12 @@ export default function Navbar() {
       <div ref={logoRef} className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 will-change-transform">
         <button
           onClick={() => handleNavClick("#hero")}
-          className="nav-entrance-node group flex items-center gap-2.5 px-4 py-2.5 rounded-full backdrop-blur-md bg-white/75 border border-white/60 shadow-diffused-md hover:shadow-diffused-lg hover:border-[#00A7F5]/40 transition-shadow duration-300"
+          className="nav-entrance-node group flex items-center gap-2.5 duration-300"
         >
-          <div className="relative flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-tr from-[#003E95] via-[#00A7F5] to-[#92DCFF] p-[1px]">
-            <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-              <Sparkles className="w-3.5 h-3.5 text-[#003E95] transition-transform duration-500 group-hover:rotate-45" />
-            </div>
+          <div className={`relative w-20 h-20 sm:w-25 sm:h-25 flex items-center justify-center rounded-full overflow-hidden `}>
+            <Image src={"/logo_t_lightGrad.svg"} alt="logo" width={200} height={200} className="absolute w-full h-full object-contain animate-[spin_7s_linear_infinite_reverse]" />
+            <Image src={"/logo_g_lightGrad.svg"} alt="logo" width={200} height={200} className="w-full h-full object-contain" />
           </div>
-          <span className="text-sm font-extrabold tracking-tight text-slate-900">
-            IMPACT<span className="text-[#00A7F5]">.</span>B2B
-          </span>
         </button>
       </div>
 
