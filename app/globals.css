@@ -77,6 +77,7 @@
   --color-border-default: var(--border-default);
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
+  --font-script: var(--font-cursive), cursive;
 }
 
 /* ==========================================================================
@@ -173,4 +174,19 @@ body {
   background: var(--gradient-corporate);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* text-shadow paints a solid silhouette regardless of the transparent
+     fill above, which would otherwise mask the gradient entirely. */
+  text-shadow: none;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
+}
+
+.text-stroke-black {
+  -webkit-text-stroke: 1.5px rgba(15, 23, 42, 0.9);
+}
+
+.text-glow-white {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.95), 0 0 1px rgba(255, 255, 255, 1);
 }
