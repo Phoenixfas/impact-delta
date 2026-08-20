@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { useReveal } from "./RevealProvider";
 
 interface Particle {
   x: number;
@@ -13,6 +14,29 @@ interface Particle {
   baseAlpha: number;
   alpha: number;
   color: string;
+  // Idle "breathing" sway — an ambient offset from originX/Y that the spring
+  // chases even when the cursor is nowhere near, so the lattice never sits
+  // perfectly still.
+  swayPhase: number;
+  swayPhaseY: number;
+  swaySpeed: number;
+  swayRadius: number;
+}
+
+interface NetworkPulse {
+  // An ordered, meandering path of grid-particle indices — each step hops
+  // to a random (not nearest) nearby node, so the shape traces an organic
+  // wandering line instead of a uniform star/cluster.
+  chain: number[];
+  color: { r: number; g: number; b: number };
+  born: number;
+  stepDelay: number;
+  nodeDuration: number;
+}
+
+function smoothstep(t: number) {
+  const x = Math.min(Math.max(t, 0), 1);
+  return x * x * (3 - 2 * x);
 }
 
 interface AmbientNode {
@@ -40,6 +64,7 @@ interface FloatingDust {
 
 export default function KineticBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const { revealed } = useReveal();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -74,6 +99,17 @@ export default function KineticBackground() {
     let gridParticles: Particle[] = [];
     // Ambient micro dust specks
     let dustParticles: FloatingDust[] = [];
+    // Autonomous "network activity" bursts — a handful of nearby lattice
+    // nodes self-illuminate and link up on their own, independent of the
+    // cursor, so the web keeps feeling alive when the mouse is idle/away.
+    let pulses: NetworkPulse[] = [];
+    let nextPulseAt = performance.now() + 600;
+    const PULSE_STEP_RADIUS = 72;
+    const PULSE_COLORS: { r: number; g: number; b: number }[] = [
+      { r: 0, g: 62, b: 149 }, // primary
+      { r: 0, g: 167, b: 245 }, // secondary
+      { r: 146, g: 220, b: 255 }, // tertiary
+    ];
 
     const initScene = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -157,6 +193,10 @@ export default function KineticBackground() {
             baseAlpha: 0.3,
             alpha: 0.3,
             color: "#64748B", // Slate 500
+            swayPhase: Math.random() * Math.PI * 2,
+            swayPhaseY: Math.random() * Math.PI * 2,
+            swaySpeed: 0.012 + Math.random() * 0.014,
+            swayRadius: 3 + Math.random() * 3,
           });
         }
       }
@@ -176,6 +216,10 @@ export default function KineticBackground() {
           color: Math.random() > 0.4 ? "#00A7F5" : "#003E95",
         });
       }
+
+      // Reset pulses — their particle indices point into the array above
+      // and would go stale once the grid is rebuilt at the new size.
+      pulses = [];
     };
 
     initScene();
@@ -203,6 +247,45 @@ export default function KineticBackground() {
 
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
     document.addEventListener("mouseleave", handlePointerLeave, { passive: true });
+
+    // Traces a short, meandering path across the lattice — at each step it
+    // hops to a random (not the nearest) unvisited node within a small
+    // radius, so the resulting shape wanders like a neural firing or a
+    // vein of lightning instead of a symmetric star/cluster.
+    const spawnPulse = (time: number) => {
+      if (gridParticles.length === 0) return;
+      const startIdx = Math.floor(Math.random() * gridParticles.length);
+      const chain: number[] = [startIdx];
+      const visited = new Set<number>([startIdx]);
+      const chainLength = 3 + Math.floor(Math.random() * 4);
+      const stepRadiusSq = PULSE_STEP_RADIUS * PULSE_STEP_RADIUS;
+      let currentIdx = startIdx;
+
+      for (let step = 0; step < chainLength; step++) {
+        const current = gridParticles[currentIdx];
+        const candidates: number[] = [];
+        for (let i = 0; i < gridParticles.length; i++) {
+          if (visited.has(i)) continue;
+          const p = gridParticles[i];
+          const dx = p.x - current.x;
+          const dy = p.y - current.y;
+          if (dx * dx + dy * dy < stepRadiusSq) candidates.push(i);
+        }
+        if (candidates.length === 0) break;
+        const next = candidates[Math.floor(Math.random() * candidates.length)];
+        chain.push(next);
+        visited.add(next);
+        currentIdx = next;
+      }
+
+      pulses.push({
+        chain,
+        color: PULSE_COLORS[Math.floor(Math.random() * PULSE_COLORS.length)],
+        born: time,
+        stepDelay: 90 + Math.random() * 90,
+        nodeDuration: 900 + Math.random() * 700,
+      });
+    };
 
     let lastTime = performance.now();
 
@@ -338,9 +421,16 @@ export default function KineticBackground() {
           p.alpha += (p.baseAlpha - p.alpha) * 0.08;
         }
 
-        // Spring force pulling back to origin
-        const springX = (p.originX - p.x) * springFactor;
-        const springY = (p.originY - p.y) * springFactor;
+        // Idle breathing drift: the spring's rest position gently orbits
+        // the true origin so the lattice keeps moving even with no cursor.
+        p.swayPhase += p.swaySpeed;
+        p.swayPhaseY += p.swaySpeed * 1.3;
+        const restX = p.originX + Math.cos(p.swayPhase) * p.swayRadius;
+        const restY = p.originY + Math.sin(p.swayPhaseY) * p.swayRadius;
+
+        // Spring force pulling back to the (swaying) rest position
+        const springX = (restX - p.x) * springFactor;
+        const springY = (restY - p.y) * springFactor;
 
         p.vx = (p.vx + springX) * damping;
         p.vy = (p.vy + springY) * damping;
@@ -411,6 +501,60 @@ export default function KineticBackground() {
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, 8, 0, Math.PI * 2);
         ctx.stroke();
+      }
+
+      // --- 2A-2. AUTONOMOUS NETWORK PULSES (self-triggered, cursor-independent) ---
+      if (time > nextPulseAt && pulses.length < 6) {
+        spawnPulse(time);
+        nextPulseAt = time + 500 + Math.random() * 900;
+      }
+
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const pulse = pulses[i];
+        const totalLifespan = (pulse.chain.length - 1) * pulse.stepDelay + pulse.nodeDuration;
+        if (time - pulse.born > totalLifespan) pulses.splice(i, 1);
+      }
+
+      for (const pulse of pulses) {
+        const elapsed = time - pulse.born;
+        const { r, g, b } = pulse.color;
+
+        // Each node's own envelope: a quick organic attack then a slow
+        // fade, offset by its position in the chain — a wave that travels
+        // node-to-node rather than every node blinking in lockstep.
+        const envelopes = pulse.chain.map((_, k) => {
+          const local = (elapsed - k * pulse.stepDelay) / pulse.nodeDuration;
+          if (local <= 0 || local >= 1) return 0;
+          const rise = smoothstep(local / 0.2);
+          const fall = 1 - smoothstep((local - 0.2) / 0.8);
+          return Math.min(rise, fall);
+        });
+
+        for (let k = 0; k < pulse.chain.length; k++) {
+          const env = envelopes[k];
+          if (env <= 0) continue;
+          const node = gridParticles[pulse.chain[k]];
+          if (!node) continue;
+          // Boost alpha only upward (Math.max) so the cursor-driven web
+          // above is never dimmed or overridden by an autonomous pulse.
+          node.alpha = Math.max(node.alpha, env);
+        }
+
+        for (let k = 0; k < pulse.chain.length - 1; k++) {
+          const lineEnv = Math.min(envelopes[k], envelopes[k + 1]);
+          if (lineEnv <= 0.02) continue;
+
+          const nodeA = gridParticles[pulse.chain[k]];
+          const nodeB = gridParticles[pulse.chain[k + 1]];
+          if (!nodeA || !nodeB) continue;
+
+          ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${(lineEnv * 0.85).toFixed(3)})`;
+          ctx.lineWidth = Math.max(0.8, lineEnv * 2);
+          ctx.beginPath();
+          ctx.moveTo(nodeA.x, nodeA.y);
+          ctx.lineTo(nodeB.x, nodeB.y);
+          ctx.stroke();
+        }
       }
 
       // --- 2B. RENDER ALL PARTICLES ---
@@ -510,7 +654,9 @@ export default function KineticBackground() {
   return (
     <div
       aria-hidden="true"
-      className="fixed inset-0 pointer-events-none -z-10 overflow-hidden select-none"
+      className={`fixed inset-0 pointer-events-none -z-10 overflow-hidden select-none transition-opacity duration-[1600ms] ease-out ${
+        revealed ? "opacity-100" : "opacity-0"
+      }`}
     >
       {/* HTML5 High-Performance Interactive Kinetic Canvas */}
       <canvas

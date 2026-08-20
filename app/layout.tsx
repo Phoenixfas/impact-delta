@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Lobster } from "next/font/google";
 import "./globals.css";
 import KineticBackground from "@/components/KineticBackground";
 import SmoothScroll from "@/components/SmoothScroll";
+import RevealProvider from "@/components/RevealProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,8 +38,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${lobster.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col relative text-slate-900 bg-white selection:bg-[#003E95] selection:text-white">
-        <KineticBackground />
-        <SmoothScroll>{children}</SmoothScroll>
+        <RevealProvider>
+          <KineticBackground />
+          <SmoothScroll>{children}</SmoothScroll>
+        </RevealProvider>
       </body>
     </html>
   );

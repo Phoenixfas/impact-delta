@@ -109,6 +109,7 @@ const BrushRingArc = forwardRef<BrushRingArcHandle, BrushRingArcProps>(function 
       </defs>
       <path
         ref={shadowRef}
+        className="brush-ring-shadow"
         d={d}
         fill="none"
         stroke="rgba(0,40,100,0.38)"
@@ -117,9 +118,10 @@ const BrushRingArc = forwardRef<BrushRingArcHandle, BrushRingArcProps>(function 
         style={{ filter: "blur(10px)" }}
         transform="translate(4,7)"
       />
-      <path ref={mainRef} d={d} fill="none" stroke={`url(#${gradientId})`} strokeWidth={strokeWidth} strokeLinecap="round" />
+      <path ref={mainRef} className="brush-ring-main" d={d} fill="none" stroke={`url(#${gradientId})`} strokeWidth={strokeWidth} strokeLinecap="round" />
       <path
         ref={highlightRef}
+        className="brush-ring-highlight"
         d={d}
         fill="none"
         stroke="rgba(255,255,255,0.5)"

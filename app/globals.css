@@ -190,3 +190,42 @@ body {
 .text-glow-white {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.95), 0 0 1px rgba(255, 255, 255, 1);
 }
+
+/* ==========================================================================
+   HERO ENTRANCE STATE
+   Elements choreographed by HeroSection's GSAP reveal timeline must start
+   hidden from the very first paint. Hiding them only via gsap.set() in a
+   useEffect leaves them visible in the server-rendered HTML until that
+   effect runs post-mount, producing a visible flash/blink before the
+   reveal animation plays. Defining the hidden state here means it's
+   present immediately, before any JS runs.
+   ========================================================================== */
+.hero-eyebrow,
+.hero-split-word,
+.hero-subtitle,
+.hero-cta-group,
+.hero-proof-strip {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hero-stack-card {
+  opacity: 0;
+  filter: blur(14px);
+}
+
+.nav-entrance-node {
+  opacity: 0;
+  transform: translateY(-14px) scale(0.9);
+}
+
+.side-accent-card {
+  opacity: 0;
+  transform: translateY(16px) scale(0.75);
+}
+
+.brush-ring-main,
+.brush-ring-shadow,
+.brush-ring-highlight {
+  opacity: 0;
+}

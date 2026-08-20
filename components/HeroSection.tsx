@@ -1,20 +1,22 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Play, RotateCcw, Sparkles, Award, Globe, Zap } from "lucide-react";
+import { ArrowRight, Play, Sparkles, Award, Globe, Zap } from "lucide-react";
 import ParticleRevealMask from "./hero/ParticleRevealMask";
 import HeroImageStack from "./hero/HeroImageStack";
 import HeroSideAccents from "./hero/HeroSideAccents";
 import BrushRingArc, { type BrushRingArcHandle } from "./hero/BrushRingArc";
 import { FRONT_ARC_D, BACK_ARC_D } from "./hero/brushRingGeometry";
 import { useSmoothScroll } from "./SmoothScroll";
+import { useReveal } from "./RevealProvider";
 
-const ENTRANCE_TARGETS = ".hero-split-word, .hero-subtitle, .hero-cta-group, .hero-proof-strip";
+const ENTRANCE_TARGETS = ".hero-eyebrow, .hero-split-word, .hero-subtitle, .hero-cta-group, .hero-proof-strip";
 
 export default function HeroSection() {
   const { scrollTo } = useSmoothScroll();
+  const { setRevealed } = useReveal();
   const heroRef = useRef<HTMLElement | null>(null);
   const glowRef = useRef<HTMLDivElement | null>(null);
   const headlineRef = useRef<HTMLHeadingElement | null>(null);
@@ -89,28 +91,31 @@ export default function HeroSection() {
   // Hides every piece of the page's entrance choreography — not just the
   // hero's own text/imagery, but the Navbar nodes and hero side accents too,
   // via their shared class hooks — so a replay resets the whole composition.
-  const resetEntranceState = () => {
+  const resetEntranceState = useCallback(() => {
     gsap.set(ENTRANCE_TARGETS, { opacity: 0, y: 30 });
     gsap.set(".hero-stack-card", { opacity: 0, filter: "blur(14px)" });
     gsap.set(".nav-entrance-node", { opacity: 0, y: -14, scale: 0.9 });
     gsap.set(".side-accent-card", { opacity: 0, y: 16, scale: 0.75 });
-  };
+    setRevealed(false);
+  }, [setRevealed]);
 
   useEffect(() => {
     resetEntranceState();
-  }, []);
+  }, [resetEntranceState]);
 
   // Fired once the particle mask finishes dissolving — the reveal continues
   // straight into the kinetic typography + image-stack + CTA stagger, and
   // pulls the Navbar nodes, side accents, and brush-stroke ring in with it.
   const handleRevealComplete = () => {
+    setRevealed(true);
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.to(".hero-stack-card", { opacity: 1, filter: "blur(0px)", duration: 1.1, stagger: 0.14 })
       .add(() => {
         brushBackRef.current?.play();
         brushFrontRef.current?.play();
       }, "<0.2")
-      .to(".hero-split-word", { opacity: 1, y: 0, stagger: 0.1, duration: 1, ease: "back.out(1.5)" }, "-=0.9")
+      .to(".hero-eyebrow", { opacity: 1, y: 0, duration: 0.7 }, "-=0.9")
+      .to(".hero-split-word", { opacity: 1, y: 0, stagger: 0.1, duration: 1, ease: "back.out(1.5)" }, "-=0.6")
       .to(".nav-entrance-node", { opacity: 1, y: 0, scale: 1, stagger: 0.08, duration: 0.8, ease: "back.out(1.6)" }, "-=0.9")
       .to(".hero-subtitle", { opacity: 1, y: 0, duration: 0.8 }, "-=0.7")
       .to(".hero-cta-group", { opacity: 1, y: 0, duration: 0.8, stagger: 0.08 }, "-=0.6")
@@ -145,15 +150,16 @@ export default function HeroSection() {
       <HeroSideAccents />
 
       <div className="relative z-10 w-full max-w-6xl flex flex-col items-center">
-        {/* Replay control */}
-        <div className="w-full flex items-center justify-end gap-3 mb-8 sm:mb-10">
-          <button
-            onClick={handleReplay}
-            className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md bg-white/70 hover:bg-white border border-slate-200/70 hover:border-blue-300 text-slate-600 hover:text-[#003E95] text-xs font-medium transition-all shadow-xs"
-          >
-            <RotateCcw className="w-3.5 h-3.5 transition-transform duration-500 group-hover:-rotate-180" />
-            <span className="hidden sm:inline">Replay Entrance</span>
-          </button>
+        {/* Live-status eyebrow badge, centered above the headline */}
+        <div className="hero-eyebrow flex items-center gap-2 px-4 py-2 mb-8 sm:mb-10 rounded-full backdrop-blur-md bg-white/70 border border-slate-200/70 shadow-diffused-sm">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00A7F5] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00A7F5]" />
+          </span>
+          <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-600">
+            Now Orchestrating <span className="text-gradient font-bold">2026</span> Global Summits
+          </span>
+          <Sparkles className="w-3.5 h-3.5 text-[#00A7F5]" />
         </div>
 
         {/* Kinetic typography layered over/behind the glass image stack via mix-blend-mode */}
