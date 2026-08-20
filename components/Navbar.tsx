@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Sparkles, Menu, X, ArrowUpRight } from "lucide-react";
+import gsap from "gsap";
 import { useSmoothScroll } from "./SmoothScroll";
 import Image from "next/image";
 
@@ -51,6 +52,39 @@ function createPhysics(): NodePhysics {
 export default function Navbar() {
   const { scrollTo } = useSmoothScroll();
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuOverlayRef = useRef<HTMLDivElement | null>(null);
+  const isFirstMenuRender = useRef(true);
+
+  // Circular-mask reveal: the fullscreen menu grows from an invisible dot
+  // at the center of the screen to cover it entirely, and shrinks back down
+  // the same way on close, instead of just popping in/out.
+  useEffect(() => {
+    const el = menuOverlayRef.current;
+    if (!el) return;
+
+    if (isFirstMenuRender.current) {
+      isFirstMenuRender.current = false;
+      return;
+    }
+
+    if (menuOpen) {
+      el.style.visibility = "visible";
+      gsap.fromTo(
+        el,
+        { clipPath: "circle(0% at 50% 50%)" },
+        { clipPath: "circle(100% at 50% 50%)", duration: 0.85, ease: "power3.inOut" }
+      );
+    } else {
+      gsap.to(el, {
+        clipPath: "circle(0% at 50% 50%)",
+        duration: 0.55,
+        ease: "power3.inOut",
+        onComplete: () => {
+          el.style.visibility = "hidden";
+        },
+      });
+    }
+  }, [menuOpen]);
 
   const logoRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -234,22 +268,28 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Fullscreen menu overlay, opened from the bottom-left node */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-[45] flex items-center justify-center backdrop-blur-2xl bg-white/80">
-          <nav className="flex flex-col items-center gap-6">
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-3xl sm:text-5xl font-extrabold text-slate-800 hover:text-[#003E95] tracking-tight transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
+      {/* Fullscreen menu overlay, opened from the bottom-left node — always
+          mounted so the closing circle-mask animation can play out, rather
+          than the overlay being yanked from the DOM instantly. */}
+      <div
+        ref={menuOverlayRef}
+        aria-hidden={!menuOpen}
+        style={{ clipPath: "circle(0% at 50% 50%)", visibility: "hidden" }}
+        className="fixed inset-0 z-[45] flex items-center justify-center backdrop-blur-2xl bg-white/80"
+      >
+        <nav className="flex flex-col items-center gap-6">
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => handleNavClick(link.href)}
+              tabIndex={menuOpen ? 0 : -1}
+              className="text-3xl sm:text-5xl font-extrabold text-slate-800 hover:text-[#003E95] tracking-tight transition-colors"
+            >
+              {link.label}
+            </button>
+          ))}
+        </nav>
+      </div>
     </>
   );
 }
