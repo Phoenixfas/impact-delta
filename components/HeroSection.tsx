@@ -7,6 +7,7 @@ import { ArrowRight, Play, Sparkles, Award, Globe, Zap } from "lucide-react";
 import ParticleRevealMask from "./hero/ParticleRevealMask";
 import HeroImageStack from "./hero/HeroImageStack";
 import HeroSideAccents from "./hero/HeroSideAccents";
+import HeroImageLightbox, { type LightboxItem } from "./hero/HeroImageLightbox";
 import BrushRingArc, { type BrushRingArcHandle } from "./hero/BrushRingArc";
 import { FRONT_ARC_D, BACK_ARC_D } from "./hero/brushRingGeometry";
 import { useSmoothScroll } from "./SmoothScroll";
@@ -24,6 +25,7 @@ export default function HeroSection() {
   const brushBackRef = useRef<BrushRingArcHandle | null>(null);
 
   const [revealKey, setRevealKey] = useState(0);
+  const [lightboxItem, setLightboxItem] = useState<LightboxItem | null>(null);
 
   // Cinematic cursor-reactive gradient glow — position + angle both lerp
   // gently toward the pointer so the light never snaps.
@@ -147,7 +149,7 @@ export default function HeroSection() {
 
       <ParticleRevealMask key={revealKey} onRevealComplete={handleRevealComplete} />
 
-      <HeroSideAccents />
+      <HeroSideAccents onOpen={setLightboxItem} />
 
       <div className="relative z-10 w-full max-w-6xl flex flex-col items-center">
         {/* Live-status eyebrow badge, centered above the headline */}
@@ -166,17 +168,17 @@ export default function HeroSection() {
         <div className="relative w-full flex flex-col items-center">
           <h1
             ref={headlineRef}
-            className="relative z-20 text-center font-extrabold tracking-tight select-none text-glow-white"
+            className="relative z-20 text-center font-black tracking-tight select-none text-glow-black"
           >
             <span className="hero-split-word block text-5xl sm:text-7xl lg:text-8xl leading-[0.95]">
-              <span className="font-script tracking-normal text-slate-900 text-stroke-black">
+              <span className="font-script tracking-normal text-white text-stroke-white">
                 Creating
               </span>{" "}
               <span className="text-gradient text-stroke-white">IMPACT</span>
             </span>
             <span className="hero-split-word block text-5xl sm:text-7xl lg:text-8xl leading-[0.95]">
               <span className="text-gradient text-stroke-white">INSPIRING</span>{" "}
-              <span className="font-script tracking-normal text-slate-900 text-stroke-black">
+              <span className="font-script tracking-normal text-white text-stroke-white">
                 Events
               </span>
             </span>
@@ -195,7 +197,7 @@ export default function HeroSection() {
               dim
             />
 
-            <HeroImageStack />
+            <HeroImageStack onOpen={setLightboxItem} />
 
             {/* Front strand of the rope — sits above the cards, completing the wrap */}
             <BrushRingArc
@@ -263,6 +265,8 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      <HeroImageLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />
     </section>
   );
 }

@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Activity } from "lucide-react";
+import { Activity, Maximize2 } from "lucide-react";
+import type { LightboxItem } from "./HeroImageLightbox";
 
 interface PhotoAccent {
   kind: "photo";
@@ -77,7 +78,11 @@ interface CardState {
  * live-project photo tiles and an animated "live ops" orbit widget — that
  * idle-drift, straighten and lift on hover, and pull toward the cursor.
  */
-export default function HeroSideAccents() {
+interface HeroSideAccentsProps {
+  onOpen: (item: LightboxItem) => void;
+}
+
+export default function HeroSideAccents({ onOpen }: HeroSideAccentsProps) {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const stateRef = useRef<CardState[]>(
     ACCENTS.map((a) => ({ baseX: 0, baseY: 0, rotCur: a.baseRotate, scaleCur: 1 }))
@@ -186,7 +191,12 @@ export default function HeroSideAccents() {
           style={{ top: `${accent.topPercent}%` }}
         >
           {accent.kind === "photo" ? (
-            <div className="side-accent-card p-2 pb-3 rounded-2xl bg-white/90 backdrop-blur-md border border-white/60 shadow-diffused-lg group-hover:shadow-diffused-xl transition-shadow duration-300">
+            <div
+              onClick={() =>
+                onOpen({ src: accent.src, alt: accent.alt, title: accent.tag, description: accent.stat })
+              }
+              className="side-accent-card p-2 pb-3 rounded-2xl bg-white/90 backdrop-blur-md border border-white/60 shadow-diffused-lg group-hover:shadow-diffused-xl transition-shadow duration-300 cursor-pointer"
+            >
               <div className="relative w-full h-32 rounded-lg overflow-hidden bg-slate-900">
                 <Image
                   src={accent.src}
@@ -197,6 +207,11 @@ export default function HeroSideAccents() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#00A7F5] shadow-[0_0_0_2px_rgba(255,255,255,0.8)]" />
+                <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full backdrop-blur-md bg-white/25 border border-white/40 text-white">
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  </span>
+                </span>
               </div>
               <div className="pt-2 px-1">
                 <div className="text-xs font-bold text-slate-800 leading-tight">{accent.tag}</div>

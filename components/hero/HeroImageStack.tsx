@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
+import type { LightboxItem } from "./HeroImageLightbox";
 
 interface StackImage {
   src: string;
@@ -41,7 +42,11 @@ const LAYERS = [
   { x: 108, y: 58, z: 0, rotate: 10, scale: 0.84, tilt: 13 },
 ];
 
-export default function HeroImageStack() {
+interface HeroImageStackProps {
+  onOpen: (item: LightboxItem) => void;
+}
+
+export default function HeroImageStack({ onOpen }: HeroImageStackProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const floatRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -185,6 +190,7 @@ export default function HeroImageStack() {
           onPointerEnter={() => focusCard(i)}
           onPointerLeave={() => focusCard(null)}
           onPointerMove={handleCardPointerMove}
+          onClick={() => onOpen({ src: img.src, alt: img.alt, title: img.label, description: img.description })}
           className="hero-stack-card group absolute inset-[9%] rounded-[28px] overflow-hidden glass-card shadow-diffused-xl cursor-pointer"
           style={{ zIndex: 10 + i }}
         >
