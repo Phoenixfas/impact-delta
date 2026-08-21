@@ -288,6 +288,24 @@ body {
 }
 
 /* ==========================================================================
+   SERVICES SECTION — ANCHORED PREVIEW PANEL
+   Slow idle zoom so the whichever image is active keeps feeling alive even
+   when nothing is being hovered.
+   ========================================================================== */
+@keyframes services-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.services-ken-burns {
+  animation: services-ken-burns 8s ease-in-out infinite alternate;
+}
+
+/* ==========================================================================
    HERO IMAGE LIGHTBOX
    ========================================================================== */
 @keyframes lightbox-fade {

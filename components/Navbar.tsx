@@ -16,7 +16,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Achievements", href: "#achievements" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Solutions", href: "#solutions" },
+  { label: "Solutions", href: "#services" },
   { label: "Constellation Stage", href: "#stage" },
   { label: "Contact", href: "#contact" },
 ];
