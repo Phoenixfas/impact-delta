@@ -179,6 +179,17 @@ body {
   text-shadow: none;
 }
 
+/* Same treatment as .text-gradient, but white-to-cyan instead of the full
+   brand blue gradient — for use on sections whose own background IS the
+   brand gradient, where .text-gradient would blend in rather than stand out. */
+.text-gradient-light {
+  background: linear-gradient(135deg, #ffffff 0%, #92dcff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
 .text-stroke-white {
   -webkit-text-stroke: 1.5px rgba(241, 245, 249, 0.9);
 }
@@ -251,6 +262,29 @@ body {
 
 .about-shimmer:hover .about-shimmer-text {
   background-position: 0% center;
+}
+
+/* ==========================================================================
+   ACHIEVEMENTS BENTO GRID
+   The gradient "border" is the classic padding trick: a gradient-filled
+   outer shell shows through a 1px gap around a solid inner card. Cards sit
+   on the brand gradient background and are filled with a photo + dark
+   scrim (in AchievementsSection.tsx), so the shell here stays a frosted
+   white/cyan sheen rather than an opaque panel — it needs to read as a
+   distinct edge against a similarly-blue backdrop, not blend into it.
+   ========================================================================== */
+.bento-card-border {
+  padding: 1px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(146, 220, 255, 0.35) 50%, rgba(255, 255, 255, 0.15));
+}
+
+.bento-card-inner {
+  border-radius: 27px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -30px 60px -24px rgba(0, 0, 0, 0.35),
+    var(--shadow-diffused-xl);
 }
 
 /* ==========================================================================
