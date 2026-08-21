@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import ServicesSection from "@/components/ServicesSection";
+import ShowreelSection from "@/components/ShowreelSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <AboutSection />
       <AchievementsSection />
       <ServicesSection />
+      <ShowreelSection />
     </div>
   );
 }

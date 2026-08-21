@@ -306,6 +306,19 @@ body {
 }
 
 /* ==========================================================================
+   SHOWREEL SECTION
+   Cursor is hidden via the browser's own live :hover match (not a React
+   "isHovering" flag) — a state-driven flag can go stale exactly when the
+   card's position/layout changes under a stationary cursor (e.g. right
+   after the Flip-driven close transition), leaving the native cursor
+   hidden with nothing custom drawn in its place. :hover is recomputed
+   automatically whenever hit-testing changes, so it can't get stuck.
+   ========================================================================== */
+.showreel-hover-none:hover {
+  cursor: none;
+}
+
+/* ==========================================================================
    HERO IMAGE LIGHTBOX
    ========================================================================== */
 @keyframes lightbox-fade {
