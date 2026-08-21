@@ -291,7 +291,6 @@ export default function KineticBackground() {
 
     // Render & Simulation Loop
     const render = (time: number) => {
-      const dt = Math.min((time - lastTime) / 1000, 0.1);
       lastTime = time;
 
       // Mouse Lerp & Velocity Calculation

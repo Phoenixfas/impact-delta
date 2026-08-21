@@ -42,7 +42,9 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     });
 
     lenisRef.current = lenis;
-    setLenisInstance(lenis);
+    queueMicrotask(() => {
+      setLenisInstance(lenis);
+    });
 
     // Synchronize Lenis scroll with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
