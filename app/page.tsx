@@ -4,7 +4,10 @@ import AboutSection from "@/components/AboutSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ServicesSection from "@/components/ServicesSection";
+import ProcessSection from "@/components/ProcessSection";
 import ShowreelSection from "@/components/ShowreelSection";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +18,11 @@ export default function Home() {
       <AchievementsSection />
       <ProjectsSection />
       <ServicesSection />
+      <ProcessSection />
       <ShowreelSection />
+      <CTA />
+      <Footer />
     </div>
   );
 }
+
