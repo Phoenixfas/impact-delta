@@ -4,6 +4,8 @@ import "./globals.css";
 import KineticBackground from "@/components/KineticBackground";
 import SmoothScroll from "@/components/SmoothScroll";
 import RevealProvider from "@/components/RevealProvider";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +42,13 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col relative text-slate-900 bg-white selection:bg-[#003E95] selection:text-white">
         <RevealProvider>
           <KineticBackground />
-          <SmoothScroll>{children}</SmoothScroll>
+          <SmoothScroll>
+            <Navbar />
+            <main className="flex-1 w-full flex flex-col items-center">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScroll>
         </RevealProvider>
       </body>
     </html>

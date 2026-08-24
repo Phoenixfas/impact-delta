@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { useSmoothScroll } from "./SmoothScroll";
@@ -13,7 +14,7 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { label: "Experience", href: "#hero" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Achievements", href: "#achievements" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Solutions", href: "#services" },
@@ -54,6 +55,8 @@ function createPhysics(): NodePhysics {
 }
 
 export default function Navbar() {
+  const router = useRouter();
+  const pathname = usePathname();
   const { scrollTo } = useSmoothScroll();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuOverlayRef = useRef<HTMLDivElement | null>(null);
@@ -89,6 +92,22 @@ export default function Navbar() {
       });
     }
   }, [menuOpen]);
+
+  // When loaded directly on any route other than "/" (where HeroSection's particle mask choreographs entrance),
+  // ensure the navbar entrance nodes smoothly animate into their visible state.
+  useEffect(() => {
+    if (pathname !== "/") {
+      gsap.to(".nav-entrance-node", {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.08,
+        duration: 0.8,
+        ease: "back.out(1.6)",
+        delay: 0.1,
+      });
+    }
+  }, [pathname]);
 
   const logoRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -211,7 +230,23 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    scrollTo(href, { offset: -60, duration: 1.2 });
+
+    if (href.startsWith("/")) {
+      if (pathname === href) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push(href);
+      }
+      return;
+    }
+
+    if (href.startsWith("#")) {
+      if (pathname !== "/") {
+        router.push(`/${href}`);
+      } else {
+        scrollTo(href, { offset: -60, duration: 1.2 });
+      }
+    }
   };
 
   return (

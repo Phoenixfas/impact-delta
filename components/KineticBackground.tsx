@@ -614,10 +614,10 @@ export default function KineticBackground() {
           }
         }
 
-        ctx.fillStyle = d.color === "#00A7F5" 
+        ctx.fillStyle = d.color === "#00A7F5"
           ? `rgba(0, 167, 245, ${d.alpha})`
           : `rgba(0, 62, 149, ${d.alpha})`;
-        
+
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.size, 0, Math.PI * 2);
         ctx.fill();
@@ -653,9 +653,8 @@ export default function KineticBackground() {
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 pointer-events-none -z-10 overflow-hidden select-none transition-opacity duration-[1600ms] ease-out ${
-        revealed ? "opacity-100" : "opacity-0"
-      }`}
+      className={`fixed inset-0 pointer-events-none -z-10 overflow-hidden select-none transition-opacity duration-[1600ms] ease-out ${revealed ? "opacity-100" : "opacity-0"
+        }`}
     >
       {/* HTML5 High-Performance Interactive Kinetic Canvas */}
       <canvas
@@ -664,7 +663,7 @@ export default function KineticBackground() {
       />
 
       {/* Subtle Micro-Noise & Vignette Overlay for Executive Editorial Finish */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-[0.035] mix-blend-multiply bg-repeat"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
