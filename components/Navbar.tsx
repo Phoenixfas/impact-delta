@@ -13,14 +13,8 @@ interface NavLink {
 }
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Experience", href: "#hero" },
   { label: "About", href: "/about" },
-  { label: "Achievements", href: "#achievements" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Solutions", href: "#services" },
-  { label: "How It Works", href: "#process" },
-  { label: "Showreel", href: "#showreel" },
-  { label: "Constellation Stage", href: "#stage" },
+  { label: "Services", href: "/services" },
   { label: "Contact", href: "#contact" },
 ];
 

@@ -146,7 +146,7 @@ export default function ServicesSection() {
 
   return (
     <section
-      id="services"
+      id="services-grid"
       ref={sectionRef}
       className="relative w-full py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white"
     >
