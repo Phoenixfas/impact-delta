@@ -351,7 +351,7 @@ export default function AboutStory() {
               <div className="flex items-center justify-between gap-4">
                 <div className="min-w-0">
                   <div className="text-[10px] font-mono tracking-widest text-[#003E95] font-bold uppercase">
-                    PHASE {currentChapter.chapterNumber} // {currentChapter.category}
+                    PHASE {currentChapter.chapterNumber} {"//"} {currentChapter.category}
                   </div>
                   <div className="text-sm sm:text-base font-black text-slate-900 mt-0.5 truncate">
                     {currentChapter.title}
