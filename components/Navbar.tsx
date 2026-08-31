@@ -15,6 +15,7 @@ interface NavLink {
 const NAV_LINKS: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Stand Brief", href: "/brief" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -247,7 +248,7 @@ export default function Navbar() {
   return (
     <>
       {/* Constellation thread lines connecting the floating nodes */}
-      <svg aria-hidden="true" className="fixed inset-0 z-40 pointer-events-none w-full h-full">
+      <svg aria-hidden="true" className="fixed inset-0 z-40 pointer-events-none w-full h-full print:hidden">
         {LINK_PAIRS.map(([a, b], i) => (
           <line
             key={`${a}-${b}`}
@@ -265,20 +266,20 @@ export default function Navbar() {
       </svg>
 
       {/* Top-Left: Logo */}
-      <div ref={logoRef} className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 will-change-transform">
+      <div ref={logoRef} className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50 will-change-transform print:hidden">
         <button
           onClick={() => handleNavClick("#hero")}
           className="nav-entrance-node group flex items-center gap-2.5 duration-300"
         >
           <div className={`relative w-20 h-20 sm:w-25 sm:h-25 flex items-center justify-center rounded-full overflow-hidden `}>
-            <Image src={"/logo_t_lightGrad.svg"} alt="logo" width={200} height={200} className="absolute w-full h-full object-contain animate-[spin_7s_linear_infinite_reverse]" />
-            <Image src={"/logo_g_lightGrad.svg"} alt="logo" width={200} height={200} className="w-full h-full object-contain" />
+            <Image src={"/logo_t_lightGrad.svg"} alt="Impact Makers Events logo" width={200} height={200} className="absolute w-full h-full object-contain animate-[spin_7s_linear_infinite_reverse]" />
+            <Image src={"/logo_g_lightGrad.svg"} alt="Impact Makers Events logo" width={200} height={200} className="w-full h-full object-contain" />
           </div>
         </button>
       </div>
 
       {/* Top-Right: Menu Trigger + Magnetic CTA, clustered */}
-      <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-3">
+      <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-3 print:hidden">
         <div ref={menuRef} className="will-change-transform">
           <button
             onClick={() => setMenuOpen((v) => !v)}
