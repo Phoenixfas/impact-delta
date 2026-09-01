@@ -24,9 +24,170 @@ const lobster = Lobster({
 });
 
 export const metadata: Metadata = {
-  title: "IMPACT B2B | Enterprise Kinetic Platform",
+  metadataBase: new URL("https://www.impactmakersevents.com"),
+  title: {
+    default: "Impact Makers Events | Connecting Businesses Worldwide | Exhibition Stand Fabrication & Corporate Events Dubai",
+    template: "%s | Impact Makers Events L.L.C",
+  },
   description:
-    "Next-generation corporate B2B event production and enterprise summit platform featuring award-winning kinetic interactive physics and smooth precision scrolling.",
+    "Impact Makers Events L.L.C is a premier turnkey event management and custom exhibition stand fabrication company headquartered in Dubai with a presence across 9 countries. ISO 9001, 14001 & 45001 certified.",
+  keywords: [
+    "Impact Makers Events",
+    "Exhibition Stand Fabrication Dubai",
+    "Event Management Company UAE",
+    "Custom Exhibition Booths Dubai",
+    "Corporate Event Organizers Dubai",
+    "DEC Exhibition Stand Contractor",
+    "DWTC Stand Builder",
+    "AV and Sound Systems Rental Dubai",
+    "Corporate Gifts & Branding UAE",
+    "Event Furniture Rental Dubai",
+    "ISO Certified Event Company Dubai",
+    "B2B Trade Show Management",
+  ],
+  authors: [{ name: "Impact Makers Events L.L.C" }],
+  creator: "Impact Makers Events L.L.C",
+  publisher: "Impact Makers Events L.L.C",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.impactmakersevents.com",
+    siteName: "Impact Makers Events L.L.C",
+    title: "Impact Makers Events | Connecting Businesses Worldwide | Dubai & Global Events",
+    description:
+      "Turnkey exhibition stand fabrication, corporate event management, audiovisual production, and space selling across UAE, Europe, USA, and Africa. Triple ISO certified.",
+    images: [
+      {
+        url: "/images/summit-keynote.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Impact Makers Events - Custom Exhibition Stands and Corporate Summits",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Impact Makers Events L.L.C | Connecting Businesses Worldwide",
+    description:
+      "Premier event management, custom booth fabrication, and technical AV production in Dubai & worldwide.",
+    images: ["/images/summit-keynote.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const jsonLdOrg = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.impactmakersevents.com/#organization",
+      name: "Impact Makers Events L.L.C",
+      alternateName: "Impact Makers Events",
+      url: "https://www.impactmakersevents.com",
+      logo: "https://www.impactmakersevents.com/images/prev/booth_1.webp",
+      email: "sales@impactmakersevents.com",
+      telephone: "+971547114951",
+      slogan: "Connecting Businesses Worldwide - From Concept To Reality",
+      description:
+        "Turnkey event management, exhibition stand fabrication, AV & lighting production, furniture rental, corporate gifts, and exhibition space selling.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Tamem House Building, Barsha Heights (Tecom)",
+        addressLocality: "Dubai",
+        addressRegion: "Dubai",
+        addressCountry: "AE",
+      },
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "ISO Certification",
+          name: "ISO 9001:2015 Quality Management System",
+          recognizedBy: {
+            "@type": "Organization",
+            name: "Universal Registrars",
+          },
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "ISO Certification",
+          name: "ISO 14001:2015 Environmental Management System",
+          recognizedBy: {
+            "@type": "Organization",
+            name: "Universal Registrars",
+          },
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "ISO Certification",
+          name: "ISO 45001:2018 Occupational Health & Safety",
+          recognizedBy: {
+            "@type": "Organization",
+            name: "Universal Registrars",
+          },
+        },
+      ],
+      areaServed: [
+        "United Arab Emirates",
+        "Poland",
+        "Portugal",
+        "Netherlands",
+        "United States",
+        "Germany",
+        "Singapore",
+        "Rwanda",
+        "Ethiopia",
+      ],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.impactmakersevents.com/#localbusiness",
+      name: "Impact Makers Events L.L.C",
+      image: "https://www.impactmakersevents.com/images/summit-keynote.jpg",
+      telephone: "+971547114951",
+      email: "sales@impactmakersevents.com",
+      priceRange: "$$$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Tamem House Building, Barsha Heights (Tecom)",
+        addressLocality: "Dubai",
+        addressRegion: "Dubai",
+        addressCountry: "AE",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 25.097,
+        longitude: 55.1717,
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        opens: "08:30",
+        closes: "18:30",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -39,6 +200,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${lobster.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col relative text-slate-900 bg-white selection:bg-[#003E95] selection:text-white">
         <RevealProvider>
           <KineticBackground />

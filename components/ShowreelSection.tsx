@@ -16,10 +16,10 @@ interface Stat {
 }
 
 const STATS: Stat[] = [
-  { value: 150, decimals: 0, suffix: "+", label: "Productions Featured" },
-  { value: 40, decimals: 0, suffix: "+", label: "Countries Filmed" },
-  { value: 12, decimals: 0, suffix: "M+", label: "Views Generated" },
-  { value: 4.9, decimals: 1, suffix: "/5", label: "Average Rating" },
+  { value: 500, decimals: 0, suffix: "+", label: "Stands & Summits Built" },
+  { value: 9, decimals: 0, suffix: " Hubs", label: "Global Country Footprint" },
+  { value: 100, decimals: 0, suffix: "%", label: "Triple ISO Certified" },
+  { value: 99.8, decimals: 1, suffix: "%", label: "Client Satisfaction" },
 ];
 
 // Placeholder embed until a real showreel file/link is wired in — Big Buck
@@ -180,10 +180,10 @@ export default function ShowreelSection() {
     >
       <div className="showreel-heading relative max-w-5xl mx-auto mb-10 lg:mb-14 text-center">
         <span className="inline-block px-3 py-1 mb-5 rounded-full bg-[#00A7F5]/10 border border-[#00A7F5]/25 text-[#003E95] text-xs font-semibold tracking-wide">
-          The Showreel
+          Cinematic Production Showcase
         </span>
         <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-[1.05]">
-          Watch The <span className="text-gradient">Impact</span> Unfold.
+          Watch Our Productions <span className="text-gradient">Come To Life.</span>
         </h2>
       </div>
 
@@ -197,13 +197,13 @@ export default function ShowreelSection() {
           className={
             isOpen
               ? "fixed inset-0 z-[100] rounded-none overflow-hidden bg-black"
-              : "group absolute inset-0 rounded-[32px] overflow-hidden shadow-diffused-xl showreel-hover-none"
+              : "group absolute inset-0 rounded-[32px] overflow-hidden shadow-diffused-xl showreel-hover-none cursor-pointer"
           }
         >
           <div ref={posterWrapRef} className="absolute -inset-y-[24%] inset-x-0">
             <Image
               src="/images/summit-keynote.jpg"
-              alt="IMPACT B2B showreel poster — stadium-scale keynote light show"
+              alt="Impact Makers Events showreel poster — exhibition stand fabrication and concert stagecraft"
               fill
               sizes="(max-width: 1024px) 100vw, 1024px"
               className={`object-cover transition-transform duration-700 group-hover:scale-105 ${

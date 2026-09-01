@@ -159,7 +159,7 @@ export default function HeroSection() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00A7F5]" />
           </span>
           <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-600">
-            Now Orchestrating <span className="text-gradient font-bold">2026</span> Global Summits
+            Connecting Businesses Worldwide · <span className="text-gradient font-bold">Dubai & 9 Global Hubs</span>
           </span>
           <Sparkles className="w-3.5 h-3.5 text-[#00A7F5]" />
         </div>
@@ -172,14 +172,14 @@ export default function HeroSection() {
           >
             <span className="hero-split-word block text-5xl sm:text-7xl lg:text-8xl leading-[0.95]">
               <span className="font-script tracking-normal text-white text-stroke-white">
-                Creating
+                From
               </span>{" "}
-              <span className="text-gradient text-stroke-white">IMPACT</span>
+              <span className="text-gradient text-stroke-white">CONCEPT</span>
             </span>
             <span className="hero-split-word block text-5xl sm:text-7xl lg:text-8xl leading-[0.95]">
-              <span className="text-gradient text-stroke-white">INSPIRING</span>{" "}
+              <span className="text-gradient text-stroke-white">TO</span>{" "}
               <span className="font-script tracking-normal text-white text-stroke-white">
-                Events
+                Reality
               </span>
             </span>
           </h1>
@@ -213,24 +213,24 @@ export default function HeroSection() {
         </div>
 
         <p className="hero-subtitle max-w-2xl text-center text-base sm:text-lg text-slate-600 leading-relaxed mt-10 sm:mt-14 mb-8">
-          We engineer award-winning spatial summits, sensory keynotes, and high-impact B2B brand worlds where kinetic light, 3D architecture, and human emotion converge.
+          Crafting bespoke exhibition stands, high-impact corporate summits, and turnkey audiovisual experiences that bring world-class brands to life across the UAE and worldwide.
         </p>
 
         <div className="hero-cta-group flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
           <button
-            onClick={() => scrollTo("#portfolio", { offset: -60 })}
-            className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 rounded-full font-bold text-sm sm:text-base text-white overflow-hidden shadow-[0_16px_36px_-8px_rgba(0,62,149,0.35)] transition-all duration-300 hover:shadow-[0_24px_50px_-8px_rgba(0,167,245,0.5)] active:scale-95"
+            onClick={() => scrollTo("/brief")}
+            className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 rounded-full font-bold text-sm sm:text-base text-white overflow-hidden shadow-[0_16px_36px_-8px_rgba(0,62,149,0.35)] transition-all duration-300 hover:shadow-[0_24px_50px_-8px_rgba(0,167,245,0.5)] active:scale-95 cursor-pointer"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#003E95] via-[#00A7F5] to-[#003E95] bg-[length:200%_auto] transition-all duration-700 group-hover:bg-right" />
-            <span className="relative z-10 tracking-wide">EXPERIENCE THE IMPACT</span>
+            <span className="relative z-10 tracking-wide">BUILD STAND BRIEF</span>
             <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
           <button
-            onClick={handleReplay}
-            className="inline-flex items-center gap-2 px-6 py-4 rounded-full font-semibold text-sm text-slate-700 hover:text-slate-950 backdrop-blur-md bg-slate-100/70 hover:bg-white/90 border border-slate-200/80 hover:border-slate-300 transition-all duration-200 shadow-xs"
+            onClick={() => scrollTo("/services")}
+            className="inline-flex items-center gap-2 px-6 py-4 rounded-full font-semibold text-sm text-slate-700 hover:text-slate-950 backdrop-blur-md bg-slate-100/70 hover:bg-white/90 border border-slate-200/80 hover:border-slate-300 transition-all duration-200 shadow-xs cursor-pointer"
           >
             <Play className="w-3.5 h-3.5 fill-current text-[#00A7F5]" />
-            <span>Watch Showreel</span>
+            <span>Explore 8 Core Services</span>
           </button>
         </div>
 
@@ -240,28 +240,28 @@ export default function HeroSection() {
               <span>500+</span>
               <Sparkles className="w-3.5 h-3.5 text-[#00A7F5]" />
             </div>
-            <span className="text-xs text-slate-500 font-medium">Global Summits Produced</span>
+            <span className="text-xs text-slate-500 font-medium">Stands Fabricated</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1">
+              <span>ISO Certified</span>
+              <Award className="w-3.5 h-3.5 text-amber-500" />
+            </div>
+            <span className="text-xs text-slate-500 font-medium">9001 • 14001 • 45001</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1">
+              <span>9 Hubs</span>
+              <Globe className="w-3.5 h-3.5 text-blue-600" />
+            </div>
+            <span className="text-xs text-slate-500 font-medium">Global Country Operations</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1">
               <span>99.8%</span>
-              <Award className="w-3.5 h-3.5 text-amber-500" />
-            </div>
-            <span className="text-xs text-slate-500 font-medium">Enterprise Satisfaction</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1">
-              <span>120+</span>
-              <Globe className="w-3.5 h-3.5 text-blue-600" />
-            </div>
-            <span className="text-xs text-slate-500 font-medium">International Venues</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-1">
-              <span>$4.2B+</span>
               <Zap className="w-3.5 h-3.5 text-cyan-500" />
             </div>
-            <span className="text-xs text-slate-500 font-medium">Client Pipeline Generated</span>
+            <span className="text-xs text-slate-500 font-medium">Client Satisfaction</span>
           </div>
         </div>
       </div>

@@ -16,23 +16,23 @@ interface MissionPoint {
 const MISSION_POINTS: MissionPoint[] = [
   {
     icon: Gem,
-    title: "Radical Craftsmanship",
-    description: "Every joint, gradient, and cue is engineered by hand — nothing ships until it's obsessed over.",
-  },
-  {
-    icon: Globe2,
-    title: "Global Scale",
-    description: "500+ summits delivered across 120+ countries, with the same precision from Dubai to Austin.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Human-Centered Tech",
-    description: "Kinetic light and spatial architecture exist to serve one goal: real connection in the room.",
+    title: "In-House CNC Fabrication",
+    description: "Fully equipped in-house carpentry, joinery, and structural steel workshop delivering millimeter-accurate bespoke exhibition stands.",
   },
   {
     icon: ShieldCheck,
-    title: "Uncompromising Reliability",
-    description: "24/7 live show control and redundant systems mean the moment never drops.",
+    title: "Triple ISO Certified",
+    description: "Internationally accredited under ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018 for total quality, sustainability, and safety.",
+  },
+  {
+    icon: Globe2,
+    title: "Global 9-Country Presence",
+    description: "Seamless execution across UAE, Poland, Portugal, Netherlands, USA, Germany, Singapore, Rwanda, and Ethiopia.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Turnkey Event Ecosystem",
+    description: "End-to-end integration across custom stand building, AV & lighting, furniture rental, space monetization, and VIP gifting.",
   },
 ];
 
@@ -225,15 +225,14 @@ export default function AboutSection() {
           below so the pinned content only ever has to fit one viewport tall. */}
       <div className="about-intro relative max-w-7xl mx-auto mb-16 lg:mb-24">
         <span className="inline-block px-3 py-1 mb-5 rounded-full bg-[#00A7F5]/10 border border-[#00A7F5]/25 text-[#003E95] text-xs font-semibold tracking-wide">
-          About Impact B2B
+          About Impact Makers Events
         </span>
         <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-[1.05] mb-6 max-w-2xl">
-          We Don&apos;t Just Produce Events.{" "}
-          <span className="text-gradient">We Engineer Belief.</span>
+          We Don&apos;t Just Build Stands.{" "}
+          <span className="text-gradient">We Craft Spaces That Bring Brands to Life.</span>
         </h2>
         <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-          For over a decade we&apos;ve been the invisible hand behind the world&apos;s most ambitious corporate
-          stages — turning boardroom ambition into rooms that move people.
+          From concept to reality — delivering bespoke exhibition stand fabrication, international congress organizing, and turnkey technical production across Dubai and worldwide.
         </p>
       </div>
 
@@ -254,7 +253,7 @@ export default function AboutSection() {
             <div ref={imageInnerRef} className="absolute -inset-y-[6%] inset-x-0">
               <Image
                 src="/images/prev/booth_1.webp"
-                alt="Detail of a large-scale exhibition build with warm kinetic lighting"
+                alt="Detail of custom exhibition stand fabrication by Impact Makers Events"
                 fill
                 sizes="(max-width: 1024px) 90vw, 560px"
                 className="object-cover"
@@ -263,10 +262,10 @@ export default function AboutSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
           </div>
 
-          {/* Floating caption chip, bottom-left, echoing the hero image-stack's own caption treatment */}
+          {/* Floating caption chip, bottom-left */}
           <div className="absolute -bottom-6 left-6 sm:left-10 glass-card-elevated rounded-2xl px-5 py-4 max-w-[220px]">
-            <div className="text-2xl font-black text-slate-900">2014</div>
-            <div className="text-xs text-slate-500 font-medium">A decade of live craft, still hands-on</div>
+            <div className="text-2xl font-black text-slate-900">ISO</div>
+            <div className="text-xs text-slate-500 font-medium">9001 • 14001 • 45001 Certified Quality</div>
           </div>
         </div>
 
@@ -298,10 +297,10 @@ export default function AboutSection() {
 
           <button
             ref={ctaRef}
-            onClick={() => scrollTo("#portfolio", { offset: -60 })}
-            className="about-shimmer group inline-flex items-center gap-2 mt-10 text-base font-bold will-change-transform"
+            onClick={() => scrollTo("/about")}
+            className="about-shimmer group inline-flex items-center gap-2 mt-10 text-base font-bold will-change-transform cursor-pointer"
           >
-            <span className="about-shimmer-text">Explore Our Story</span>
+            <span className="about-shimmer-text">Discover Our Full Story</span>
             <ArrowUpRight className="w-4 h-4 text-[#00A7F5] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
           </button>
         </div>

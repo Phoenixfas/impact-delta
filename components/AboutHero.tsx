@@ -22,7 +22,7 @@ import HeroImageLightbox, { type LightboxItem } from "./hero/HeroImageLightbox";
 
 const PREVIZ_LIGHTBOX_ITEM: LightboxItem = {
   src: "/images/summit-keynote.jpg",
-  alt: "Architectural corporate keynote arena designed by Impact B2B",
+  alt: "Architectural corporate keynote arena designed by Impact Makers Events",
   title: "Interactive Spatial Previz // Keynote Arena",
   description:
     "Where architectural form meets human emotion. Engineered for 50,000+ attendee enterprise summits with synchronized kinetic lighting, 3D volumetrics, and sub-millisecond show control.",
@@ -382,8 +382,8 @@ export default function AboutHero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#003E95]" />
           </span>
           <span className="text-[11px] sm:text-xs font-black tracking-widest uppercase text-slate-700">
-            About Impact B2B <span className="text-slate-300 mx-1.5">•</span>
-            <span className="text-gradient font-black">Spatial Brand Worlds</span>
+            Impact Makers Events <span className="text-slate-300 mx-1.5">•</span>
+            <span className="text-gradient font-black">Connecting Businesses Worldwide</span>
           </span>
           <Sparkles className="w-3.5 h-3.5 text-[#00A7F5]" />
         </div>
@@ -397,43 +397,41 @@ export default function AboutHero() {
             {/* First Line */}
             <div className="block overflow-hidden py-1">
               <span className="about-split-word inline-block mr-2 sm:mr-4 font-black">
-                Architecting
+                From Concept
               </span>
               <span className="about-split-word inline-block text-gradient">
-                Experiences,
+                To Reality,
               </span>
             </div>
 
             {/* Second Line */}
             <div className="block overflow-hidden py-1">
               <span className="about-split-word inline-block mr-2 sm:mr-4 font-script text-white text-stroke-white tracking-normal font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
-                Sculpting
+                Crafting
               </span>
               <span className="about-split-word inline-block text-gradient">
-                Unforgettable
+                Spaces That Bring
               </span>{" "}
               <span className="about-split-word inline-block font-black text-slate-900">
-                Impact.
+                Brands to Life.
               </span>
             </div>
           </h1>
 
           {/* Editorial Subtitle / Manifesto Intro */}
           <p className="about-description mt-6 sm:mt-8 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 font-normal leading-relaxed">
-            We are a vanguard creative engineering studio. For over a decade, we have fused{" "}
-            <span className="text-slate-900 font-semibold">kinetic light</span>,{" "}
-            <span className="text-slate-900 font-semibold">3D architecture</span>, and{" "}
-            <span className="text-[#003E95] font-semibold">sensory storytelling</span> to turn
-            monumental corporate stages into unforgettable brand legacies.
+            Headquartered in Dubai with operations across 9 countries,{" "}
+            <span className="text-slate-900 font-semibold">Impact Makers Events L.L.C</span> is a premier exhibition stand builder, event management powerhouse, and audiovisual specialist. We deliver{" "}
+            <span className="text-[#003E95] font-semibold">Triple ISO-certified excellence</span> from initial 3D design to turnkey on-site handover.
           </p>
 
           {/* Quick Pillar Micro-Badges */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {[
-              { icon: Compass, text: "Spatial Architecture" },
-              { icon: Zap, text: "Kinetic Light Systems" },
-              { icon: Globe2, text: "Global Summit Scale" },
-              { icon: Award, text: "Zero-Fail Execution" },
+              { icon: Compass, text: "In-House Workshop & CNC" },
+              { icon: Shield, text: "Triple ISO (9001/14001/45001)" },
+              { icon: Globe2, text: "9 Global Country Hubs" },
+              { icon: Award, text: "Turnkey Event SLA" },
             ].map((pillar) => {
               const Icon = pillar.icon;
               return (
@@ -542,7 +540,7 @@ export default function AboutHero() {
               {/* Architectural Keynote Stage Image */}
               <Image
                 src="/images/summit-keynote.jpg"
-                alt="Architectural corporate keynote arena designed by Impact B2B"
+                alt="Architectural corporate keynote arena designed by Impact Makers Events"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 1100px"
@@ -627,19 +625,19 @@ export default function AboutHero() {
                 <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
               <div className="text-left">
-                <div className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">100% Redundant</div>
-                <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium">Zero-Fail Production</div>
+                <div className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">Triple ISO Certified</div>
+                <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium">9001 • 14001 • 45001</div>
               </div>
             </div>
 
             {/* Floating Bottom-Left 3D Metric Pill */}
             <div className="about-floating-badge absolute -bottom-4 sm:-bottom-5 -left-1 sm:-left-4 z-40 flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl glass-card-elevated border border-white/95 shadow-diffused-lg pointer-events-none">
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-tr from-[#00A7F5] to-[#92DCFF] flex items-center justify-center text-[#003E95] shrink-0 shadow-2xs font-black text-xs">
-                10Y
+                9
               </div>
               <div className="text-left">
-                <div className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">Over a Decade</div>
-                <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium">500+ Global Summits</div>
+                <div className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">Global Hubs</div>
+                <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium">500+ Stands Built</div>
               </div>
             </div>
           </div>

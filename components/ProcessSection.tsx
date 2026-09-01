@@ -50,119 +50,119 @@ const PROCESS_STEPS: ProcessStep[] = [
   {
     id: "step-1",
     stepNumber: "01",
-    title: "Vision & Strategy",
-    subtitle: "Discovery, Spatial Blueprint & Narrative Architecture",
-    tagline: "Aligning executive goals, sensory engineering, and audience journey mapping.",
+    title: "3D Concept & Blueprint",
+    subtitle: "Discovery, Structural CAD & Venue Compliance",
+    tagline: "Translating brand objectives into photorealistic 3D stand renders and engineering blueprints.",
     description:
-      "We begin by deconstructing your core summit objectives into an immersive spatial blueprint. Through 3D spatial simulations, acoustic modeling, and minute-by-minute narrative architecture, we establish a zero-risk conceptual foundation.",
+      "We deconstruct your exhibition or event requirements into precise 3D walkthroughs, structural load calculations, and official DEC/DWTC/ADNEC venue authority submittals. Every spatial detail is verified under ISO 9001 quality guidelines.",
     icon: Compass,
-    image: "/images/summit-keynote.jpg",
-    alt: "Strategic keynote stadium stage design and lighting blueprint",
+    image: "/images/render2.webp",
+    alt: "3D spatial design and structural CAD blueprint for exhibition stand",
     deliverables: [
       {
-        title: "Master Run of Show (ROS)",
-        desc: "Precision millisecond-timed cue choreography & speaker flow.",
-        badge: "Choreography",
+        title: "Photorealistic 3D Stand Renders",
+        desc: "360° virtual walkthroughs of exhibition stands and stage layouts.",
+        badge: "3D Previz",
       },
       {
-        title: "3D Spatial & Stage Previz",
-        desc: "Photorealistic CAD/Unreal walkthroughs of arena sightlines.",
-        badge: "Visual Previz",
-      },
-      {
-        title: "Audience Journey Mapping",
-        desc: "Engineered touchpoints from registration to keynote immersion.",
-        badge: "UX Design",
-      },
-      {
-        title: "Technical Feasibility Scope",
-        desc: "Complete structural load calculations & power redundancy maps.",
+        title: "Structural Engineering CAD",
+        desc: "Stamped load calculations for double-decker and truss structures.",
         badge: "Engineering",
+      },
+      {
+        title: "Venue & Authority Approvals",
+        desc: "Direct coordination with DWTC, DEC, ADNEC, and civil defense.",
+        badge: "Permits",
+      },
+      {
+        title: "Complete Cost Transparency",
+        desc: "Itemized turnkey bill of quantities with zero hidden fees.",
+        badge: "Commercial",
       },
     ],
     metrics: [
-      { label: "Rapid Concept Turnaround", value: "48h", detail: "Full 3D Stage Prototype" },
-      { label: "Scope Precision", value: "100%", detail: "Zero Unplanned Add-Ons" },
+      { label: "Design Turnaround", value: "48 Hours", detail: "Initial 3D Render Delivery" },
+      { label: "Permit SLA", value: "100%", detail: "First-Time Venue Approvals" },
     ],
-    techPills: ["3D Spatial Previz", "Unreal Engine 5", "Acoustic Raytracing", "ROS Choreography"],
+    techPills: ["3D Max & V-Ray", "AutoCAD Structural", "DEC/DWTC Compliance", "Bespoke Joinery Previz"],
   },
   {
     id: "step-2",
     stepNumber: "02",
-    title: "Seamless Execution",
-    subtitle: "Precision Fabrication, Timecode Sync & Rigging",
-    tagline: "Where ruthless technical discipline meets flawless live show calling.",
+    title: "In-House Fabrication",
+    subtitle: "CNC Joinery, Steel Fabrication & AV Pre-Assembly",
+    tagline: "Direct build in our dedicated in-house Dubai workshop with zero third-party outsourcing.",
     description:
-      "Our in-house master riggers, lighting designers, and technical directors build and stress-test every component. With dual-redundant power, SMPTE timecode automation, and cue-to-cue rehearsals, we ensure zero single point of failure.",
+      "Our in-house master carpenters, metal fabricators, painters, and AV technicians craft every element. We test-assemble critical structural joints, integrate Brompton LED panels, and conduct ISO 14001 and ISO 45001 safety checks before shipping.",
     icon: Cpu,
-    image: "/images/kinetic-installation.jpg",
-    alt: "Kinetic lighting and automated show control execution",
+    image: "/images/prev/booth_1.webp",
+    alt: "In-house joinery, carpentry and stand fabrication in Dubai workshop",
     deliverables: [
       {
-        title: "SMPTE / Timecode Show Control",
-        desc: "Automated synchronization of kinetic lighting, audio & visual cues.",
-        badge: "Automation",
+        title: "In-House CNC & Timber Joinery",
+        desc: "Millimeter-precision automated cutting, lamination, and spray finish.",
+        badge: "Fabrication",
       },
       {
-        title: "Dual-Redundant AV Infrastructure",
-        desc: "Live-standby video servers and optical fiber routing matrix.",
-        badge: "Fail-Safe",
+        title: "Structural Steel & Acrylic Craft",
+        desc: "Custom metal sub-frames, staircases, and backlit acrylic displays.",
+        badge: "Metalworking",
       },
       {
-        title: "Full-Dress Cue Stress Testing",
-        desc: "Multiple simulated power cuts and failover transition drills.",
-        badge: "Quality Assurance",
+        title: "AV & Rigging Pre-Integration",
+        desc: "Pre-wiring LED ribbons, power distribution, and dynamic lighting.",
+        badge: "AV Systems",
       },
       {
-        title: "Veteran Live Stage Calling",
-        desc: "Dedicated show director directing camera, audio & cue transitions.",
-        badge: "Show Calling",
+        title: "Triple ISO Quality Audit",
+        desc: "Pre-delivery inspection under ISO 9001, 14001, and 45001 standards.",
+        badge: "Certified QA",
       },
     ],
     metrics: [
-      { label: "Failover Latency", value: "0.0ms", detail: "Seamless Auto-Switching" },
-      { label: "Rigging Safety Rating", value: "10x", detail: "Exceeds Industry Standards" },
+      { label: "Fabrication Accuracy", value: "±0.5mm", detail: "CNC Precision Standard" },
+      { label: "ISO Safety Rating", value: "100%", detail: "Zero-Incident Workshop" },
     ],
-    techPills: ["Disguise d3 Media Servers", "SMPTE Timecode", "GrandMA3 Consoles", "Dual-Fed Power"],
+    techPills: ["In-House Joinery Facility", "CNC 5-Axis Milling", "PU Spray Finishing", "Pre-Assembly QA"],
   },
   {
     id: "step-3",
     stepNumber: "03",
-    title: "Impact & Delivery",
-    subtitle: "4K Live Broadcast, Global Resonance & Real-Time Telemetry",
-    tagline: "Igniting the room, captivating millions, and measuring pure audience ROI.",
+    title: "Turnkey Live Execution",
+    subtitle: "On-Site Build, 4K Broadcast & Flawless Handover",
+    tagline: "Rapid on-site installation, concert-grade live operation, and comprehensive media coverage.",
     description:
-      "The lights drop, the stage ignites, and your message commands the global room. We capture live telemetry, stream in ultra-low latency 4K HDR across continents, and provide executive post-summit ROI intelligence within hours.",
+      "Our logistics team delivers and installs your stand on schedule at the exhibition venue. We provide 24/7 on-site technical standby, live 4K multi-camera streaming, designer furniture placement, VIP gift management, and prompt post-show breakdown.",
     icon: Radio,
-    image: "/images/executive-pavilion.jpg",
-    alt: "Global executive audience summit impact and broadcast delivery",
+    image: "/images/summit-keynote.jpg",
+    alt: "Turnkey live event execution and exhibition stand handover at DWTC",
     deliverables: [
       {
-        title: "4K HDR Global Multi-Feed",
-        desc: "Broadcast-grade satellite and ultra-low-latency web streaming.",
-        badge: "Live Broadcast",
+        title: "On-Time Venue Handover",
+        desc: "Punctual delivery 24 hours ahead of exhibition opening.",
+        badge: "On-Time SLA",
       },
       {
-        title: "Real-Time Audience Telemetry",
-        desc: "Live spatial heatmaps, session engagement & sentiment scoring.",
-        badge: "Telemetry",
+        title: "Live AV & Lighting Show Calling",
+        desc: "Dedicated technicians managing LED walls, acoustics, and stage cues.",
+        badge: "Live Tech",
       },
       {
-        title: "Same-Day Executive Media Pack",
-        desc: "Polished 4K keynote highlight clips ready for global press distribution.",
-        badge: "PR Media",
+        title: "4K Media & PR Video Pack",
+        desc: "High-resolution booth photography and broadcast-ready video reels.",
+        badge: "Media Studio",
       },
       {
-        title: "Comprehensive Post-Mortem & ROI",
-        desc: "Audience analytics, engagement index & master asset archive.",
-        badge: "Analytics",
+        title: "Green Strike & Asset Storage",
+        desc: "Eco-friendly dismantling, material recycling, and secure storage.",
+        badge: "ISO 14001",
       },
     ],
     metrics: [
-      { label: "Audience Satisfaction", value: "99.8%", detail: "Enterprise Survey Score" },
-      { label: "Global Reach", value: "120+", detail: "Countries Streamed Simultaneously" },
+      { label: "On-Time Handover", value: "100%", detail: "Strict Delivery SLA" },
+      { label: "Client CSAT", value: "99.8%", detail: "Verified Event Success" },
     ],
-    techPills: ["4K HDR Satellite Uplink", "Real-Time Telemetry", "NDI/Dante Audio", "Instant PR Pipeline"],
+    techPills: ["DWTC / DEC Load-In SLA", "4K Multi-Camera Live", "Same-Day PR Reels", "Eco-Friendly Strike"],
   },
 ];
 
@@ -702,18 +702,18 @@ export default function ProcessSection() {
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => scrollTo("#contact", { offset: -60 })}
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-sm bg-gradient-to-r from-[#00A7F5] to-[#92DCFF] text-slate-950 hover:shadow-[0_0_30px_rgba(0,167,245,0.5)] transition-all duration-300 active:scale-95"
+              onClick={() => scrollTo("/brief")}
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-sm bg-gradient-to-r from-[#00A7F5] to-[#92DCFF] text-slate-950 hover:shadow-[0_0_30px_rgba(0,167,245,0.5)] transition-all duration-300 active:scale-95 cursor-pointer"
             >
-              <span>Initiate Your Blueprint</span>
+              <span>Build Your Stand Brief</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
 
             <button
-              onClick={() => scrollTo("#showreel", { offset: -60 })}
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-semibold text-sm text-white/90 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-colors"
+              onClick={() => scrollTo("/contact")}
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-semibold text-sm text-white/90 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-colors cursor-pointer"
             >
-              <span>Watch Live Showreel</span>
+              <span>Contact Dubai HQ</span>
             </button>
           </div>
         </div>

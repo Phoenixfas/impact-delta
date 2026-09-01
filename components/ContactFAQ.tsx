@@ -27,51 +27,51 @@ interface FAQItem {
 
 const FAQ_ITEMS: FAQItem[] = [
   {
-    id: "response-timeline",
-    category: "DISPATCH & SLA",
-    question: "What are your standard response timelines for RFP submissions?",
+    id: "stand-proposals",
+    category: "3D DESIGN & QUOTATIONS",
+    question: "What is your turnaround time for custom 3D exhibition stand proposals?",
     answer:
-      "All general inquiries and RFP briefs receive immediate automated encryption confirmation. A dedicated senior production director performs technical triage within 4 business hours, delivering an initial feasibility review and scheduling discovery within 24 hours.",
+      "We deliver photorealistic 360° 3D Max / V-Ray concepts and itemized bills of quantities within 48 hours of receiving your stand brief, floor plan, and brand guidelines.",
     icon: Clock,
   },
   {
-    id: "onsite-meetings",
-    category: "CONSULTING & SITE VISITS",
-    question: "How do we request an on-site venue walkthrough or technical survey?",
+    id: "in-house-fabrication",
+    category: "IN-HOUSE WORKSHOP FABRICATION",
+    question: "Do you fabricate stands in-house or subcontract to third parties?",
     answer:
-      "We dispatch certified spatial and structural engineers for on-site laser scanning, rigging load audits, and power infrastructure surveys globally across Geneva, London, New York, Singapore, and Dubai. Simply submit your event venue and preferred date in the contact form.",
+      "Every exhibition stand, reception counter, and display kiosk is built directly inside our dedicated Dubai manufacturing facility. With automated 5-axis CNC routers, structural steel welding bays, and pressurized spray booths, we guarantee sub-millimeter precision and 0% subcontractor markup.",
+    icon: Layers,
+  },
+  {
+    id: "venue-permits",
+    category: "VENUE COMPLIANCE & PERMITS",
+    question: "Do you manage official approvals and permits for DWTC, DEC, and ADNEC?",
+    answer:
+      "Yes. Our in-house structural engineers prepare certified PE-stamped load calculations, fire-retardant material certificates, electrical schematics, and double-decker structural plans for direct submission to DWTC, DEC, ADNEC, and UAE Civil Defense.",
     icon: MapPin,
   },
   {
-    id: "emergency-support",
-    category: "SHOW CONTROL & REDUNDANCY",
-    question: "Do you provide 24/7 on-site emergency technical support during live events?",
+    id: "iso-certifications",
+    category: "QUALITY & SAFETY STANDARDS",
+    question: "What quality, environmental, and safety certifications do you hold?",
     answer:
-      "Yes. Every enterprise summit deployment includes dedicated show-control engineers, hot-swap primary/secondary media servers, zero-latency SMPTE timecode sync, and continuous telemetry monitoring to guarantee 99.999% live uptime.",
-    icon: Zap,
-  },
-  {
-    id: "nda-confidentiality",
-    category: "GOVERNANCE & SECURITY",
-    question: "Can we submit proprietary 3D CAD schematics and stage designs under NDA?",
-    answer:
-      "Absolutely. All transmitted briefs, CAD models, executive keynote scripts, and preliminary budgets are strictly protected under institutional mutual NDA standards. We can execute your enterprise NDA or provide our standard mutual confidentiality agreement.",
+      "Impact Makers Events L.L.C is Triple ISO Certified by Universal Registrars: ISO 9001:2015 (Quality Management), ISO 14001:2015 (Environmental Management), and ISO 45001:2018 (Occupational Health & Safety) across all event organizing, fabrication, AV, and rental operations.",
     icon: ShieldCheck,
   },
   {
-    id: "international-freight",
-    category: "GLOBAL LOGISTICS",
-    question: "What international freight and customs clearance capabilities do you handle?",
+    id: "global-operations",
+    category: "INTERNATIONAL FOOTPRINT",
+    question: "Can Impact Makers Events execute stands and congresses outside the UAE?",
     answer:
-      "We operate air and maritime bonded freight logistics with full ATA Carnet compliance across 120+ countries. Our operations command manages customs clearance, hazardous materials certifications, and tarmac-to-rigging transport seamlessly.",
+      "Absolutely. In addition to our Dubai headquarters, we operate active hubs and production networks across 9 countries: UAE, Poland, Portugal, Netherlands, Germany, USA, Singapore, Rwanda, and Ethiopia.",
     icon: Globe2,
   },
   {
-    id: "stand-brief-engine",
-    category: "ESTIMATION & PREVIZ",
-    question: "How does your interactive Stand Brief builder calculate preliminary estimates?",
+    id: "furniture-branding",
+    category: "FURNITURE & CORPORATE GIFTS",
+    question: "Do you offer designer furniture rentals and executive corporate gifts?",
     answer:
-      "Our Stand Brief tool uses real-time spatial sizing formulas, modular LED tile pixel densities, kinetic automation axes, and regional fabrication labor indices to generate instant, itemized preliminary scopes before full architectural blueprinting.",
+      "Yes. We maintain an in-house inventory of over 2,500 designer furniture pieces (including Le Corbusier style LC2/LC3 sofas, Scandinavian armchairs, and Tolix barstools) alongside bespoke VIP gift sets, roll-up banners, and promotional merchandise.",
     icon: FileText,
   },
 ];
@@ -238,10 +238,10 @@ export default function ContactFAQ() {
             <div className="flex items-center shrink-0">
               <Link
                 ref={magneticCtaRef}
-                href="/stand-brief"
+                href="/brief"
                 className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 rounded-2xl text-sm font-bold text-white bg-gradient-to-r from-[#003E95] via-[#00A7F5] to-[#003E95] bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-lg shadow-blue-900/20 active:scale-95 group/btn cursor-pointer will-change-transform"
               >
-                <span>Launch Stand Brief Builder</span>
+                <span>Launch Stand Brief Wizard</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
               </Link>
             </div>
@@ -346,15 +346,15 @@ export default function ContactFAQ() {
                 <MessageCircle className="w-4 h-4 text-[#00A7F5]" />
               </div>
               <div className="text-xs text-slate-600">
-                Have a specialized technical question not listed here? Our show control directors are ready to assist.
+                Have a specialized technical question not listed here? Our production team is ready to assist.
               </div>
             </div>
 
             <a
-              href="mailto:inquire@impact-delta.com?subject=Specialized%20Technical%20Inquiry%20%E2%80%94%20Impact%20B2B"
+              href="mailto:sales@impactmakersevents.com?subject=Specialized%20Exhibition%20Inquiry%20%E2%80%94%20Impact%20Makers%20Events"
               className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-[#003E95] hover:text-[#00A7F5] transition-colors shrink-0"
             >
-              <span>Contact Engineering Desk</span>
+              <span>Contact In-House Desk</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>

@@ -5,9 +5,15 @@ import ContactMap from "@/components/ContactMap";
 import ContactFAQ from "@/components/ContactFAQ";
 
 export const metadata: Metadata = {
-  title: "Contact & Inquiries | IMPACT B2B — Global Event Architecture",
+  title: "Contact Us | Impact Makers Events L.L.C — Dubai HQ & 9 Global Hubs",
   description:
-    "Connect with Impact B2B's executive production desk. Direct communication channels for enterprise summits, stadium-grade kinetic show control, press relations, and RFP submissions.",
+    "Get in touch with Impact Makers Events L.L.C. Request custom exhibition stand proposals, international congress organizing, and turnkey AV quotes. Tamem House, Barsha Heights, Dubai, UAE.",
+  openGraph: {
+    title: "Contact Us | Impact Makers Events L.L.C — Connecting Businesses Worldwide",
+    description:
+      "Direct line: +971 54 711 4951 | Email: sales@impactmakersevents.com | Headquarters: Tamem House Building, Barsha Heights, Dubai, UAE.",
+    url: "https://www.impactmakersevents.com/contact",
+  },
 };
 
 export default function ContactPage() {

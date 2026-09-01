@@ -16,12 +16,12 @@ import {
 const DUBAI_COORDS = {
   lat: 25.097,
   lng: 55.1717,
-  address: "Tameem House Office Building, Al Thanyah First, Barsha Heights, Dubai, United Arab Emirates",
-  shortAddress: "Tameem House, Barsha Heights, Dubai, UAE",
+  address: "Tamem House Office Building, Al Thanyah First, Barsha Heights, Dubai, United Arab Emirates",
+  shortAddress: "Tamem House, Barsha Heights, Dubai, UAE",
   directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=25.0970,55.1717&destination_place_id=ChIJm3_uPcxwXz4Rq0n6-o7p7gQ",
-  mapsSearchUrl: "https://www.google.com/maps/search/?api=1&query=25.0970,55.1717+(Tameem+House+Office+Building+Dubai)",
-  phone: "+971 4 580 9100",
-  email: "dubai@impact-delta.com",
+  mapsSearchUrl: "https://www.google.com/maps/search/?api=1&query=25.0970,55.1717+(Tamem+House+Office+Building+Dubai)",
+  phone: "+971 54 711 4951",
+  email: "sales@impactmakersevents.com",
 };
 
 export default function ContactMap() {
@@ -182,8 +182,8 @@ export default function ContactMap() {
         <div className="relative w-full h-[520px] sm:h-[580px] lg:h-[640px] rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-200/60 bg-slate-100">
           {/* Custom Styled Google Maps Embed */}
           <iframe
-            title="Impact B2B Dubai Headquarters - Tameem House"
-            src="https://maps.google.com/maps?q=25.0970,55.1717+(Tameem+House+Office+Building)&z=16&output=embed&hl=en"
+            title="Impact Makers Events Dubai Headquarters - Tamem House"
+            src="https://maps.google.com/maps?q=25.0970,55.1717+(Tamem+House+Office+Building)&z=16&output=embed&hl=en"
             width="100%"
             height="100%"
             style={{ border: 0 }}

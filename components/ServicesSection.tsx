@@ -4,7 +4,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Cpu, Palette, ShieldCheck, UtensilsCrossed, type LucideIcon } from "lucide-react";
+import {
+  Hammer,
+  CalendarCheck,
+  Building2,
+  Tv2,
+  Camera,
+  Coins,
+  Gift,
+  Armchair,
+  type LucideIcon,
+} from "lucide-react";
 
 interface ServiceItem {
   icon: LucideIcon;
@@ -16,32 +26,60 @@ interface ServiceItem {
 
 const SERVICES: ServiceItem[] = [
   {
-    icon: Cpu,
-    title: "Technical Execution",
-    description: "Show control, rigging, and AV engineered to run without a flicker of doubt.",
-    image: "/images/summit-keynote.jpg",
-    alt: "Stadium-scale keynote light show",
-  },
-  {
-    icon: UtensilsCrossed,
-    title: "Food & Beverage",
-    description: "Culinary programs built to match the ambition of the room around them.",
-    image: "/images/kinetic-installation.jpg",
-    alt: "Kinetic chandelier gala installation",
-  },
-  {
-    icon: Palette,
-    title: "Creative & Media",
-    description: "Brand worlds, motion design, and spatial storytelling from concept to strike.",
+    icon: Hammer,
+    title: "Stand Fabrication",
+    description: "Custom exhibition stands, double-decker pavilions, modular shell upgrades, and retail kiosks from our in-house facility.",
     image: "/images/prev/booth_1.webp",
-    alt: "Detail of a large-scale exhibition build with warm kinetic lighting",
+    alt: "Custom exhibition stand fabrication by Impact Makers Events",
   },
   {
-    icon: ShieldCheck,
-    title: "Safety & Logistics",
-    description: "Redundant systems and permitting handled so nothing is left to chance.",
+    icon: CalendarCheck,
+    title: "Event Management",
+    description: "Corporate conferences, luxury brand experiences, gala dinners, product launches, and VIP on-site operations.",
+    image: "/images/summit-keynote.jpg",
+    alt: "Corporate conference and keynote event management",
+  },
+  {
+    icon: Building2,
+    title: "Event Organizing",
+    description: "Large-scale international congresses, industry exhibitions at DEC/DWTC, and government summits.",
     image: "/images/executive-pavilion.jpg",
-    alt: "Executive summit pavilion atrium",
+    alt: "International congress and exhibition organizing",
+  },
+  {
+    icon: Tv2,
+    title: "AV & Sound Systems",
+    description: "High-resolution LED video walls, concert-grade line arrays, dynamic stage lighting, and synchronized show control.",
+    image: "/images/kinetic-installation.jpg",
+    alt: "Audiovisual sound and stage lighting production",
+  },
+  {
+    icon: Camera,
+    title: "Photography & Videography",
+    description: "4K multi-camera livestreaming, corporate event cinematography, drone coverage, and same-day PR media packs.",
+    image: "/images/summit-keynote.jpg",
+    alt: "Professional event cinematography and media production",
+  },
+  {
+    icon: Coins,
+    title: "Exhibition Space Selling",
+    description: "Trade show floor plan monetization, high-value exhibitor acquisition, and organizer commercial consulting.",
+    image: "/images/prev/booth_2.webp",
+    alt: "Exhibition floor plan and trade show space selling",
+  },
+  {
+    icon: Gift,
+    title: "Branding & Corporate Gifts",
+    description: "Executive VIP gift boxes, luxury merchandise, roll-up banners, flags, and bespoke marketing collateral.",
+    image: "/images/render2.webp",
+    alt: "Corporate branding and luxury executive gifts",
+  },
+  {
+    icon: Armchair,
+    title: "Designer Furniture Rental",
+    description: "Scandinavian armchairs, Knoll & Corbusier sofas, Tolix barstools, wire coffee tables, and VIP lounge seating.",
+    image: "/images/executive-pavilion.jpg",
+    alt: "Designer event furniture rental in Dubai",
   },
 ];
 
@@ -152,7 +190,7 @@ export default function ServicesSection() {
     >
       <div className="services-intro relative max-w-7xl mx-auto mb-14 lg:mb-20">
         <span className="inline-block px-3 py-1 mb-5 rounded-full bg-[#00A7F5]/10 border border-[#00A7F5]/25 text-[#003E95] text-xs font-semibold tracking-wide">
-          Event Support & Services
+          Turnkey Event & Exhibition Solutions
         </span>
         <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-[1.05] max-w-2xl">
           Every Discipline, <span className="text-gradient">Under One Roof.</span>
@@ -204,8 +242,7 @@ export default function ServicesSection() {
             so this column stays alive on its own instead of sitting static. */}
         <div className="services-aside relative flex flex-col justify-center">
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
-            From the first rigging point to the last plated course, every discipline is run in-house — so
-            nothing gets lost in a handoff between vendors.
+            From custom 3D stand fabrication in our in-house workshop to concert-grade audiovisual systems, furniture rental, and VIP corporate gifts — we manage the complete event lifecycle without third-party friction.
           </p>
 
           <div className="bento-card-border mb-8">
@@ -251,12 +288,12 @@ export default function ServicesSection() {
 
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <div className="text-3xl font-black text-slate-900">12+</div>
-              <div className="text-xs text-slate-500 font-medium">In-House Disciplines</div>
+              <div className="text-3xl font-black text-slate-900">8</div>
+              <div className="text-xs text-slate-500 font-medium">Core Service Categories</div>
             </div>
             <div>
-              <div className="text-3xl font-black text-slate-900">0</div>
-              <div className="text-xs text-slate-500 font-medium">Third-Party Handoffs</div>
+              <div className="text-3xl font-black text-slate-900">9</div>
+              <div className="text-xs text-slate-500 font-medium">Global Country Hubs</div>
             </div>
           </div>
         </div>

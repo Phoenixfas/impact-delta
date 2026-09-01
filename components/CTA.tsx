@@ -259,30 +259,34 @@ export default function CTA() {
           {/* Eyebrow badge */}
           <div className="cta-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EBF4FF] border border-[#92DCFF]/50 text-[#003E95] text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm mb-6 sm:mb-8">
             <Sparkles className="w-3.5 h-3.5 text-[#00A7F5] animate-pulse" />
-            <span>Scale Your Next Experience</span>
+            <span>Turnkey Event & Stand Fabrication</span>
           </div>
 
           {/* Bold Headline Typography */}
           <h2 className="cta-heading text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] mb-6">
-            Ready to engineer an{" "}
-            <span className="text-gradient">unforgettable summit</span>?
+            Ready to bring your next{" "}
+            <span className="text-gradient">stand or event</span> to life?
           </h2>
 
           {/* Descriptive Body */}
           <p className="cta-desc text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mb-10 sm:mb-12">
-            Join the world&apos;s leading brands in redefining executive experiences. From concept simulation to 24/7 live show ops, we deliver zero-fail execution.
+            Join premier global brands partnering with Impact Makers Events L.L.C. From in-house CNC joinery and bespoke stands to concert AV stagecraft across Dubai and 9 global hubs, we deliver zero-fail execution.
           </p>
 
           {/* Dual Magnetic Action Buttons */}
           <div className="cta-actions flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-md sm:max-w-none mb-12 sm:mb-16">
             <MagneticButton
-              onClick={() => openModal("book")}
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  window.location.href = "/brief";
+                }
+              }}
               variant="primary"
-              ariaLabel="Book event consultation"
+              ariaLabel="Build stand brief wizard"
               className="w-full sm:w-auto"
             >
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-white/90" />
-              <span>Book Event</span>
+              <span>Start Stand Brief</span>
               <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </MagneticButton>
 
@@ -293,7 +297,7 @@ export default function CTA() {
               className="w-full sm:w-auto"
             >
               <Calculator className="w-4 h-4 sm:w-5 sm:h-5 text-[#003E95]" />
-              <span>Get Quote</span>
+              <span>Request Quotation</span>
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 transition-transform duration-300 group-hover:translate-x-1" />
             </MagneticButton>
           </div>
@@ -306,7 +310,7 @@ export default function CTA() {
               </div>
               <div>
                 <p className="text-xs font-semibold text-slate-900">24-Hour Response</p>
-                <p className="text-[11px] text-slate-500">Dedicated executive producer</p>
+                <p className="text-[11px] text-slate-500">Dedicated Dubai event producer</p>
               </div>
             </div>
 
@@ -315,8 +319,8 @@ export default function CTA() {
                 <Zap className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs font-semibold text-slate-900">3D Spatial Blueprint</p>
-                <p className="text-[11px] text-slate-500">Zero-commitment concept preview</p>
+                <p className="text-xs font-semibold text-slate-900">In-House CNC Workshop</p>
+                <p className="text-[11px] text-slate-500">Millimeter-accurate 3D joinery</p>
               </div>
             </div>
 
@@ -325,8 +329,8 @@ export default function CTA() {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs font-semibold text-slate-900">99.98% Live SLA</p>
-                <p className="text-[11px] text-slate-500">Redundant broadcast infrastructure</p>
+                <p className="text-xs font-semibold text-slate-900">Triple ISO Certified</p>
+                <p className="text-[11px] text-slate-500">ISO 9001, 14001 & 45001</p>
               </div>
             </div>
           </div>

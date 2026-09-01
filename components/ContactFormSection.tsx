@@ -40,30 +40,30 @@ interface OfficeHub {
 
 const OFFICE_HUBS: OfficeHub[] = [
   {
-    id: "geneva",
-    name: "Global Headquarters",
-    badge: "GLOBAL HQ & R&D",
-    city: "Geneva",
-    country: "Switzerland",
-    address: "Rue du Rhône 42",
-    postal: "1204 Genève",
-    timeZone: "Europe/Zurich",
-    phone: "+41 22 819 4000",
-    email: "geneva@impact-delta.com",
-    deskHours: { open: 8.5, close: 18.5 },
+    id: "dubai-hq",
+    name: "Global Headquarters & Fabrication Atelier",
+    badge: "GLOBAL HQ & DUBAI WORKSHOP",
+    city: "Dubai",
+    country: "United Arab Emirates",
+    address: "Tamem House Building, Barsha Heights (Tecom)",
+    postal: "Dubai, UAE",
+    timeZone: "Asia/Dubai",
+    phone: "+971 54 711 4951",
+    email: "sales@impactmakersevents.com",
+    deskHours: { open: 8.0, close: 19.0 },
   },
   {
-    id: "new-york",
-    name: "Americas Production Command",
-    badge: "AMERICAS HUB",
-    city: "New York",
-    country: "United States",
-    address: "520 Broadway, Soho",
-    postal: "New York, NY 10012",
-    timeZone: "America/New_York",
-    phone: "+1 (212) 554-9200",
-    email: "nyc@impact-delta.com",
-    deskHours: { open: 8.5, close: 18.0 },
+    id: "europe-hubs",
+    name: "European Operations & Logistics Desk",
+    badge: "EUROPEAN HUBS (4 COUNTRIES)",
+    city: "Lisbon & Warsaw",
+    country: "Portugal, Poland, Netherlands, Germany",
+    address: "Av. da Liberdade / ul. Marszałkowska",
+    postal: "EU Operational Hubs",
+    timeZone: "Europe/Lisbon",
+    phone: "+971 54 711 4951",
+    email: "sales@impactmakersevents.com",
+    deskHours: { open: 8.5, close: 18.5 },
   },
 ];
 
@@ -308,10 +308,10 @@ export default function ContactFormSection() {
                 </div>
 
                 <Link
-                  href="/stand-brief"
+                  href="/brief"
                   className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#003E95] hover:bg-[#002D6E] transition-all shadow-sm shrink-0 active:scale-95 group/btn"
                 >
-                  <span>Launch Stand Brief Builder</span>
+                  <span>Launch Stand Brief Wizard</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
                 </Link>
               </div>
@@ -377,27 +377,30 @@ export default function ContactFormSection() {
                     }
                     className="w-full px-4 pt-6 pb-2 rounded-2xl bg-slate-50/70 border border-slate-200 text-sm font-medium text-slate-900 transition-all duration-200 focus:outline-none focus:bg-white focus:border-[#00A7F5] focus:ring-4 focus:ring-[#00A7F5]/10 appearance-none cursor-pointer"
                   >
-                    <option value="Summit & Stage Architecture">
-                      Enterprise Summit & Kinetic Stage Build (10k+ Attendees)
+                    <option value="Custom Exhibition Stand Fabrication">
+                      Custom Exhibition Stand Fabrication (In-House Workshop)
                     </option>
-                    <option value="Technical Show Control & Rigging">
-                      Technical Show Control, Laser & Volumetric LED Rigging
+                    <option value="International Congress & Event Organizing">
+                      International Congress & Event Organizing (DEC / DWTC / ADNEC)
                     </option>
-                    <option value="Executive Hospitality & VIP Catering">
-                      Executive Hospitality & High-Density Summit Catering
+                    <option value="Concert Sound, 4K LED Video & Stage Lighting">
+                      Concert Sound, Curved 4K LED Video & Stage Lighting Rental
                     </option>
-                    <option value="Press, Media & Keynote Speakers">
-                      Press & Media Relations / Keynote Speaker Bureau
+                    <option value="Photography, 4K Videography & Livestreaming">
+                      Photography, 4K Videography & Live Broadcast Production
                     </option>
-                    <option value="General Corporate Partnership">
-                      General Partnership / NDA RFP Submission
+                    <option value="Exhibition Space Selling & Sponsorships">
+                      Exhibition Space Selling & Floor Plan Monetization
+                    </option>
+                    <option value="Designer Furniture Rental & Corporate Gifts">
+                      Designer Furniture Rental (Corbusier/Tolix) & Luxury Gifts
                     </option>
                   </select>
                   <label
                     htmlFor={subjectId}
                     className="absolute left-4 top-2 text-[11px] font-mono font-semibold uppercase tracking-wider text-[#003E95] pointer-events-none"
                   >
-                    Inquiry Classification / Subject *
+                    Inquiry Classification / Service *
                   </label>
                   <HelpCircle className="absolute right-4 top-4 w-4 h-4 text-slate-400 pointer-events-none" />
                 </div>
@@ -591,8 +594,7 @@ export default function ContactFormSection() {
                     ZERO-FAIL RESPONSE PROTOCOL
                   </h4>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    Senior engineering directors review all enterprise summit inquiries within 4
-                    hours across Zurich, New York, and Singapore timezones.
+                    Senior project directors and master joinery engineers review all stand briefs and event inquiries within 2 hours across Dubai and our 9 global country hubs.
                   </p>
                 </div>
               </div>

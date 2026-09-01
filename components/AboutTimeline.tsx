@@ -27,48 +27,48 @@ interface TimelineEvent {
 
 const TIMELINE_EVENTS: TimelineEvent[] = [
   {
-    year: "2014",
-    tag: "The Genesis",
-    title: "Founding the Spatial Architecture Studio",
-    subtitle: "Rethinking corporate conventions with physical stagecraft",
+    year: "Founding",
+    tag: "The In-House Atelier",
+    title: "Establishing In-House Dubai Joinery",
+    subtitle: "Eliminating third-party delays with dedicated CNC workshops",
     description:
-      "Impact B2B was founded with a single radical thesis: corporate events shouldn't feel like sterile lectures — they should evoke the sensory grandeur of monumental theatrical architecture.",
+      "Impact Makers Events was founded in Dubai with a dedicated in-house carpentry and fabrication facility, delivering bespoke exhibition stands with millimeter precision.",
     image: "/images/prev/booth_1.webp",
-    stats: { label: "Inaugural Summit", value: "1,200 Attendees" },
-    highlights: ["First custom kinetic stage build", "Real-time LED mapping", "Zero failover incident record"],
+    stats: { label: "Workshop Scope", value: "100% In-House" },
+    highlights: ["5-Axis CNC automated cutting", "Bespoke exhibition timber joinery", "Polyurethane spray booth"],
   },
   {
-    year: "2018",
-    tag: "Global Footprint",
-    title: "International Arenas & Multi-Hub Broadcasts",
-    subtitle: "Synchronizing audiences across continents in real time",
+    year: "Expansion",
+    tag: "Regional Footprint",
+    title: "DEC, DWTC & Middle East Exhibitions",
+    subtitle: "Delivering double-decker pavilions for leading global brands",
     description:
-      "Expanded operations across EMEA, APAC, and the Americas, delivering simultaneous multi-hub summits with millisecond-synced optical timecode and broadcast-grade satellite feeds.",
+      "Scaled operations across premier regional exhibition venues including Dubai World Trade Centre, Dubai Exhibition Centre, and ADNEC, executing flagship aerospace, fintech, and tech builds.",
     image: "/images/executive-pavilion.jpg",
-    stats: { label: "Global Reach", value: "45+ Countries" },
-    highlights: ["Multi-city SMPTE timecode sync", "Dual-redundant server matrix", "Tier-1 enterprise adoption"],
+    stats: { label: "Major Builds", value: "350+ Stands" },
+    highlights: ["Double-decker structural engineering", "Venue permit authority approvals", "Full VIP hospitality suites"],
   },
   {
-    year: "2022",
-    tag: "The Kinetic Lab",
-    title: "Autonomous Light Kinetics & Spatial Audio",
-    subtitle: "Pioneering interactive audience-responsive environments",
+    year: "Global Hubs",
+    tag: "9 Countries",
+    title: "International Cross-Border Operations",
+    subtitle: "Active operational network spanning 4 continents",
     description:
-      "Established the in-house Kinetic Engineering Lab, developing proprietary robotic winches, spatial raytracing acoustic arrays, and interactive lighting grids that react to keynote tempo.",
+      "Established active country hubs across the UAE, Poland, Portugal, Netherlands, USA, Germany, Singapore, Rwanda, and Ethiopia to support global touring corporate clients.",
     image: "/images/kinetic-installation.jpg",
-    stats: { label: "Robotic Winches", value: "500+ Nodes" },
-    highlights: ["Custom mechanical winch design", "Acoustic spatial simulation", "Industry innovation award"],
+    stats: { label: "Global Network", value: "9 Countries" },
+    highlights: ["Unified European logistics", "Single-source international contract", "Consistent quality control"],
   },
   {
-    year: "2026",
-    tag: "The Modern Era",
-    title: "Sensory Brand Worlds & Real-Time Telemetry",
-    subtitle: "Next-generation B2B summits with measurable emotional ROI",
+    year: "Certified",
+    tag: "ISO Excellence",
+    title: "Triple ISO Accreditations & Turnkey Mastery",
+    subtitle: "ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018",
     description:
-      "Today, Impact B2B architects global flagship events for Fortune 100 leaders, combining cinematic stage previz in Unreal Engine with real-time biometric and audience telemetry analytics.",
+      "Awarded full Triple ISO certifications by Universal Registrars, uniting custom stand fabrication, large-scale event organizing, concert AV, space selling, and furniture rental under one roof.",
     image: "/images/summit-keynote.jpg",
-    stats: { label: "Enterprise Valuation", value: "$4.2B+ Pipeline" },
-    highlights: ["Unreal Engine 5 stage previz", "Real-time spatial heatmaps", "500+ summits delivered"],
+    stats: { label: "ISO Accreditations", value: "3 Certifications" },
+    highlights: ["ISO 9001 Quality Management", "ISO 14001 Environmental Management", "ISO 45001 Health & Safety"],
   },
 ];
 
@@ -277,31 +277,31 @@ export default function AboutTimeline() {
         <div className="mt-24 p-8 rounded-3xl bg-white border border-slate-200/80 shadow-diffused-xl grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
             <div className="text-3xl font-black text-slate-900 flex items-center justify-center gap-1">
-              <span>12+</span>
-              <Award className="w-4 h-4 text-amber-500" />
-            </div>
-            <div className="text-xs text-slate-500 font-semibold mt-1">Years of Craft</div>
-          </div>
-          <div>
-            <div className="text-3xl font-black text-slate-900 flex items-center justify-center gap-1">
               <span>500+</span>
               <Sparkles className="w-4 h-4 text-[#00A7F5]" />
             </div>
-            <div className="text-xs text-slate-500 font-semibold mt-1">Summits Produced</div>
+            <div className="text-xs text-slate-500 font-semibold mt-1">Stands & Summits Built</div>
           </div>
           <div>
             <div className="text-3xl font-black text-slate-900 flex items-center justify-center gap-1">
-              <span>120+</span>
+              <span>9 Hubs</span>
               <Globe className="w-4 h-4 text-[#003E95]" />
             </div>
-            <div className="text-xs text-slate-500 font-semibold mt-1">International Venues</div>
+            <div className="text-xs text-slate-500 font-semibold mt-1">Global Country Offices</div>
           </div>
           <div>
             <div className="text-3xl font-black text-slate-900 flex items-center justify-center gap-1">
-              <span>0.0ms</span>
+              <span>100%</span>
+              <Award className="w-4 h-4 text-amber-500" />
+            </div>
+            <div className="text-xs text-slate-500 font-semibold mt-1">Triple ISO Certified</div>
+          </div>
+          <div>
+            <div className="text-3xl font-black text-slate-900 flex items-center justify-center gap-1">
+              <span>99.8%</span>
               <Zap className="w-4 h-4 text-cyan-500" />
             </div>
-            <div className="text-xs text-slate-500 font-semibold mt-1">Failover Latency</div>
+            <div className="text-xs text-slate-500 font-semibold mt-1">Client Satisfaction</div>
           </div>
         </div>
       </div>

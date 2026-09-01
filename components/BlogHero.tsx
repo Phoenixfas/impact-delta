@@ -464,11 +464,11 @@ export default function BlogHero() {
             <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-white/90 via-[#00A7F5]/20 to-transparent pointer-events-none" />
 
             <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
-              {/* Left Column: Visual Media with Dynamic Zoom */}
+                {/* Left Column: Visual Media with Dynamic Zoom */}
               <div className="lg:col-span-7 relative min-h-[340px] sm:min-h-[420px] lg:min-h-[500px] overflow-hidden bg-slate-950">
                 <Image
-                  src="/images/summit-keynote.jpg"
-                  alt="Architectural corporate keynote arena engineered by Impact B2B"
+                  src="/images/prev/booth_1.webp"
+                  alt="Custom double-decker exhibition stand built at Dubai World Trade Centre"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 60vw"
@@ -483,12 +483,12 @@ export default function BlogHero() {
                   {/* Dynamic Glass Tag: Editor's Pick */}
                   <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-white/85 text-slate-900 text-xs font-bold shadow-[0_8px_20px_rgba(0,0,0,0.15)] border border-white/60">
                     <Flame className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                    <span>Editor&apos;s Pick</span>
+                    <span>Featured Guide</span>
                   </div>
 
                   <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full backdrop-blur-md bg-slate-900/70 text-white text-[11px] font-semibold border border-white/20">
                     <Layers className="w-3 h-3 text-[#00A7F5]" />
-                    <span>Deep-Dive Blueprint</span>
+                    <span>DWTC / DEC Blueprint</span>
                   </div>
                 </div>
 
@@ -509,7 +509,7 @@ export default function BlogHero() {
                   {/* Category & Reading Time Indicator */}
                   <div className="flex items-center justify-between gap-3 text-xs mb-3.5">
                     <span className="uppercase tracking-widest font-extrabold text-[#003E95] text-[11px] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
-                      Spatial Engineering
+                      Stand Fabrication & Compliance
                     </span>
                     <div className="hidden lg:flex items-center gap-1.5 text-slate-500 font-medium text-xs">
                       <Clock className="w-3.5 h-3.5 text-[#00A7F5]" />
@@ -521,12 +521,12 @@ export default function BlogHero() {
 
                   {/* Article Title */}
                   <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-slate-900 leading-tight tracking-tight group-hover:text-[#003E95] transition-colors duration-300 mb-3">
-                    The Architecture of Awe: Engineering Stadium-Scale Kinetic Stages for 100,000+ Attendees
+                    Navigating DWTC & DEC Stand Guidelines 2026: The Comprehensive Builder&apos;s Guide
                   </h2>
 
                   {/* Excerpt */}
                   <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6 line-clamp-3 lg:line-clamp-4">
-                    How real-time Unreal Engine previsualization, redundant fiber backbones, and 128 synchronized kinetic axes are redefining human connection and emotional resonance at global enterprise summits.
+                    A complete operational roadmap for exhibition organizers and corporate exhibitors: height restrictions, double-decker structural approvals, and Dubai Civil Defense compliance.
                   </p>
                 </div>
 
@@ -537,17 +537,17 @@ export default function BlogHero() {
                     <div className="relative w-11 h-11 rounded-full overflow-hidden ring-2 ring-[#00A7F5]/30 ring-offset-2 shrink-0 bg-slate-200">
                       <Image
                         src="/images/team/marcus-chen.jpg"
-                        alt="Marcus Chen - VP of Spatial Architecture"
+                        alt="Tariq Al-Mansoor - Managing Director"
                         fill
                         className="object-cover"
                       />
                     </div>
                     <div>
                       <div className="text-sm font-bold text-slate-900 group-hover:text-[#003E95] transition-colors">
-                        Marcus Chen
+                        Tariq Al-Mansoor
                       </div>
                       <div className="text-xs text-slate-500 font-medium">
-                        VP of Spatial Architecture
+                        Managing Director & Founder
                       </div>
                     </div>
                   </div>
@@ -570,7 +570,7 @@ export default function BlogHero() {
                     </button>
 
                     <Link
-                      href="/blog/the-architecture-of-awe"
+                      href="/blog/navigating-dwtc-dec-stand-guidelines"
                       className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 group-hover:bg-[#003E95] text-white text-xs font-semibold transition-all duration-300 shadow-md group-hover:shadow-[0_10px_25px_rgba(0,62,149,0.3)]"
                     >
                       <span>Read Masterclass</span>

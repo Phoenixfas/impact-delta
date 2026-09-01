@@ -18,12 +18,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) {
     return {
-      title: "Article Not Found | IMPACT B2B Journal",
+      title: "Article Not Found | Impact Makers Events Journal",
     };
   }
 
   return {
-    title: `${post.title} | IMPACT B2B Journal`,
+    title: `${post.title} | Impact Makers Events Journal`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

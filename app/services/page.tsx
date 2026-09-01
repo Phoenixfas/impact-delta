@@ -6,9 +6,15 @@ import ServicesTechSpecs from "@/components/ServicesTechSpecs";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Services & Capabilities | IMPACT B2B — Technical Event Mastery",
+  title: "Our Services | Impact Makers Events L.L.C — Stand Fabrication & Event Solutions",
   description:
-    "Explore Impact B2B's end-to-end event execution capabilities, including stadium show control, kinetic volumetric lighting, haute hospitality, and zero-fail international logistics.",
+    "Explore our 8 turnkey services: Custom Stand Fabrication, Event Management, Congress Organizing, AV & Lighting, 4K Videography, Space Selling, Corporate Branding/Gifts, and Designer Furniture Rental.",
+  openGraph: {
+    title: "Our Services | Impact Makers Events L.L.C — Turnkey Event & Exhibition Solutions",
+    description:
+      "From in-house CNC joinery to concert-grade audiovisual systems across Dubai and 9 global hubs, explore Impact Makers Events' complete service catalog.",
+    url: "https://www.impactmakersevents.com/services",
+  },
 };
 
 export default function ServicesPage() {

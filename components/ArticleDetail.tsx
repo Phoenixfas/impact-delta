@@ -162,7 +162,7 @@ export default function ArticleDetail({ post }: ArticleDetailProps) {
   const handleShareTwitter = () => {
     if (typeof window === "undefined") return;
     const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent(`"${post.title}" by ${post.author.name} via @ImpactB2B`);
+    const text = encodeURIComponent(`"${post.title}" by ${post.author.name} via @ImpactMakersEvents`);
     window.open(
       `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
       "_blank",

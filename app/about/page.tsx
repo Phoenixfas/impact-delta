@@ -7,9 +7,15 @@ import AboutTimeline from "@/components/AboutTimeline";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "About Us | IMPACT B2B — Architecting Spatial Experiences",
+  title: "About Us | Impact Makers Events L.L.C — Connecting Businesses Worldwide",
   description:
-    "Explore how Impact B2B architects unforgettable corporate summits, kinetic light systems, and spatial brand worlds across 120+ countries with zero-fail engineering.",
+    "Learn about Impact Makers Events L.L.C — Dubai's premier exhibition stand fabrication, event management, and audiovisual production partner with Triple ISO certification and operations across 9 countries.",
+  openGraph: {
+    title: "About Us | Impact Makers Events L.L.C — Connecting Businesses Worldwide",
+    description:
+      "From concept to reality — discover our in-house fabrication facility, triple ISO certifications (9001, 14001, 45001), and global event management footprint across 9 countries.",
+    url: "https://www.impactmakersevents.com/about",
+  },
 };
 
 export default function AboutPage() {

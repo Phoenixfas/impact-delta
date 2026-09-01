@@ -54,333 +54,601 @@ export interface ServiceGridItem {
 
 const SERVICES_DATA: ServiceGridItem[] = [
   {
-    id: "technical-av",
-    category: "01 // INFRASTRUCTURE & SHOW CONTROL",
-    title: "Technical & A/V Execution",
-    tagline: "Synchronized DMX, SMPTE Timecode & Sub-Millisecond Rigging",
+    id: "stand-fabrication",
+    category: "01 // IN-HOUSE FABRICATION & BUILD",
+    title: "Custom Exhibition Stand Fabrication",
+    tagline: "In-House 5-Axis CNC Joinery, Structural Steel & Double-Decker Pavilions",
     shortDescription:
-      "Engineered for stadium-scale keynotes with zero-fail redundancy, active acoustic beamsteering, and synchronized kinetic volumetric lighting arrays.",
-    icon: Cpu,
+      "Engineered in our dedicated Dubai carpentry and metalworking facility. We deliver bespoke exhibition stands, custom kiosks, and multi-story pavilions with zero subcontractor dependency.",
+    icon: Layers,
     colSpan: "lg:col-span-7",
-    image: "/images/summit-keynote.jpg",
-    imageAlt: "Stadium-scale keynote light show with synchronized kinetic volumetric arrays",
-    badge: "ENGINEERING CORE",
-    metric: { value: "0.0ms", label: "Failover Latency" },
+    image: "/images/prev/booth_1.webp",
+    imageAlt: "Custom exhibition stand fabrication in Dubai by Impact Makers Events",
+    badge: "IN-HOUSE WORKSHOP",
+    metric: { value: "±0.5mm", label: "CNC Tolerance" },
     accentColor: "#003E95",
     subDeliverables: [
-      "Dual-redundant optical SMPTE media server racks",
-      "Kinesys motorized kinetic hoist automation arrays",
-      "Beam-steering Line Array Sound Reinforcement",
-      "Sub-millisecond DMX/ArtNet volumetric show control",
+      "5-Axis CNC routing, automated timber joinery & carpentry",
+      "Structural steel engineering for double-decker pavilions",
+      "Polyurethane spray finishing & architectural acrylics",
+      "DWTC, DEC & ADNEC venue permit compliance & fire safety",
     ],
     drawerData: {
       heroOverview:
-        "Our technical execution practice is architected like mission-critical aerospace infrastructure. Every audio packet, pixel buffer, and kinetic motor cue operates on synchronized optical backbones with 100% hot-standby redundancy.",
+        "Our in-house Dubai fabrication facility eliminates the quality compromises and delays of third-party subcontractors. We control every millimeter of timber milling, steel welding, and high-gloss paint finishing.",
       workflows: [
         {
           step: "PHASE 01",
-          title: "Optical Infrastructure & Signal Routing",
+          title: "3D Design & Structural Engineering",
           description:
-            "Deployment of multi-channel tactical fiber rings with automatic failover switches, isolating audio, video, and show control networks on dedicated VLANs.",
+            "Photorealistic 360° 3D Max/V-Ray rendering, structural engineering stress tests for double-decker loads, and DWTC/DEC permit filings.",
         },
         {
           step: "PHASE 02",
-          title: "Acoustic Modeling & Beamforming Calibration",
+          title: "In-House Workshop Fabrication",
           description:
-            "3D finite-element sound pressure simulation of the arena geometry to achieve ±1.5dB SPL consistency across all 50,000 attendee seats.",
+            "Automated 5-axis CNC timber cutting, steel frame welding, acrylic thermoforming, and multi-layer polyurethane spray booth finishing.",
         },
         {
           step: "PHASE 03",
-          title: "SMPTE Choreography & Dry-Run Rehearsals",
+          title: "Turnkey On-Site Assembly & Handover",
           description:
-            "Timecode-locked dry runs synchronizing kinetic motion rigs, volumetric laser projectors, and keynote speaker cues with microsecond fidelity.",
+            "Pre-build fit checks in workshop followed by rapid 48-hour on-site load-in, electrical wiring, lighting integration, and spotless handover.",
         },
       ],
       equipmentSpecs: [
         {
-          category: "Show Control & Media Servers",
+          category: "Workshop Machinery & Tooling",
           items: [
-            "disguise gx3 & vx4+ Media Servers (16K uncompressed)",
-            "grandMA3 Full-Size & Light DMX Consoles",
-            "Brainstorm SR-112 SMPTE Timecode Generators",
+            "Biesse Rover 5-Axis Industrial CNC Router",
+            "Pressurized Downdraft Polyurethane Paint Spray Booth",
+            "MIG/TIG Certified Structural Steel Welding Stations",
           ],
         },
         {
-          category: "Acoustics & Audio Reinforcement",
+          category: "Materials & Structural Systems",
           items: [
-            "d&b audiotechnik SL-Series (GSL/KSL) Line Arrays",
-            "DiGiCo Quantum 7 & Quantum 338 Digital Consoles",
-            "Shure Axient Digital Wireless Microphone Systems with ShowLink",
-          ],
-        },
-        {
-          category: "Kinetic Rigging & Volumetrics",
-          items: [
-            "Kinesys Apex Variable Speed Motor Hoists",
-            "Kvant Spectrum 30W RGB Volumetric Show Lasers",
-            "Tyler Truss GT & Tomcat Heavy-Duty Structural Rigging",
+            "Class 1 Fire-Retardant Marine Plywood & MDF",
+            "Engineered Structural Steel Box Sections for Double-Deckers",
+            "High-Durability Architectural Laminates & Acrylic Diffusers",
           ],
         },
       ],
       caseStudies: [
         {
-          title: "Global Enterprise AI Keynote Summit",
-          venue: "SAP Center // San Jose, CA",
-          scale: "18,500 In-Person Attendees // 1.2M Livestream",
-          highlight: "Zero audio dropouts across 74 keynote presentations with 3D volumetric laser reveals.",
+          title: "Airbus Double-Decker Aerospace Pavilion",
+          venue: "Dubai Airshow // DWC Dubai",
+          scale: "450 m² Double-Decker // 100% In-House Workshop Build",
+          highlight: "Delivered 24 hours ahead of schedule with zero snag items and VIP lounge suites.",
         },
         {
-          title: "Next-Gen EV Worldwide Launch",
-          venue: "ExCeL Arena // London, UK",
-          scale: "12,000 Attendees // 64 Kinetic LED Hoists",
-          highlight: "360-degree kinetic vehicle reveal with sub-frame synchronized LED motion graphics.",
+          title: "ADCB Digital Banking Pavilion",
+          venue: "Fintech Surge // Dubai World Trade Centre (DWTC)",
+          scale: "280 m² Custom Stand // Curved Acrylic LED Integration",
+          highlight: "Seamless architectural finish with illuminated kinetic arches and private meeting pods.",
         },
       ],
       deliverablesChecklist: [
-        "Complete 3D CAD Rigging & Load-Calculation Schematics",
-        "Redundant Audio/Video Signal Flow Diagrams & IP Tables",
-        "Full SMPTE Cue Sheets & Master Timecode Timeline",
-        "On-site Lead Engineer & 24/7 Redundant Tech Crew",
-        "Post-Event Telemetry & Audio Log Archive",
+        "Photorealistic 3D Stand Renders & Technical CAD Blueprints",
+        "Structural Engineering Load Certificates (PE Stamped)",
+        "Venue Electrical, Water & Rigging Permit Approvals",
+        "Dedicated Workshop Project Manager on Site 24/7",
+        "Turnkey Dismantle, Green Strike & Recycling Documentation",
       ],
-      slaGuarantee: "99.999% Show Uptime SLA with 0.0ms Optical Failover Guarantee",
+      slaGuarantee: "100% On-Time Turnkey Handover with ISO 9001 Quality SLA",
     },
   },
   {
-    id: "production-logistics",
-    category: "02 // COMMAND & GLOBAL OPERATIONS",
-    title: "Event Production & Logistics",
-    tagline: "Air-Tight Freight, Permitting, Crowd Flow & Incident Command",
+    id: "event-management",
+    category: "02 // CORPORATE EVENT OPERATIONS",
+    title: "Corporate Event Management",
+    tagline: "Gala Dinners, Product Reveals, Brand Activations & Executive Summits",
     shortDescription:
-      "Global turnkey masterplanning handling international customs, venue structural permitting, VIP security protocols, and 24/7 command operations.",
-    icon: ShieldCheck,
+      "End-to-end turnkey event management. We handle venue sourcing, thematic stage design, audio-visual technical direction, catering coordination, and on-site run of show.",
+    icon: Sparkles,
     colSpan: "lg:col-span-5",
     image: "/images/executive-pavilion.jpg",
-    imageAlt: "Executive summit pavilion atrium with VIP logistics command",
-    badge: "COMMAND CENTER",
-    metric: { value: "120+", label: "Countries Supported" },
-    accentColor: "#1E40AF",
+    imageAlt: "Corporate event management and executive gala setup in Dubai",
+    badge: "EVENT MANAGEMENT",
+    metric: { value: "99.8%", label: "Client CSAT" },
+    accentColor: "#00A7F5",
     subDeliverables: [
-      "End-to-end ATA Carnet & international air freight logistics",
-      "Local municipal structural & fire safety permitting",
-      "Unified Event Operations Center (EOC) telemetry hub",
-      "Dynamic high-density attendee crowd flow management",
+      "Turnkey end-to-end event planning & thematic concepting",
+      "Executive run of show choreography & master show calling",
+      "VIP delegate concierge, green-rooms & registration systems",
+      "Stage set design, ambient lighting & live entertainment curation",
     ],
     drawerData: {
       heroOverview:
-        "Flawless production demands rigorous operational discipline. We manage international supply chains, municipal compliance, site coordination, and executive protection protocols so your team experiences zero operational friction.",
+        "From high-stakes product launches to prestigious corporate gala dinners, our event producers deliver flawless experiences where creative storytelling meets surgical operational discipline.",
       workflows: [
         {
           step: "PHASE 01",
-          title: "Logistics Masterplanning & ATA Carnet Filing",
+          title: "Thematic Ideation & Budget Structuring",
           description:
-            "Complete customs clearance and air/sea freight routing for mission-critical hardware across multiple international borders simultaneously.",
+            "Establishing the creative vision, spatial layouts, attendee journey mapping, and milestone budget allocations.",
         },
         {
           step: "PHASE 02",
-          title: "Municipal Permitting & Structural Engineering",
+          title: "Production Sourcing & Vendor Integration",
           description:
-            "Securing certified PE stamped load approvals, local fire marshal permits, and ingress/egress safety clearances ahead of build-out.",
+            "Coordinating stage set fabrication, technical AV riders, luxury hospitality, and entertainment rehearsals.",
         },
         {
           step: "PHASE 03",
-          title: "Unified Command Center Operations",
+          title: "Live On-Site Show Orchestration",
           description:
-            "Central dispatch monitoring live radio comms, schedule run-of-show cues, load-in timelines, and weather telemetry with real-time escalation protocols.",
+            "Master show caller and stage managers driving minute-by-minute cue execution with zero room for error.",
         },
       ],
       equipmentSpecs: [
         {
           category: "Operations & Communications",
           items: [
-            "Riedel Bolero Wireless Intercom Systems (300+ Beltpacks)",
-            "Motorola MOTOTRBO Digital Two-Way Radio Networks",
-            "Live GPS Freight Tracking & Climate-Controlled Cargo Containers",
-          ],
-        },
-        {
-          category: "Site Management & Safety",
-          items: [
-            "Structural Load-Cell Telemetry & Wind Anemometer Sensors",
-            "Emergency Fail-Safe Backup Power Generators (Twin-Pack Synchronized)",
-            "High-Capacity Turnstile & RFID Badge Ingress Systems",
+            "Riedel Bolero Wireless Intercom Matrices",
+            "Digital Run-of-Show Clocks & Stage Confidence Monitors",
+            "Contactless RFID / QR VIP Registration Kiosks",
           ],
         },
       ],
       caseStudies: [
         {
-          title: "Transatlantic Financial Leadership Summit",
-          venue: "Palais des Congrès // Paris & Singapore Dual-Hub",
-          scale: "8,200 Delegates // 42 Cargo Air Pallets",
-          highlight: "Seamless customs transit in 48 hours with zero schedule delays across continents.",
+          title: "Red Bull High-Octane Kinetic Brand Activation",
+          venue: "Dubai Autodrome // Dubai",
+          scale: "3,500 Attendees // Live Action Stunt Stage",
+          highlight: "360-degree immersive brand experience with interactive simulator pods and kinetic lighting.",
         },
       ],
       deliverablesChecklist: [
-        "Comprehensive Master Production Schedule (Minute-by-Minute)",
-        "Certified Structural & Fire Marshall Safety Submissions",
-        "Freight Tracking Dashboard & Manifests",
-        "Radio Comms Channel Matrix & Call Sheets",
-        "Incident Command & Evacuation Playbooks",
+        "Minute-by-Minute Master Run of Show Document",
+        "VIP Protocol & Executive Seating Architecture",
+        "Complete Event Operations & Risk Management Playbook",
+        "Post-Event Media Highlights & Attendee Telemetry Report",
       ],
-      slaGuarantee: "Guaranteed On-Time Strike & Load-In with 100% Regulatory Compliance",
+      slaGuarantee: "Zero-Fail Live Execution SLA with Dedicated Executive Producer",
     },
   },
   {
-    id: "creative-media",
-    category: "03 // SPATIAL MEDIA & GENERATIVE ART",
-    title: "Creative & Media Design",
-    tagline: "Unreal Engine 5 Previz, Generative Motion & Spatial Scenography",
+    id: "event-organizing",
+    category: "03 // CONGRESSES & TRADE SHOWS",
+    title: "International Event Organizing",
+    tagline: "Large-Scale Congresses, B2B Trade Shows & Diplomatic Summits",
     shortDescription:
-      "Transforming physical spaces into kinetic brand worlds with 16K custom LED geometry, interactive motion capture, and real-time visual engines.",
-    icon: Palette,
+      "Comprehensive event organizing for international associations, governments, and commercial trade show organizers across DEC, DWTC, ADNEC, and global hubs.",
+    icon: Globe2,
     colSpan: "lg:col-span-5",
+    image: "/images/kinetic-installation.jpg",
+    imageAlt: "International congress and trade show organizing in Dubai",
+    badge: "GLOBAL CONGRESS",
+    metric: { value: "250K+", label: "Delegates Hosted" },
+    accentColor: "#1E40AF",
+    subDeliverables: [
+      "Multi-hall floor plan design & exhibitor grid zoning",
+      "Government ministerial protocol & diplomatic security",
+      "International delegate ticketing & accreditation portals",
+      "Simultaneous multilingual interpretation & plenary staging",
+    ],
+    drawerData: {
+      heroOverview:
+        "Impact Makers Events organizes complex international congresses hosting ministerial delegations and thousands of international trade visitors with seamless protocol and technical precision.",
+      workflows: [
+        {
+          step: "PHASE 01",
+          title: "Master Floorplan Architecture & Zoning",
+          description:
+            "Designing exhibition halls, plenary auditoriums, bilateral meeting suites, and press centers compliant with venue safety.",
+        },
+        {
+          step: "PHASE 02",
+          title: "Diplomatic Protocol & Security Clearances",
+          description:
+            "Liaising with government security, police authorities, and venue management for VIP motorcades and high-security access.",
+        },
+        {
+          step: "PHASE 03",
+          title: "Full Congress Delivery & Multi-Track Operations",
+          description:
+            "Simultaneous management of up to 12 parallel conference tracks, live voting sessions, and exhibition floor logistics.",
+        },
+      ],
+      equipmentSpecs: [
+        {
+          category: "Congress Systems",
+          items: [
+            "Bosch DCN Next Generation Wireless Conference Mic Systems",
+            "Multi-Channel Infrared Simultaneous Interpretation (8+ Languages)",
+            "Automated Delegate Badge Printing & Access Control Turnstiles",
+          ],
+        },
+      ],
+      caseStudies: [
+        {
+          title: "Universal Postal Congress Ministerial Assembly",
+          venue: "Dubai Exhibition Centre (DEC) // Expo City Dubai",
+          scale: "192 Member Nations // 14-Day Diplomatic Congress",
+          highlight: "Flawless plenary management, secure bilateral voting suites, and 100% protocol compliance.",
+        },
+      ],
+      deliverablesChecklist: [
+        "Complete Congress Masterplan & Multi-Track Schedule",
+        "Diplomatic Protocol & Bilateral Room Booking Matrix",
+        "Accreditation Badge Systems & Security Clearances",
+        "Post-Congress Proceedings & Official Media Documentation",
+      ],
+      slaGuarantee: "100% Diplomatic Protocol Compliance & Zero-Downtime Interpretation",
+    },
+  },
+  {
+    id: "av-lighting",
+    category: "04 // CONCERT AV & STAGE LIGHTING",
+    title: "Sound & Audiovisual Systems Services",
+    tagline: "Curved 4K LED Video Walls, Line Array Sound & DMX Stage Lighting",
+    shortDescription:
+      "Turnkey broadcast-grade audiovisual rental and technical installation. Ultra-fine pitch LED ribbon walls, concert-grade acoustic arrays, robotic stage lighting, and projection mapping.",
+    icon: Cpu,
+    colSpan: "lg:col-span-7",
+    image: "/images/summit-keynote.jpg",
+    imageAlt: "Concert-grade AV, stage lighting and 4K LED video displays",
+    badge: "CONCERT AV",
+    metric: { value: "15,000 m²", label: "LED Wall Stock" },
+    accentColor: "#003E95",
+    subDeliverables: [
+      "Ultra-fine pitch indoor & outdoor curved LED video displays",
+      "Concert-grade L-Acoustics & d&b audiotechnik line array sound",
+      "Robotic DMX beam, spot & wash stage lighting rigs",
+      "Architectural 3D projection mapping & media server arrays",
+    ],
+    drawerData: {
+      heroOverview:
+        "We own and deploy an extensive inventory of concert-grade audiovisual systems. From immersive curved LED video ribbons to crystal-clear stadium acoustics, we deliver unmatched sensory impact.",
+      workflows: [
+        {
+          step: "PHASE 01",
+          title: "Acoustic Simulation & Optical Mapping",
+          description:
+            "3D sound mapping using Soundvision/EASE to ensure uniform SPL coverage, paired with pixel-accurate LED canvas sizing.",
+        },
+        {
+          step: "PHASE 02",
+          title: "Rigging, Trussing & Redundant Fiber Cabling",
+          description:
+            "Certified structural rigging with load-monitored electric chain hoists and dual-redundant optical fiber signal rings.",
+        },
+        {
+          step: "PHASE 03",
+          title: "Timecode Calibration & Show Execution",
+          description:
+            "SMPTE timecode lock between lighting cues, video playback, and live speaker microphones for zero-latency impact.",
+        },
+      ],
+      equipmentSpecs: [
+        {
+          category: "Display & Media Servers",
+          items: [
+            "ROE Visual BP2V2 & Ruby 2.6mm/1.9mm Fine-Pitch LED Panels",
+            "Brompton SX40 4K LED Video Processors",
+            "disguise vx4+ & Barco Event Master E2 Gen 2 Screen Management",
+          ],
+        },
+        {
+          category: "Audio & Stage Lighting",
+          items: [
+            "d&b audiotechnik KSL/V-Series Line Array Systems",
+            "DiGiCo Quantum 338 & SD12 Digital Mixing Consoles",
+            "Robe BMFL, MegaPointe & Claypaky Sharpy Moving Lights",
+          ],
+        },
+      ],
+      caseStudies: [
+        {
+          title: "Bloomberg & CNBC Broadcast Studio Stage",
+          venue: "Madinat Jumeirah // Dubai",
+          scale: "Live Global Financial Broadcast // 4K Curved LED Ribbon",
+          highlight: "Pristine Rec.709 color calibration with zero flicker under high-speed studio broadcast cameras.",
+        },
+      ],
+      deliverablesChecklist: [
+        "Acoustic SPL Distribution Heatmaps & Coverage Reports",
+        "Complete 3D Rigging Load Calculations (PE Certified)",
+        "Redundant Signal Flow Diagrams & Master IP Tables",
+        "On-Site Senior Audio & Video Engineers During Entire Event",
+      ],
+      slaGuarantee: "99.999% AV Uptime SLA with Hot-Swappable Backup Systems",
+    },
+  },
+  {
+    id: "videography-photography",
+    category: "05 // 4K BROADCAST & MEDIA",
+    title: "Photography & Videography Services",
+    tagline: "4K Multi-Camera Livestreaming, Corporate Media Production & PR Masters",
+    shortDescription:
+      "Broadcast-grade media production. 4K HDR multi-camera livestream flypacks, cinematic aftermovies, high-resolution stand photo documentation, and rapid PR media packages.",
+    icon: Activity,
+    colSpan: "lg:col-span-7",
     image: "/images/prev/booth_1.webp",
-    imageAlt: "Exhibition design with warm kinetic lighting and 3D media screens",
-    badge: "CREATIVE ENGINE",
-    metric: { value: "16K", label: "Native LED Canvas" },
+    imageAlt: "4K videography and photography for exhibitions and summits",
+    badge: "4K BROADCAST",
+    metric: { value: "30 Min", label: "Fast PR Reel Delivery" },
     accentColor: "#00A7F5",
     subDeliverables: [
-      "Real-time Unreal Engine 5 spatial twin previsualization",
-      "16K generative key art & motion brand packages",
-      "Dynamic interactive sensor-driven stage surfaces",
-      "Bespoke spatial soundscapes & keynote audio branding",
+      "4K HDR multi-camera live broadcast & multi-platform streaming",
+      "Cinema-grade drone & gimbal exhibition hall footage",
+      "Instant PR highlight reels & social media cutdowns",
+      "High-resolution architectural exhibition stand photography",
     ],
     drawerData: {
       heroOverview:
-        "Where digital artistry converges with physical architecture. We design visual identity systems, motion graphics, and generative canvases that captivate audiences and elevate executive storytelling.",
+        "Capture every angle of your exhibition presence and keynote moments. Our broadcast team operates cinema-grade camera packages and mobile editing suites delivering fast-turnaround PR content.",
       workflows: [
         {
           step: "PHASE 01",
-          title: "Digital Twin Spatial Previz (UE5)",
+          title: "Shot List & Broadcast Architecture",
           description:
-            "Building 1:1 photorealistic digital twins of the event venue, allowing stakeholders to review stage sightlines and lighting cues virtually months in advance.",
+            "Pre-event shot planning, multi-camera positioning, fiber run planning, and satellite uplink configurations.",
         },
         {
           step: "PHASE 02",
-          title: "Generative Content & Keynote Motion Design",
+          title: "Live 4K Capture & Switching",
           description:
-            "Crafting custom 16K visual assets, keynote speaker walk-up stingers, kinetic stage backdrops, and interactive generative visual packages.",
+            "Live multi-camera vision mixing with graphic overlays, lower-thirds, and synchronized clean audio feeds.",
         },
         {
           step: "PHASE 03",
-          title: "On-Site Pixel Mapping & Color Calibration",
+          title: "Rapid On-Site Post-Production",
           description:
-            "Direct calibration with spectrophotometers across all LED panels, ensuring pristine Rec.709/DCI-P3 color accuracy for broadcast cameras.",
+            "Dedicated on-site editors generating 60-second social highlight reels and master press packages within 30 minutes of keynote conclusion.",
         },
       ],
       equipmentSpecs: [
         {
-          category: "Real-Time Render Engines",
+          category: "Cameras & Optics",
           items: [
-            "Unreal Engine 5.4 Virtual Production Workstations",
-            "Notch VFX Real-Time Generative Motion Graphics",
-            "TouchDesigner Interactive Sensor Processing Servers",
+            "Sony FX9 & FX6 Cinema Line 4K Cameras",
+            "Blackmagic URSA Broadcast G2 4K Live Chains",
+            "DJI Ronin 4D & DJI Inspire 3 Cinema Drones",
           ],
         },
         {
-          category: "Display Technology & Pixel Processors",
+          category: "Broadcast & Livestream",
           items: [
-            "Brompton SX40 4K/8K LED Video Processors",
-            "ROE Visual Black Pearl BP2V2 & Ruby High-Nits LED Panels",
-            "Barco UDX-4K40 High-Lumen Laser Projectors",
+            "Blackmagic ATEM Constellation 8K Vision Switcher",
+            "LiveU LU800 Multi-Cam 5G Cellular Transmission Units",
+            "AJA Ki Pro Ultra 12G Multi-Channel 4K Master Recorders",
           ],
         },
       ],
       caseStudies: [
         {
-          title: "SaaS Enterprise Visionary Gala",
-          venue: "Masonic Auditorium // San Francisco, CA",
-          scale: "4,500 Attendees // 280-degree Curved LED Canvas",
-          highlight: "Generative audio-reactive visuals rendered live at 60 FPS across 14 million physical pixels.",
+          title: "Samsung Tech Pavilion Global Unveil",
+          venue: "Dubai World Trade Centre (DWTC) // Dubai",
+          scale: "2.4M Live Enterprise Viewers Across 120 Countries",
+          highlight: "Flawless multi-camera 4K livestream with sub-second global transmission latency.",
         },
       ],
       deliverablesChecklist: [
-        "Interactive 3D Virtual Previz Environment (Browser & VR Accessible)",
-        "Master 16K Keynote Video Package (Apple ProRes 4444 XQ)",
-        "Broadcast Color-Matched LED Canvas LUTs",
-        "Spatial Audio Stems & Keynote Walk-Up Jingles",
-        "Content Media Playback Schedule & Backup Drive Clones",
+        "Uncompressed 4K Master Video Archives (ProRes 422 HQ)",
+        "Same-Day High-Resolution Curated Photo Gallery",
+        "Social-Ready Vertical (9:16) & Widescreen (16:9) Video Cuts",
+        "Full Livestream Recording & Raw Multi-Track Audio Stems",
       ],
-      slaGuarantee: "100% Broadcast Color Fidelity & Native Frame-Rate Lock",
+      slaGuarantee: "Same-Day Press Delivery with Full Commercial Copyright Clearance",
     },
   },
   {
-    id: "culinary-hospitality",
-    category: "04 // EXECUTIVE HOSPITALITY & GASTRONOMY",
-    title: "Hospitality & Guest Experience",
-    tagline: "Michelin-Partner Haute Cuisine & High-Throughput Executive Catering",
+    id: "space-selling",
+    category: "06 // COMMERCIAL MONETIZATION",
+    title: "Exhibition Space Selling Services",
+    tagline: "Floor Plan Monetization, Exhibitor Recruitment & Sponsorship Packaging",
     shortDescription:
-      "Bespoke dining ecosystems built for high-density enterprise summits. From multi-course VIP private dining to rapid-service culinary pavilions.",
-    icon: UtensilsCrossed,
-    colSpan: "lg:col-span-7",
-    image: "/images/kinetic-installation.jpg",
-    imageAlt: "Gala dinner installation with kinetic chandelier ambiance",
-    badge: "HOSPITALITY",
-    metric: { value: "5,000+", label: "Plates / Hour" },
-    accentColor: "#3B82F6",
+      "Strategic commercial consulting for trade show organizers. We recruit international exhibitors, package high-yield sponsorships, and maximize square-meter revenue.",
+    icon: ShieldCheck,
+    colSpan: "lg:col-span-5",
+    image: "/images/executive-pavilion.jpg",
+    imageAlt: "Exhibition space selling and trade show monetization",
+    badge: "SPACE MONETIZATION",
+    metric: { value: "150K m²", label: "Floor Space Sold" },
+    accentColor: "#1E40AF",
     subDeliverables: [
-      "Curated menus by Michelin-starred culinary partners",
-      "High-speed precision staging for 5,000+ guest covers",
-      "Executive VIP lounges with sommelier-led mixology",
-      "Sustainable zero-waste sourcing & allergen protocol",
+      "Commercial floor plan grid optimization & pricing strategy",
+      "Global B2B exhibitor acquisition & country pavilion sales",
+      "High-value sponsorship tier creation & monetization",
+      "Exhibitor onboarding, manual approvals & booth coordination",
     ],
     drawerData: {
       heroOverview:
-        "Gastronomy as an extension of brand prestige. We engineer culinary operations with the precision of a high-end restaurant group, delivering culinary memories at stadium scale without compromises in temperature or presentation.",
+        "Maximize the commercial yield of your exhibition hall. We leverage an extensive international network of trade promotion councils, multinational enterprises, and industry bodies to fill floor plans rapidly.",
       workflows: [
         {
           step: "PHASE 01",
-          title: "Concept Design & Menu Prototyping",
+          title: "Floorplan Valuation & Yield Modeling",
           description:
-            "Collaborative tasting sessions with Michelin-starred partner chefs to design menus aligned with event themes, VIP dietary preferences, and regional culinary culture.",
+            "Categorizing exhibition zones, premium island locations, and sponsorship asset pricing for maximum revenue.",
         },
         {
           step: "PHASE 02",
-          title: "Satellite Kitchen Architecture & Cold-Chain Prep",
+          title: "International Exhibitor Acquisition",
           description:
-            "Construction of temporary commercial-grade satellite induction kitchens adjacent to the ballroom to ensure sub-2-minute plating-to-table service.",
+            "Direct outreach across our network in Europe, the GCC, Asia, and the Americas to secure anchor pavilion bookings.",
         },
         {
           step: "PHASE 03",
-          title: "Synchronized Service Choreography",
+          title: "Exhibitor Service & Contract Fulfillment",
           description:
-            "Dedicated brigade service with radio-synchronized team captains executing simultaneous synchronized drops across hundreds of banquet tables.",
+            "Full-cycle exhibitor support from contract signing and payment processing to technical service orders.",
         },
       ],
       equipmentSpecs: [
         {
-          category: "Kitchen & Staging Technology",
+          category: "Commercial CRM & Floorplan Software",
           items: [
-            "Rational iCombi Pro Commercial Combi Ovens",
-            "Blast Chillers & Mobile Cold-Chain Holding Units",
-            "Custom Induction Plating Lines with Precision Heat Lamps",
-          ],
-        },
-        {
-          category: "Service Ware & Lounge Furniture",
-          items: [
-            "Bespoke Artisan Stoneware & Schott Zwiesel Crystal Stemware",
-            "Modular VIP Lounge Bars & Custom Nitrogen Cocktail Stations",
-            "Zero-Waste Biodegradable Backstage Crew Catering Ware",
+            "Expocad Interactive 3D Floorplan Management Systems",
+            "Enterprise Exhibitor Portal & Digital Contract Signing",
+            "Live Space Occupancy & Revenue Tracking Telemetry",
           ],
         },
       ],
       caseStudies: [
         {
-          title: "World Tech Founders Global Gala",
-          venue: "Bellagio Grand Ballroom // Las Vegas, NV",
-          scale: "3,800 VIP Guests // 4-Course Synchronized Plated Service",
-          highlight: "Entire ballroom served simultaneously in under 6 minutes per course with 99.7% satisfaction rating.",
+          title: "International Industrial & Energy Expo",
+          venue: "Abu Dhabi National Exhibition Centre (ADNEC)",
+          scale: "25,000 m² Exhibition Floor // 450+ Exhibitors",
+          highlight: "Achieved 98% floor space occupancy and exceeded sponsorship revenue targets by 40%.",
         },
       ],
       deliverablesChecklist: [
-        "Executive Tasting Menus & Sommelier Wine Pairing Guides",
-        "Dietary & Allergen Matrix (Halal, Kosher, Vegan, Gluten-Free)",
-        "Satellite Kitchen Floorplans & Utility Schematics",
-        "Front-of-House Service Choreography Timetable",
-        "Full Sustainability & Food Waste Recovery Report",
+        "Comprehensive Space Monetization Strategy Document",
+        "Digital Interactive Floorplan with Real-Time Booking Status",
+        "Sponsorship Pitch Deck & Contract Templates",
+        "Weekly Exhibitor Pipeline & Commercial Revenue Reports",
       ],
-      slaGuarantee: "Hot Food Served at &gt;65°C / Cold at &lt;4°C with 100% Dietary Accuracy",
+      slaGuarantee: "Guaranteed High-Yield Occupancy & Verified Exhibitor Acquisition SLA",
+    },
+  },
+  {
+    id: "branding-gifts",
+    category: "07 // CORPORATE BRANDING & MERCHANDISE",
+    title: "Gifts & Corporate Branding Services",
+    tagline: "Luxury Executive Gift Sets, Roll-Up Banners & Premium Merchandise",
+    shortDescription:
+      "Complete brand physicalization. Luxury corporate gift sets for VIP delegates, teardrop flags, roll-up banners, sustainable exhibition giveaways, and executive gift packaging.",
+    icon: Sparkles,
+    colSpan: "lg:col-span-5",
+    image: "/images/kinetic-installation.jpg",
+    imageAlt: "Luxury corporate gifts and event branding collateral",
+    badge: "VIP BRANDING",
+    metric: { value: "50,000+", label: "VIP Gifts Delivered" },
+    accentColor: "#00A7F5",
+    subDeliverables: [
+      "Custom executive leather, crystal & tech VIP gift sets",
+      "High-definition roll-up banners, pop-ups & teardrop flags",
+      "Eco-friendly sustainable tote bags, lanyards & badge holders",
+      "Precision UV printing, laser engraving & debossed leather branding",
+    ],
+    drawerData: {
+      heroOverview:
+        "Leave an indelible impression long after the exhibition ends. We design, customize, and produce premium corporate gifts and graphic collateral that reflect your organization's caliber.",
+      workflows: [
+        {
+          step: "PHASE 01",
+          title: "Gift Curation & Prototype Sampling",
+          description:
+            "Selecting premium items aligned with brand aesthetics, creating digital mockups, and delivering physical prototypes for executive sign-off.",
+        },
+        {
+          step: "PHASE 02",
+          title: "Precision In-House Customization",
+          description:
+            "Laser engraving, blind debossing, gold foil stamping, and high-definition UV color printing.",
+        },
+        {
+          step: "PHASE 03",
+          title: "Luxury Packaging & On-Site Handover",
+          description:
+            "Custom-molded presentation boxes, satin lining, and organized delivery directly to VIP suites or exhibition stands.",
+        },
+      ],
+      equipmentSpecs: [
+        {
+          category: "Customization & Finishing Machinery",
+          items: [
+            "Industrial Fiber Laser Engraving & Marking Systems",
+            "Mimaki High-Resolution Flatbed UV Color Printers",
+            "Hydraulic Hot-Foil Stamping & Blind Debossing Presses",
+          ],
+        },
+      ],
+      caseStudies: [
+        {
+          title: "GCC Ministerial Summit VIP Executive Kit",
+          venue: "Ritz-Carlton Dubai // Dubai",
+          scale: "1,200 Bespoke Leather & Smart Tech Gift Sets",
+          highlight: "Custom engraved presentation boxes delivered with 100% precision and zero defect rate.",
+        },
+      ],
+      deliverablesChecklist: [
+        "Physical Material Sample Box & Digital Brand Mockups",
+        "Individual Protective Packaging & Presentation Bags",
+        "Direct Delivery to Stand / Hotel Suite with Manifest Verification",
+      ],
+      slaGuarantee: "Zero-Defect Quality Guarantee with Precision Brand Pantones",
+    },
+  },
+  {
+    id: "furniture-rental",
+    category: "08 // DESIGNER EVENT FURNITURE",
+    title: "Designer Event Furniture Rental",
+    tagline: "Scandinavian Armchairs, Corbusier Sofas, Tolix Barstools & Coffee Tables",
+    shortDescription:
+      "Elevate your exhibition booth or VIP lounge. Extensive inventory of luxury Scandinavian armchairs, Corbusier leather sofas, Tolix barstools, wire tables, and LED illuminated counters.",
+    icon: Box,
+    colSpan: "lg:col-span-7",
+    image: "/images/prev/booth_1.webp",
+    imageAlt: "Designer event furniture rental in Dubai by Impact Makers Events",
+    badge: "LUXURY RENTALS",
+    metric: { value: "2,500+", label: "Furniture Catalog Items" },
+    accentColor: "#003E95",
+    subDeliverables: [
+      "Scandinavian lounge armchairs & velvet accent seating",
+      "Le Corbusier LC2 & LC3 style luxury leather sofas",
+      "Industrial Tolix barstools & high-top cocktail tables",
+      "Geometric wire coffee tables, reception desks & display plinths",
+    ],
+    drawerData: {
+      heroOverview:
+        "Transform an empty booth into an inviting, high-converting executive salon. Our designer furniture rental inventory features immaculate, high-end pieces tailored specifically for Dubai exhibitions.",
+      workflows: [
+        {
+          step: "PHASE 01",
+          title: "Furniture Layout & Moodboard Curation",
+          description:
+            "Matching furniture aesthetics with your brand palette, creating 3D layout floorplans for optimal delegate flow and meeting comfort.",
+        },
+        {
+          step: "PHASE 02",
+          title: "Inspection, Protective Wrapping & Logistics",
+          description:
+            "Every piece is steam-cleaned, inspected for zero blemishes, padded in protective transit blankets, and dispatched.",
+        },
+        {
+          step: "PHASE 03",
+          title: "On-Site Placement & Post-Show Collection",
+          description:
+            "Placement exactly to CAD coordinates ahead of show opening, with full collection post-event.",
+        },
+      ],
+      equipmentSpecs: [
+        {
+          category: "Featured Designer Seating Collections",
+          items: [
+            "Le Corbusier Style LC2 & LC3 1-Seater, 2-Seater & 3-Seater Sofas",
+            "Scandinavian Minimalist Velvet & Oak Lounge Armchairs",
+            "Original Style Tolix High Barstools (Matte Black, Gunmetal, Brushed Copper)",
+            "Eames Style DSW & DSR Ergonomic Conference Chairs",
+          ],
+        },
+        {
+          category: "Tables, Counters & Accessories",
+          items: [
+            "Geometric Black & Gold Wire Mesh Coffee Tables",
+            "White Marble Top Cocktail High-Tables & Bar High-Tops",
+            "Illuminated Acrylic Reception Desks & Display Plinths",
+          ],
+        },
+      ],
+      caseStudies: [
+        {
+          title: "Fintech Summit VIP Investor Lounge",
+          venue: "Dubai World Trade Centre (DWTC) // Dubai",
+          scale: "120 Lounge Sets // 60 High-Top Bar Configurations",
+          highlight: "Created an ultra-exclusive lounge atmosphere resulting in 300+ closed investor meetings.",
+        },
+      ],
+      deliverablesChecklist: [
+        "Interactive 3D Furniture Placement Blueprint",
+        "Steam-Cleaned & Pristine Protective Delivery Guarantee",
+        "On-Site Setup & Post-Event Collection Service",
+      ],
+      slaGuarantee: "Pristine Condition Guarantee with On-Site Replacement Buffer",
     },
   },
 ];
