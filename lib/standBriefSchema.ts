@@ -168,6 +168,7 @@ export const step1Schema = z.object({
   standType: z.string().min(1, "Please select a stand layout type"),
   floorPlanName: z.string(),
   floorPlanSize: z.string(),
+  floorPlanUrl: z.string().optional(),
 });
 
 export const uploadedFileSchema = z.object({
@@ -260,6 +261,7 @@ export const DEFAULT_BRIEF_VALUES: StandBriefFormData = {
     standType: "",
     floorPlanName: "",
     floorPlanSize: "",
+    floorPlanUrl: "",
   },
   step2: {
     primaryGoals: ["Product Presentation"],

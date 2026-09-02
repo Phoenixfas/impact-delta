@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Globe2,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useSmoothScroll } from "./SmoothScroll";
 
 interface SocialLink {
@@ -85,10 +86,18 @@ const GLOBAL_PRESENCE = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
   const { scrollTo } = useSmoothScroll();
   const [copiedBadge, setCopiedBadge] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
+  const [newsletterError, setNewsletterError] = useState("");
+
+  // Disable website footer on dashboard / admin routes
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   const handleCopy = (text: string, badgeId: string) => {
     navigator.clipboard.writeText(text);
@@ -104,11 +113,34 @@ export default function Footer() {
     }
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (newsletterEmail) {
-      setNewsletterSubscribed(true);
-      setNewsletterEmail("");
+    if (!newsletterEmail || !newsletterEmail.includes("@")) return;
+
+    setNewsletterLoading(true);
+    setNewsletterError("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: newsletterEmail.trim().toLowerCase(),
+          topics: ["Executive Briefing", "Exhibition Insights"],
+        }),
+      });
+
+      if (res.ok) {
+        setNewsletterSubscribed(true);
+        setNewsletterEmail("");
+      } else {
+        const data = await res.json();
+        setNewsletterError(data.error || "Subscription failed. Please try again.");
+      }
+    } catch {
+      setNewsletterError("Network error. Please try again.");
+    } finally {
+      setNewsletterLoading(false);
     }
   };
 

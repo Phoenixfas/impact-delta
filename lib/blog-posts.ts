@@ -416,8 +416,97 @@ export const DETAILED_BLOG_POSTS: Record<string, DetailedBlogPost> = {
   },
 };
 
+export function parseMarkdownSections(content: string): ArticleSection[] {
+  if (!content) return [];
+  const rawSections = content.split(/(?=^##\s+)/m);
+  const sections: ArticleSection[] = [];
+
+  for (let i = 0; i < rawSections.length; i++) {
+    const raw = rawSections[i].trim();
+    if (!raw) continue;
+
+    if (raw.startsWith("## ")) {
+      const firstLineEnd = raw.indexOf("\n");
+      const title = firstLineEnd === -1 ? raw.replace("## ", "").trim() : raw.slice(3, firstLineEnd).trim();
+      const body = firstLineEnd === -1 ? "" : raw.slice(firstLineEnd).trim();
+      const paragraphs = body
+        .split(/\n\n+/)
+        .map((p) => p.trim())
+        .filter(Boolean);
+
+      sections.push({
+        id: title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40) || `section-${i}`,
+        title,
+        level: 2,
+        content: paragraphs.length > 0 ? paragraphs : [body],
+      });
+    } else {
+      const paragraphs = raw
+        .split(/\n\n+/)
+        .map((p) => p.trim())
+        .filter(Boolean);
+
+      sections.push({
+        id: `overview-${i}`,
+        title: "Executive Overview",
+        level: 2,
+        content: paragraphs,
+      });
+    }
+  }
+
+  if (sections.length === 0) {
+    sections.push({
+      id: "overview",
+      title: "Executive Overview",
+      level: 2,
+      content: [content],
+    });
+  }
+
+  return sections;
+}
+
+export function mapPrismaToDetailedBlogPost(dbPost: any): DetailedBlogPost {
+  const category = dbPost.category || "Stand Fabrication";
+  let categoryColor = "blue";
+  if (category.toLowerCase().includes("event")) categoryColor = "emerald";
+  else if (category.toLowerCase().includes("av") || category.toLowerCase().includes("production")) categoryColor = "indigo";
+  else if (category.toLowerCase().includes("guideline") || category.toLowerCase().includes("dwtc")) categoryColor = "amber";
+
+  const authorName = dbPost.author?.name || "Tariq Al-Mansoor";
+  const tags = Array.isArray(dbPost.tags) ? (dbPost.tags as string[]) : [];
+
+  return {
+    slug: dbPost.slug,
+    title: dbPost.title,
+    subtitle: dbPost.excerpt,
+    excerpt: dbPost.excerpt,
+    category: dbPost.category,
+    categoryLabel: dbPost.category,
+    categoryColor,
+    tags: tags.length > 0 ? tags : [dbPost.category],
+    readTime: dbPost.readingTime || "6 Min Read",
+    date: new Date(dbPost.createdAt).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }),
+    author: {
+      name: authorName,
+      role: dbPost.author?.role === "ADMIN" ? "Managing Director & Founder" : "Senior Event Director",
+      avatar: "/images/team/marcus-chen.jpg",
+      bio: "Impact Makers Events executive leadership and editorial contributor.",
+    },
+    heroImage: dbPost.coverImage || "/images/prev/booth_1.webp",
+    heroImageAlt: dbPost.title,
+    sections: parseMarkdownSections(dbPost.content),
+    relatedSlugs: ["navigating-dwtc-dec-stand-guidelines", "in-house-cnc-joinery-vs-subcontracting"],
+  };
+}
+
 export function getBlogPostBySlug(slug: string): DetailedBlogPost | undefined {
-  return DETAILED_BLOG_POSTS[slug] || DETAILED_BLOG_POSTS["navigating-dwtc-dec-stand-guidelines"];
+  return DETAILED_BLOG_POSTS[slug];
 }
 
 export function getAllBlogSlugs(): string[] {

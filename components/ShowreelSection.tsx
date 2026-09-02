@@ -25,7 +25,7 @@ const STATS: Stat[] = [
 // Placeholder embed until a real showreel file/link is wired in — Big Buck
 // Bunny is the standard neutral, rights-free "this is a placeholder" video
 // used across web-dev demos.
-const PLACEHOLDER_YOUTUBE_ID = "aqz-KE-bpKQ";
+const PLACEHOLDER_YOUTUBE_ID = "coBQwwvDVZM";
 
 function formatStat(value: number, decimals: number, suffix: string) {
   const rounded = decimals > 0 ? value.toFixed(decimals) : Math.round(value).toLocaleString();
@@ -206,9 +206,8 @@ export default function ShowreelSection() {
               alt="Impact Makers Events showreel poster — exhibition stand fabrication and concert stagecraft"
               fill
               sizes="(max-width: 1024px) 100vw, 1024px"
-              className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                showVideo ? "opacity-0" : "opacity-100"
-              }`}
+              className={`object-cover transition-transform duration-700 group-hover:scale-105 ${showVideo ? "opacity-0" : "opacity-100"
+                }`}
             />
           </div>
 

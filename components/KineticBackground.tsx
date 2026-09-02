@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { useReveal } from "./RevealProvider";
 
 interface Particle {
@@ -63,8 +64,13 @@ interface FloatingDust {
 }
 
 export default function KineticBackground() {
+  const pathname = usePathname();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const { revealed } = useReveal();
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   useEffect(() => {
     const canvas = canvasRef.current;

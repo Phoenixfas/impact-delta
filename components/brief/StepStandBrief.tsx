@@ -156,13 +156,13 @@ export default function StepStandBrief() {
 
   // Multi-File Upload Handlers
   const handleFilesUpload = useCallback(
-    (files: FileList | File[]) => {
+    async (files: FileList | File[]) => {
       const newFiles: UploadedFile[] = [];
 
-      Array.from(files).forEach((file) => {
+      for (const file of Array.from(files)) {
         if (file.size > 20 * 1024 * 1024) {
           alert(`File ${file.name} exceeds 20MB limit.`);
-          return;
+          continue;
         }
 
         const sizeFormatted =
@@ -170,11 +170,25 @@ export default function StepStandBrief() {
             ? `${(file.size / (1024 * 1024)).toFixed(1)} MB`
             : `${Math.round(file.size / 1024)} KB`;
 
-        const isImage = file.type.startsWith("image/");
         let previewUrl: string | undefined = undefined;
 
-        if (isImage) {
-          previewUrl = URL.createObjectURL(file);
+        try {
+          const formData = new FormData();
+          formData.append("file", file);
+          const res = await fetch("/api/upload", {
+            method: "POST",
+            body: formData,
+          });
+          if (res.ok) {
+            const data = await res.json();
+            previewUrl = data.url;
+          } else if (file.type.startsWith("image/")) {
+            previewUrl = URL.createObjectURL(file);
+          }
+        } catch {
+          if (file.type.startsWith("image/")) {
+            previewUrl = URL.createObjectURL(file);
+          }
         }
 
         newFiles.push({
@@ -184,7 +198,7 @@ export default function StepStandBrief() {
           type: file.type,
           preview: previewUrl,
         });
-      });
+      }
 
       if (newFiles.length > 0) {
         setValue("step2.productFiles", [...productFiles, ...newFiles], {

@@ -215,9 +215,17 @@ export const BLOG_POSTS: BlogPost[] = [
 
 const ITEMS_PER_PAGE = 6;
 
-export default function BlogGrid() {
+interface BlogGridProps {
+  initialPosts?: BlogPost[];
+}
+
+export default function BlogGrid({ initialPosts }: BlogGridProps = {}) {
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<Map<string, HTMLElement>>(new Map());
+
+  const [posts, setPosts] = useState<BlogPost[]>(
+    initialPosts && initialPosts.length > 0 ? initialPosts : BLOG_POSTS
+  );
 
   // Filter & Search State
   const [activeCategory, setActiveCategory] = useState("all");
@@ -225,6 +233,53 @@ export default function BlogGrid() {
   const [sortBy, setSortBy] = useState<"latest" | "popular" | "read-time">("latest");
   const [currentPage, setCurrentPage] = useState(1);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
+
+  // Keep posts synced with server or fetch from API
+  useEffect(() => {
+    if (initialPosts && initialPosts.length > 0) {
+      setPosts(initialPosts);
+    } else {
+      fetch("/api/blog")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.posts && data.posts.length > 0) {
+            const mapped: BlogPost[] = data.posts.map((p: any) => ({
+              id: p.id,
+              slug: p.slug,
+              title: p.title,
+              excerpt: p.excerpt,
+              category: p.category,
+              categoryLabel: p.category,
+              categoryColor: p.category.toLowerCase().includes("event")
+                ? "emerald"
+                : p.category.toLowerCase().includes("av")
+                ? "indigo"
+                : p.category.toLowerCase().includes("guideline") || p.category.toLowerCase().includes("dwtc")
+                ? "amber"
+                : "blue",
+              tags: Array.isArray(p.tags) ? p.tags : [p.category],
+              readTime: p.readingTime || "6 Min Read",
+              date: new Date(p.createdAt).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              }),
+              author: {
+                name: p.author?.name || "Tariq Al-Mansoor",
+                role: p.author?.role === "ADMIN" ? "Managing Director & Founder" : "Senior Event Director",
+                avatar: "/images/team/marcus-chen.jpg",
+              },
+              image: p.coverImage || "/images/prev/booth_1.webp",
+              imageAlt: p.title,
+              featured: false,
+              editorialBadge: p.category?.toUpperCase(),
+            }));
+            setPosts(mapped);
+          }
+        })
+        .catch((err) => console.error("Failed to fetch posts in BlogGrid:", err));
+    }
+  }, [initialPosts]);
 
   // Listen for filter state broadcasts from BlogToolbar or Tag badges
   useEffect(() => {
@@ -255,11 +310,20 @@ export default function BlogGrid() {
 
   // Filter and Sort Blog Posts
   const filteredPosts = useMemo(() => {
-    let result = [...BLOG_POSTS];
+    let result = [...posts];
 
     // Category Filter
     if (activeCategory !== "all") {
-      result = result.filter((post) => post.category === activeCategory);
+      result = result.filter((post) => {
+        const catNorm = post.category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        const actNorm = activeCategory.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        return (
+          post.category === activeCategory ||
+          catNorm === actNorm ||
+          catNorm.includes(actNorm) ||
+          actNorm.includes(catNorm)
+        );
+      });
     }
 
     // Search Query Filter

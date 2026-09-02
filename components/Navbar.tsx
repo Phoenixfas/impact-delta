@@ -58,6 +58,11 @@ export default function Navbar() {
   const menuOverlayRef = useRef<HTMLDivElement | null>(null);
   const isFirstMenuRender = useRef(true);
 
+  // Disable website client-side Navbar on dashboard / admin routes
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   // Circular-mask reveal: the fullscreen menu grows from an invisible dot
   // at the center of the screen to cover it entirely, and shrinks back down
   // the same way on close, instead of just popping in/out.
@@ -293,7 +298,7 @@ export default function Navbar() {
 
         <div ref={ctaRef} className="will-change-transform">
           <button
-            onClick={() => handleNavClick("#contact")}
+            onClick={() => handleNavClick("/brief")}
             className="nav-entrance-node group relative inline-flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-white overflow-hidden shadow-[0_16px_36px_-8px_rgba(0,62,149,0.4)] hover:shadow-[0_20px_44px_-8px_rgba(0,167,245,0.5)] transition-shadow duration-300 active:scale-95"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#003E95] via-[#00A7F5] to-[#003E95] bg-[length:200%_auto] transition-all duration-700 group-hover:bg-right" />

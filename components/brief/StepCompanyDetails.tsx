@@ -115,7 +115,7 @@ export default function StepCompanyDetails() {
 
   // File handling functions
   const handleFileUpload = useCallback(
-    (file: File) => {
+    async (file: File) => {
       // Validate file size (25MB max)
       if (file.size > 25 * 1024 * 1024) {
         alert("File exceeds maximum allowed size of 25MB.");
@@ -128,20 +128,36 @@ export default function StepCompanyDetails() {
           ? `${(file.size / (1024 * 1024)).toFixed(1)} MB`
           : `${Math.round(file.size / 1024)} KB`;
 
-      // Simulate smooth upload progress
-      setUploadProgress(15);
-      const timer1 = setTimeout(() => setUploadProgress(65), 180);
-      const timer2 = setTimeout(() => {
-        setUploadProgress(100);
+      setUploadProgress(25);
+
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const res = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        setUploadProgress(85);
+
+        if (res.ok) {
+          const data = await res.json();
+          setUploadProgress(100);
+          setValue("step1.floorPlanName", file.name, { shouldValidate: true });
+          setValue("step1.floorPlanSize", sizeFormatted, { shouldValidate: true });
+          setValue("step1.floorPlanUrl", data.url || data.file?.url || file.name, { shouldValidate: true });
+        } else {
+          setValue("step1.floorPlanName", file.name, { shouldValidate: true });
+          setValue("step1.floorPlanSize", sizeFormatted, { shouldValidate: true });
+        }
+      } catch (err) {
+        console.error("Floor plan upload error:", err);
         setValue("step1.floorPlanName", file.name, { shouldValidate: true });
         setValue("step1.floorPlanSize", sizeFormatted, { shouldValidate: true });
-        setTimeout(() => setUploadProgress(null), 300);
-      }, 400);
-
-      return () => {
-        clearTimeout(timer1);
-        clearTimeout(timer2);
-      };
+      } finally {
+        setTimeout(() => setUploadProgress(null), 350);
+      }
     },
     [setValue]
   );

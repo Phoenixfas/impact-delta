@@ -63,7 +63,7 @@ export const metadata: Metadata = {
       "Turnkey exhibition stand fabrication, corporate event management, audiovisual production, and space selling across UAE, Europe, USA, and Africa. Triple ISO certified.",
     images: [
       {
-        url: "/images/summit-keynote.jpg",
+        url: "/og_logo_card.png",
         width: 1200,
         height: 630,
         alt: "Impact Makers Events - Custom Exhibition Stands and Corporate Summits",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: "Impact Makers Events L.L.C | Connecting Businesses Worldwide",
     description:
       "Premier event management, custom booth fabrication, and technical AV production in Dubai & worldwide.",
-    images: ["/images/summit-keynote.jpg"],
+    images: ["/og_logo_card.png"],
   },
   robots: {
     index: true,
@@ -99,7 +99,7 @@ const jsonLdOrg = {
       name: "Impact Makers Events L.L.C",
       alternateName: "Impact Makers Events",
       url: "https://www.impactmakersevents.com",
-      logo: "https://www.impactmakersevents.com/images/prev/booth_1.webp",
+      logo: "https://drive.google.com/uc?export=view&id=1DvHfeZZVbQeVCciLX_5QlzH9Q-KUwfl3",
       email: "sales@impactmakersevents.com",
       telephone: "+971547114951",
       slogan: "Connecting Businesses Worldwide - From Concept To Reality",
@@ -157,7 +157,7 @@ const jsonLdOrg = {
       "@type": "LocalBusiness",
       "@id": "https://www.impactmakersevents.com/#localbusiness",
       name: "Impact Makers Events L.L.C",
-      image: "https://www.impactmakersevents.com/images/summit-keynote.jpg",
+      image: "https://drive.google.com/uc?export=view&id=14BHDHH40L4oLXGfnOEecXuB9YipwOBa1",
       telephone: "+971547114951",
       email: "sales@impactmakersevents.com",
       priceRange: "$$$$",
@@ -183,8 +183,8 @@ const jsonLdOrg = {
           "Friday",
           "Saturday",
         ],
-        opens: "08:30",
-        closes: "18:30",
+        opens: "08:00",
+        closes: "18:00",
       },
     },
   ],
@@ -211,7 +211,7 @@ export default function RootLayout({
           <KineticBackground />
           <SmoothScroll>
             <Navbar />
-            <main className="flex-1 w-full flex flex-col items-center">
+            <main className="flex-1 w-full flex flex-col">
               {children}
             </main>
             <Footer />

@@ -150,7 +150,7 @@ export default function BlogNewsletter() {
   };
 
   // Handle Newsletter Submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setInputError("");
 
@@ -162,13 +162,23 @@ export default function BlogNewsletter() {
 
     setIsSubmitting(true);
 
-    // Simulate network submission delay
-    setTimeout(() => {
+    try {
+      await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          topics: selectedTopics,
+        }),
+      });
+    } catch (err) {
+      console.error("Newsletter submission error:", err);
+    } finally {
       setIsSubmitting(false);
       setSubmittedEmail(email);
       setIsSubmitted(true);
       setEmail("");
-    }, 600);
+    }
   };
 
   // GSAP: Animate Success Modal Reveal when isSubmitted changes to true

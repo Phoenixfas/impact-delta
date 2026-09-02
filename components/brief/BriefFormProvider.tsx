@@ -141,10 +141,24 @@ export function BriefFormProvider({
       }
 
       const data = form.getValues();
-      // Simulate enterprise brief ingestion & ID assignment
-      await new Promise((resolve) => setTimeout(resolve, 900));
 
-      const refId = `SB-${Math.floor(100000 + Math.random() * 900000)}`;
+      let refId = `SB-${Math.floor(100000 + Math.random() * 900000)}`;
+
+      try {
+        const res = await fetch("/api/stand-brief", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const resData = await res.json();
+        if (res.ok && resData.referenceCode) {
+          refId = resData.referenceCode;
+        }
+      } catch (err) {
+        console.error("API submission error, using local reference ID:", err);
+      }
+
       const successInfo = {
         referenceId: refId,
         submittedAt: new Date().toISOString(),

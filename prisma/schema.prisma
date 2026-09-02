@@ -1,0 +1,152 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  SALES
+}
+
+enum ContactStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
+
+enum BriefStatus {
+  SUBMITTED
+  IN_REVIEW
+  PROPOSAL_SENT
+  WON
+  LOST
+}
+
+enum SubscriberStatus {
+  ACTIVE
+  UNSUBSCRIBED
+}
+
+model User {
+  id           String       @id @default(cuid())
+  name         String
+  email        String       @unique
+  passwordHash String
+  role         Role         @default(SALES)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  assignedBriefs StandBrief[]
+  posts          BlogPost[]
+
+  @@map("users")
+}
+
+model ContactInquiry {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String        @db.Text
+  status    ContactStatus @default(NEW)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@map("contact_inquiries")
+}
+
+model StandBrief {
+  id            String      @id @default(cuid())
+  referenceCode String      @unique
+  status        BriefStatus @default(SUBMITTED)
+
+  // Step 1: Company & Stand Coordinates
+  eventName     String
+  companyName   String
+  contactPerson String
+  contactNumber String
+  email         String
+  website       String?
+  standLocation String
+  standSize     String
+  standType     String
+  floorPlanUrl  String?
+
+  // Step 2: Brief & Objectives
+  primaryGoals        Json // string[] or { id, label }[]
+  otherGoalDetails    String?
+  colorScheme         String
+  currency            String   @default("USD")
+  budget              String
+  productsDescription String   @db.Text
+  productFiles        Json?    // array of uploaded file descriptors
+
+  // Step 3: Display & Meeting Architecture
+  displayItems           Json?   // { receptionDesk: boolean, receptionDeskQty: number, ... }
+  meetingAreaType        String
+  meetingCapacity        String?
+  otherMeetingDetails    String?
+  additionalMeetingNotes String? @db.Text
+
+  // Step 4: Stand Design & Spatial
+  aboveStandOptions Json?   // { trussTraverse: boolean, aboveStandOther: string }
+  carpetColor       String?
+  flooringOption    String?
+  storeRoomSize     String?
+  storeRoomNotes    String?
+
+  // Step 5: AV & Venue Services
+  ledScreenQty       Int     @default(0)
+  ledScreenSize      String  @default("None")
+  venueServices      Json?   // { wifiInternet: boolean, logisticsForklift: boolean, ... }
+  avAdditionalNotes  String? @db.Text
+
+  // Step 6: Additional Services & Notes
+  specialRequirements Json?   // { standPersonnel: boolean, marketingMaterials: boolean, ... }
+  additionalComments  String? @db.Text
+
+  // Metadata & Sales Workflow
+  internalNotes   Json?   // Array of { id: string, text: string, authorName: string, authorRole: string, createdAt: string }
+  assignedSalesId String?
+  assignedSales   User?   @relation(fields: [assignedSalesId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("stand_briefs")
+}
+
+model NewsletterSubscriber {
+  id        String           @id @default(cuid())
+  email     String           @unique
+  topics    Json?
+  status    SubscriberStatus @default(ACTIVE)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  @@map("newsletter_subscribers")
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String   @db.Text
+  content     String   @db.LongText
+  coverImage  String?
+  category    String
+  tags        Json?    // string[]
+  readingTime String?
+  published   Boolean  @default(true)
+  authorId    String?
+  author      User?    @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("blog_posts")
+}
