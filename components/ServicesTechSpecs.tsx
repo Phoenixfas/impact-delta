@@ -86,7 +86,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Dust-free climate-controlled paint facility applying multi-coat polyurethane primers, custom Pantone color matches, and satin clear-coats.",
         tags: ["Cleanroom Booth", "Exact Pantone Match", "High-Gloss PU", "Dust-Free"],
-        image: "/images/render2.webp",
+        image: "/images/prev/06.webp",
         imageAlt: "Exhibition stand paint and polyurethane spray booth finishing",
         statusBadge: "CLEANROOM FINISH",
         telemetry: { label: "Drying Cycle", value: "Heated Cure" },
@@ -105,7 +105,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Certified structural steel and truss fabrication for multi-story exhibition stands, cantilevered VIP viewing decks, and overhead bridge spans.",
         tags: ["MIG/TIG Certified", "Double-Decker Steel", "PE Stamped", "Heavy Duty"],
-        image: "/images/kinetic-installation.jpg",
+        image: "/images/prev/atss-1-landscape.webp",
         imageAlt: "Structural steel fabrication for double-decker exhibition booths",
         statusBadge: "PE STAMPED RATED",
         telemetry: { label: "Load Capacity", value: "5.0 kN/m²" },
@@ -134,7 +134,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Ultra-fine pitch curved indoor LED video displays delivering true HDR color depth, high refresh rates, and seamless convex/concave curves.",
         tags: ["2.6mm Fine Pitch", "Brompton SX40", "Curved Concave/Convex", "HDR Color"],
-        image: "/images/summit-keynote.jpg",
+        image: "/images/prev/14.webp",
         imageAlt: "Curved 4K LED video wall installation at Dubai exhibition",
         statusBadge: "BROADCAST CALIBRATED",
         telemetry: { label: "Pixel Pitch", value: "2.6 mm Fine" },
@@ -153,7 +153,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Premium concert-grade line array sound reinforcement for large exhibition arenas, plenary auditoriums, and gala ballrooms.",
         tags: ["Cardioid Array", "D80 DSP Amps", "Dante Network", "100% Clean Audio"],
-        image: "/images/executive-pavilion.jpg",
+        image: "/images/prev/11.webp",
         imageAlt: "Concert line array audio system for enterprise summits",
         statusBadge: "ACTIVE STADIUM SPEC",
         telemetry: { label: "Peak SPL", value: "145 dB" },
@@ -172,7 +172,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Robotic moving heads, architectural profile spots, and warm LED wash fixtures programmed on grandMA3 control surfaces.",
         tags: ["grandMA3 Control", "Robe BMFL", "DMX Moving Heads", "RGBW Architectural"],
-        image: "/images/kinetic-installation.jpg",
+        image: "/images/prev/14.webp",
         imageAlt: "Robotic stage lighting and DMX light show for product reveals",
         statusBadge: "DMX MASTER CONTROL",
         telemetry: { label: "Control Consoles", value: "grandMA3 Full" },
@@ -201,7 +201,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Complete mobile broadcast control suite with multi-camera 4K switching, lower-thirds overlays, instant replay, and multi-channel master SSD recording.",
         tags: ["Sony FX9 4K", "ATEM 8K Switcher", "LiveU 5G Uplink", "Instant PR Reel"],
-        image: "/images/summit-keynote.jpg",
+        image: "/images/prev/07.webp",
         imageAlt: "4K live broadcast and multi-camera production suite",
         statusBadge: "4K HDR BROADCAST",
         telemetry: { label: "Stream Quality", value: "4K 60FPS" },
@@ -220,7 +220,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Diplomatic-grade conference microphone and simultaneous interpretation systems for international government congresses and bilateral ministerial talks.",
         tags: ["Bosch DCN", "8+ Languages", "Encrypted IR", "Diplomatic Protocol"],
-        image: "/images/executive-pavilion.jpg",
+        image: "/images/prev/08.webp",
         imageAlt: "Bosch simultaneous interpretation headsets and congress microphones",
         statusBadge: "DIPLOMATIC SPEC",
         telemetry: { label: "Language Tracks", value: "Up to 32 Ch" },
@@ -249,7 +249,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Iconic modern luxury sofas in premium black, white, and cognac leather, providing an upscale executive atmosphere for meeting suites and VIP pavilions.",
         tags: ["Corbusier Style", "Italian Leather", "Chrome Frame", "VIP Lounge"],
-        image: "/images/prev/booth_1.webp",
+        image: "/images/prev/16.webp",
         imageAlt: "Designer Le Corbusier style leather sofas for exhibition booths",
         statusBadge: "PREMIUM LEATHER",
         telemetry: { label: "Stock Units", value: "350+ Sofas" },
@@ -268,7 +268,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Curated designer armchairs featuring natural oak legs, curved contours, and stain-resistant velvet/bouclé upholstery in neutral grey, forest green, and navy.",
         tags: ["Scandinavian Design", "Velvet / Bouclé", "Natural Oak", "Ergonomic"],
-        image: "/images/executive-pavilion.jpg",
+        image: "/images/prev/17.webp",
         imageAlt: "Scandinavian designer armchairs and event lounge seating",
         statusBadge: "NORDIC MINIMALISM",
         telemetry: { label: "Catalog Colors", value: "6 Colorways" },
@@ -287,7 +287,7 @@ const TECH_CATEGORIES: CategoryGroup[] = [
         description:
           "Sleek barstools and cocktail high-tables ideal for stand hospitality counters, networking cocktail hours, and interactive demo zones.",
         tags: ["Tolix Style", "Matte Black / Copper", "Solid Wood Seat", "Cocktail Height"],
-        image: "/images/kinetic-installation.jpg",
+        image: "/images/prev/11.webp",
         imageAlt: "Tolix style barstools and cocktail high-top tables",
         statusBadge: "HIGH-TRAFFIC SPEC",
         telemetry: { label: "Total Inventory", value: "800+ Stools" },

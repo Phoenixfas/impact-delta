@@ -63,7 +63,7 @@ async function getPublishedPosts(): Promise<BlogPost[]> {
             role: p.author?.role === "ADMIN" ? "Managing Director & Founder" : "Senior Event Director",
             avatar: "/images/team/marcus-chen.jpg",
           },
-          image: p.coverImage || "/images/prev/booth_1.webp",
+          image: p.coverImage || "/images/prev/atss-1-landscape.webp",
           imageAlt: p.title,
           featured: false,
           editorialBadge: category.toUpperCase(),

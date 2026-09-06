@@ -55,7 +55,7 @@ const PHASES_DATA: ProcessPhase[] = [
     description:
       "We begin with photorealistic 360° 3D renders and virtual walkthroughs. Our structural engineering team calculates double-decker cantilever loads and secures certified municipal and venue approvals (DWTC, DEC, ADNEC).",
     icon: Compass,
-    image: "/images/summit-keynote.jpg",
+    image: "/images/prev/atss-1-landscape.webp",
     alt: "3D exhibition stand design and structural engineering blueprint",
     deliverables: [
       {
@@ -96,7 +96,7 @@ const PHASES_DATA: ProcessPhase[] = [
     description:
       "Every structural frame, custom curved timber wall, and acrylic showcase is built inside our Dubai workshop. We eliminate subcontractor delays and verify fitment before shipping to the exhibition hall.",
     icon: Cpu,
-    image: "/images/kinetic-installation.jpg",
+    image: "/images/prev/booth_1.webp",
     alt: "In-house CNC joinery and custom booth fabrication",
     deliverables: [
       {
@@ -137,7 +137,7 @@ const PHASES_DATA: ProcessPhase[] = [
     description:
       "Our installation crews execute rapid, coordinated load-ins at DEC, DWTC, or international venues. Master joiners assemble structures while our AV engineers rig curved LED video ribbons and concert line arrays.",
     icon: Radio,
-    image: "/images/prev/booth_1.webp",
+    image: "/images/prev/14.webp",
     alt: "On-site exhibition stand assembly and audiovisual installation",
     deliverables: [
       {
@@ -178,7 +178,7 @@ const PHASES_DATA: ProcessPhase[] = [
     description:
       "During exhibition days, our technical team remains on-site for immediate maintenance, AV support, and 4K media capture. Post-event, we execute a rapid ISO 14001 green dismantle, diverting reusable materials from landfills.",
     icon: BarChart3,
-    image: "/images/executive-pavilion.jpg",
+    image: "/images/prev/booth_2.webp",
     alt: "Post-event media delivery and sustainable green dismantling",
     deliverables: [
       {

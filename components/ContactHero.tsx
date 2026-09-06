@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -383,6 +384,22 @@ export default function ContactHero() {
       id="contact-hero"
       className="relative w-full min-h-[92vh] pt-32 pb-24 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center overflow-hidden selection:bg-[#003E95] selection:text-white"
     >
+      {/* ---------------------------------------------------------------------- */}
+      {/* A. ATMOSPHERIC BACKGROUND VISUAL                                       */}
+      {/* ---------------------------------------------------------------------- */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none">
+        <Image
+          src="/images/prev/14.webp"
+          alt="Impact Makers Events corporate executive command desk and event atmosphere"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-[0.08] mix-blend-luminosity scale-105 transition-opacity duration-1000"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white" />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[580px] bg-gradient-to-b from-[#00A7F5]/15 via-[#003E95]/10 to-transparent blur-3xl rounded-full" />
+      </div>
+
       {/* ---------------------------------------------------------------------- */}
       {/* B. EDITORIAL HEADER & MOTION STAGE                                     */}
       {/* ---------------------------------------------------------------------- */}

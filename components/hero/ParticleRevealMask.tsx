@@ -189,8 +189,8 @@ export default function ParticleRevealMask({ onProgress, onRevealComplete }: Par
     const progressState = { value: 0 };
     const tween = gsap.to(progressState, {
       value: 1,
-      duration: 3.1,
-      delay: 0.15,
+      duration: 2.4,
+      delay: 0.1,
       ease: "power1.inOut",
       onUpdate: () => {
         draw(progressState.value);

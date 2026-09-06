@@ -27,7 +27,7 @@ const METRICS: Metric[] = [
     decimals: 0,
     suffix: "+",
     size: "large",
-    image: "/images/summit-keynote.jpg",
+    image: "/images/prev/atss-1-landscape.webp",
     alt: "Custom exhibition stand build by Impact Makers Events",
   },
   {
@@ -38,8 +38,8 @@ const METRICS: Metric[] = [
     decimals: 0,
     suffix: " Countries",
     size: "small",
-    image: "/images/executive-pavilion.jpg",
-    alt: "Global corporate event operations",
+    image: "/images/prev/14.webp",
+    alt: "Global corporate event operations and lighting by Impact Makers Events",
   },
   {
     icon: Star,
@@ -128,8 +128,8 @@ export default function AchievementsSection() {
     tiltSetters.current = cardRefs.current.map((el) =>
       el
         ? {
-            rx: gsap.quickTo(el, "rotateX", { duration: 0.6, ease: "power3.out" }),
-            ry: gsap.quickTo(el, "rotateY", { duration: 0.6, ease: "power3.out" }),
+            rx: gsap.quickTo(el, "rotationX", { duration: 0.6, ease: "power3.out" }),
+            ry: gsap.quickTo(el, "rotationY", { duration: 0.6, ease: "power3.out" }),
           }
         : null
     );

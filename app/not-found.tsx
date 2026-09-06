@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
@@ -248,13 +249,26 @@ export default function NotFound() {
           {/* Floating 3D Perspective Glass Card Stack */}
           <div
             ref={cardStackRef}
-            className="stage-card-3d relative w-[300px] sm:w-[460px] md:w-[520px] h-[190px] sm:h-[220px] rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-white/80 bg-gradient-to-br from-white/95 via-white/85 to-slate-50/70 shadow-2xl backdrop-blur-xl transition-shadow duration-300"
+            className="stage-card-3d relative w-[300px] sm:w-[460px] md:w-[520px] h-[190px] sm:h-[220px] rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-white/80 bg-gradient-to-br from-white/95 via-white/85 to-slate-50/70 shadow-2xl backdrop-blur-xl transition-shadow duration-300 overflow-hidden"
             style={{
               transformStyle: "preserve-3d",
               boxShadow:
                 "0 25px 60px -15px rgba(0, 62, 149, 0.12), 0 0 35px -5px rgba(0, 167, 245, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.9)",
             }}
           >
+            {/* 3D Stage Card Backdrop Visual */}
+            <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl pointer-events-none select-none">
+              <Image
+                src="/images/prev/atss-1-landscape.webp"
+                alt="Unassigned stage pavilion coordinate"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 520px"
+                className="object-cover object-center opacity-[0.14] mix-blend-multiply transition-opacity duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/90 via-white/70 to-slate-50/80" />
+            </div>
+
             {/* Top Bar of the Stage Card */}
             <div
               className="flex items-center justify-between"

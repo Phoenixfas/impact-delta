@@ -46,7 +46,7 @@ const PROJECTS: ProjectItem[] = [
     year: "2025",
     location: "Dubai Airshow & DEC, UAE",
     scale: "1,200 m² Footprint • Double-Decker",
-    image: "/images/prev/booth_1.webp",
+    image: "/images/prev/atss-1-landscape.webp",
     alt: "Airbus custom double-decker exhibition stand built by Impact Makers Events",
     tags: ["Double-Decker", "In-House Joinery", "VIP Sky Lounge", "Acoustic Suites"],
     metrics: [
@@ -76,7 +76,7 @@ const PROJECTS: ProjectItem[] = [
     year: "2025",
     location: "Madinat Jumeirah & DWTC, Dubai",
     scale: "50+ Global Broadcasters",
-    image: "/images/summit-keynote.jpg",
+    image: "/images/prev/14.webp",
     alt: "Live television media broadcast studio and conference stage",
     tags: ["4K Livestream", "Acoustic Glass", "Concert AV", "Live Media Hub"],
     metrics: [
@@ -106,7 +106,7 @@ const PROJECTS: ProjectItem[] = [
     year: "2024",
     location: "ADNEC & DWTC, UAE",
     scale: "850 m² Interactive Stand",
-    image: "/images/render2.webp",
+    image: "/images/prev/01.webp",
     alt: "Futuristic digital banking exhibition stand with curved LED surfaces",
     tags: ["Curved LED", "Interactive Kiosks", "VIP Protocol", "Digital Displays"],
     metrics: [
@@ -136,7 +136,7 @@ const PROJECTS: ProjectItem[] = [
     year: "2024",
     location: "Dubai Exhibition Centre (DEC), UAE",
     scale: "192 Member Nations • 5,000 Delegates",
-    image: "/images/executive-pavilion.jpg",
+    image: "/images/prev/04.webp",
     alt: "Large scale international congress plenary hall and delegate seating",
     tags: ["Congress Organizing", "Plenary Rigging", "Simultaneous Translation", "DEC Venue"],
     metrics: [
@@ -166,7 +166,7 @@ const PROJECTS: ProjectItem[] = [
     year: "2024",
     location: "Yas Marina & Dubai, UAE",
     scale: "15,000+ Attendees",
-    image: "/images/kinetic-installation.jpg",
+    image: "/images/prev/11.webp",
     alt: "Dynamic kinetic lighting and high-energy brand stage installation",
     tags: ["Kinetic Trussing", "Concert AV", "Experiential Activation", "Live Show"],
     metrics: [

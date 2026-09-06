@@ -50,7 +50,7 @@ const PILLARS: BentoPillar[] = [
     colSpan: "lg:col-span-7",
     metric: { value: "±0.5mm", label: "CNC Cutting Tolerance" },
     badge: "In-House Dubai Facility",
-    image: "/images/kinetic-installation.jpg",
+    image: "/images/prev/06.webp",
     bullets: [
       "5-axis CNC router and automated timber joinery",
       "Structural steel framing for double-decker pavilions",
@@ -69,7 +69,7 @@ const PILLARS: BentoPillar[] = [
     colSpan: "lg:col-span-5",
     metric: { value: "48 Hours", label: "Initial 3D Render Delivery" },
     badge: "3D Max & V-Ray Previz",
-    image: "/images/summit-keynote.jpg",
+    image: "/images/prev/14.webp",
     bullets: [
       "Photorealistic 360° exhibition stand renders",
       "DEC, DWTC & ADNEC venue permit compliance",
@@ -417,8 +417,8 @@ export default function AboutValues() {
                   <div className="relative z-10 mt-6 pt-5 border-t border-slate-200/70">
                     <div className="relative rounded-2xl overflow-hidden aspect-[16/9] bg-slate-900 shadow-md">
                       <Image
-                        src="/images/summit-keynote.jpg"
-                        alt="Unreal Engine 5 stage previz render"
+                        src="/images/prev/14.webp"
+                        alt="3D architectural spatial previz render by Impact Makers Events"
                         fill
                         sizes="(max-width: 1024px) 100vw, 500px"
                         className="object-cover group-hover:scale-105 transition-transform duration-700"

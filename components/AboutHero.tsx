@@ -21,11 +21,11 @@ import { useReveal } from "./RevealProvider";
 import HeroImageLightbox, { type LightboxItem } from "./hero/HeroImageLightbox";
 
 const PREVIZ_LIGHTBOX_ITEM: LightboxItem = {
-  src: "/images/summit-keynote.jpg",
-  alt: "Architectural corporate keynote arena designed by Impact Makers Events",
-  title: "Interactive Spatial Previz // Keynote Arena",
+  src: "/images/prev/atss-1-landscape.webp",
+  alt: "Flagship two-story double-decker exhibition pavilion engineered by Impact Makers Events",
+  title: "Interactive Spatial Previz // Double-Decker Pavilion",
   description:
-    "Where architectural form meets human emotion. Engineered for 50,000+ attendee enterprise summits with synchronized kinetic lighting, 3D volumetrics, and sub-millisecond show control.",
+    "Where architectural form meets engineering rigor. Designed with organic structural curves, illuminated perimeter reveals, and an elevated VIP mezzanine lounge suite.",
 };
 
 export default function AboutHero() {
@@ -537,10 +537,10 @@ export default function AboutHero() {
 
             {/* Inner Glass Frame */}
             <div className="relative rounded-2xl sm:rounded-[28px] overflow-hidden aspect-[16/9] sm:aspect-[21/9] bg-slate-950 border border-slate-200/40">
-              {/* Architectural Keynote Stage Image */}
+              {/* Architectural Double-Decker Pavilion Image */}
               <Image
-                src="/images/summit-keynote.jpg"
-                alt="Architectural corporate keynote arena designed by Impact Makers Events"
+                src="/images/prev/atss-1-landscape.webp"
+                alt="Flagship two-story double-decker exhibition pavilion engineered by Impact Makers Events"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 1100px"

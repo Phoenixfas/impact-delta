@@ -252,8 +252,8 @@ export default function AboutSection() {
           >
             <div ref={imageInnerRef} className="absolute -inset-y-[6%] inset-x-0">
               <Image
-                src="/images/prev/booth_1.webp"
-                alt="Detail of custom exhibition stand fabrication by Impact Makers Events"
+                src="/images/prev/07_portrait45.webp"
+                alt="Corporate exhibition stand architecture and timber joinery by Impact Makers Events"
                 fill
                 sizes="(max-width: 1024px) 90vw, 560px"
                 className="object-cover"

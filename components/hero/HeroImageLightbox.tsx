@@ -61,7 +61,8 @@ export default function HeroImageLightbox({ item, onClose }: HeroImageLightboxPr
           src={item.src}
           alt={item.alt}
           fill
-          sizes="(max-width: 768px) 100vw, 1024px"
+          quality={95}
+          sizes="(max-width: 768px) 100vw, 1920px"
           className="object-cover"
           priority
         />

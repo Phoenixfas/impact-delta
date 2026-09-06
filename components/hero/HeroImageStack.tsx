@@ -16,22 +16,22 @@ interface StackImage {
 
 const IMAGES: StackImage[] = [
   {
-    src: "/images/summit-keynote.jpg",
-    alt: "Stadium-scale keynote light show",
-    label: "Keynote Arena",
-    description: "16,500-seat holographic stage with real-time telemetry visualizers.",
+    src: "/images/prev/14.webp",
+    alt: "Illuminated luxury exhibition stand with halo lighting and live coffee bar",
+    label: "Illuminated Stage",
+    description: "Curved portal architecture with perimeter under-glow and synchronized ambient lighting.",
   },
   {
-    src: "/images/kinetic-installation.jpg",
-    alt: "Kinetic chandelier gala installation",
-    label: "Luxury Gala",
-    description: "400 motorized crystal prisms choreographed in harmonic sync.",
+    src: "/images/prev/11.webp",
+    alt: "Illuminated archway exhibition pavilion with designer seating and elevated deck",
+    label: "Spatial Architecture",
+    description: "Custom geometric woodwork, integrated LED media screens, and VIP delegate hospitality.",
   },
   {
-    src: "/images/executive-pavilion.jpg",
-    alt: "Executive summit pavilion atrium",
-    label: "Executive Pavilion",
-    description: "Quantum-shielded acoustic isolation for high-stakes dialogue.",
+    src: "/images/prev/atss-1-landscape.webp",
+    alt: "Two-story double-decker exhibition pavilion engineered by Impact Makers Events",
+    label: "Double-Decker Pavilion",
+    description: "Multi-level architectural pavilion with organic curved contours and VIP mezzanine lounge.",
   },
 ];
 
@@ -70,9 +70,9 @@ export default function HeroImageStack({ onOpen }: HeroImageStackProps) {
     const tiltSetters = cardRefs.current.map((el) =>
       el
         ? {
-            rx: gsap.quickTo(el, "rotateX", { duration: 0.8, ease: "power3.out" }),
-            ry: gsap.quickTo(el, "rotateY", { duration: 0.8, ease: "power3.out" }),
-          }
+          rx: gsap.quickTo(el, "rotationX", { duration: 0.8, ease: "power3.out" }),
+          ry: gsap.quickTo(el, "rotationY", { duration: 0.8, ease: "power3.out" }),
+        }
         : null
     );
 
@@ -204,9 +204,10 @@ export default function HeroImageStack({ onOpen }: HeroImageStackProps) {
               src={img.src}
               alt={img.alt}
               fill
-              sizes="(max-width: 768px) 90vw, 576px"
+              quality={95}
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1400px"
               className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
-              priority={i === 1}
+              priority
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/5 to-white/5" />

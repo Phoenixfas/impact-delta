@@ -67,7 +67,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Managing Director & Founder",
       avatar: "/images/team/marcus-chen.jpg",
     },
-    image: "/images/prev/booth_1.webp",
+    image: "/images/prev/atss-1-landscape.webp",
     imageAlt: "Custom double-decker exhibition stand built at Dubai World Trade Centre",
     featured: true,
     editorialBadge: "EXHIBITION GUIDE // 2026",
@@ -90,8 +90,8 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Director of In-House Fabrication",
       avatar: "/images/team/marcus-chen.jpg",
     },
-    image: "/images/kinetic-installation.jpg",
-    imageAlt: "In-house 5-axis CNC timber joinery and fabrication",
+    image: "/images/prev/04_portrait.webp",
+    imageAlt: "Vertical architectural view of custom exhibition stand joinery and venue rigging in Dubai",
     featured: false,
     editorialBadge: "MANUFACTURING LAB",
     metrics: { label: "Tolerance", value: "±0.5mm" },
@@ -113,7 +113,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Managing Director & Founder",
       avatar: "/images/team/marcus-chen.jpg",
     },
-    image: "/images/executive-pavilion.jpg",
+    image: "/images/prev/08_portrait.webp",
     imageAlt: "Corporate summit hall operating under strict ISO quality and safety protocols",
     featured: false,
     editorialBadge: "GOVERNANCE & STANDARDS",
@@ -136,7 +136,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Head of Audiovisual Systems",
       avatar: "/images/team/marcus-chen.jpg",
     },
-    image: "/images/summit-keynote.jpg",
+    image: "/images/prev/14.webp",
     imageAlt: "Curved 4K LED video ribbon wall on exhibition stand",
     featured: false,
     editorialBadge: "AV ENGINEERING",
@@ -159,8 +159,8 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Managing Director & Founder",
       avatar: "/images/team/marcus-chen.jpg",
     },
-    image: "/images/render2.webp",
-    imageAlt: "Spatial exhibition pavilion render with illuminated architectural canopies",
+    image: "/images/prev/6_portrait45.webp",
+    imageAlt: "Spatial exhibition pavilion architecture with illuminated entrance arch and VIP seating",
     featured: true,
     editorialBadge: "COVER STORY // VOL. 04",
     metrics: { label: "Global Hubs", value: "9 Countries" },
@@ -182,7 +182,7 @@ export const BLOG_POSTS: BlogPost[] = [
       role: "Head of Event Protocol & Operations",
       avatar: "/images/team/aurelia-dubois.jpg",
     },
-    image: "/images/executive-pavilion.jpg",
+    image: "/images/prev/04.webp",
     imageAlt: "Diplomatic congress plenary hall with simultaneous interpretation headsets",
     featured: false,
     editorialBadge: "CONGRESS PROTOCOL",
@@ -465,6 +465,7 @@ export default function BlogGrid({ initialPosts }: BlogGridProps = {}) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {paginatedPosts.map((post, idx) => {
             const isSpanTwo = post.featured && idx === 0;
+            const isPortrait = post.image.includes("_portrait");
             const isBookmarked = bookmarkedIds.has(post.id);
 
             return (
@@ -500,7 +501,7 @@ export default function BlogGrid({ initialPosts }: BlogGridProps = {}) {
                 {/* Top Image Container with Hover Scale */}
                 <div
                   className={`relative w-full overflow-hidden bg-slate-900 ${
-                    isSpanTwo ? "h-64 sm:h-80" : "h-52 sm:h-60"
+                    isPortrait ? "h-64 sm:h-76" : isSpanTwo ? "h-64 sm:h-80" : "h-52 sm:h-60"
                   }`}
                 >
                   <Image
@@ -512,7 +513,7 @@ export default function BlogGrid({ initialPosts }: BlogGridProps = {}) {
                         ? "(max-width: 768px) 100vw, 66vw"
                         : "(max-width: 768px) 100vw, 33vw"
                     }
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108 group-hover:brightness-105"
+                    className={`object-cover ${isPortrait ? "object-top" : "object-center"} transition-transform duration-700 ease-out group-hover:scale-108 group-hover:brightness-105`}
                   />
 
                   {/* Gradient Vignette Overlay */}

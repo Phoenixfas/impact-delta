@@ -467,7 +467,7 @@ export default function BlogHero() {
                 {/* Left Column: Visual Media with Dynamic Zoom */}
               <div className="lg:col-span-7 relative min-h-[340px] sm:min-h-[420px] lg:min-h-[500px] overflow-hidden bg-slate-950">
                 <Image
-                  src="/images/prev/booth_1.webp"
+                  src="/images/prev/atss-1-landscape.webp"
                   alt="Custom double-decker exhibition stand built at Dubai World Trade Centre"
                   fill
                   priority

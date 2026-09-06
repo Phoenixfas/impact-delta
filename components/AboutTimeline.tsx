@@ -44,7 +44,7 @@ const TIMELINE_EVENTS: TimelineEvent[] = [
     subtitle: "Delivering double-decker pavilions for leading global brands",
     description:
       "Scaled operations across premier regional exhibition venues including Dubai World Trade Centre, Dubai Exhibition Centre, and ADNEC, executing flagship aerospace, fintech, and tech builds.",
-    image: "/images/executive-pavilion.jpg",
+    image: "/images/prev/atss-1-landscape.webp",
     stats: { label: "Major Builds", value: "350+ Stands" },
     highlights: ["Double-decker structural engineering", "Venue permit authority approvals", "Full VIP hospitality suites"],
   },
@@ -55,7 +55,7 @@ const TIMELINE_EVENTS: TimelineEvent[] = [
     subtitle: "Active operational network spanning 4 continents",
     description:
       "Established active country hubs across the UAE, Poland, Portugal, Netherlands, USA, Germany, Singapore, Rwanda, and Ethiopia to support global touring corporate clients.",
-    image: "/images/kinetic-installation.jpg",
+    image: "/images/prev/11.webp",
     stats: { label: "Global Network", value: "9 Countries" },
     highlights: ["Unified European logistics", "Single-source international contract", "Consistent quality control"],
   },
@@ -66,7 +66,7 @@ const TIMELINE_EVENTS: TimelineEvent[] = [
     subtitle: "ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018",
     description:
       "Awarded full Triple ISO certifications by Universal Registrars, uniting custom stand fabrication, large-scale event organizing, concert AV, space selling, and furniture rental under one roof.",
-    image: "/images/summit-keynote.jpg",
+    image: "/images/prev/14.webp",
     stats: { label: "ISO Accreditations", value: "3 Certifications" },
     highlights: ["ISO 9001 Quality Management", "ISO 14001 Environmental Management", "ISO 45001 Health & Safety"],
   },

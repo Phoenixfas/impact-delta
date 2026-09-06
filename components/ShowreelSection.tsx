@@ -202,10 +202,10 @@ export default function ShowreelSection() {
         >
           <div ref={posterWrapRef} className="absolute -inset-y-[24%] inset-x-0">
             <Image
-              src="/images/summit-keynote.jpg"
-              alt="Impact Makers Events showreel poster — exhibition stand fabrication and concert stagecraft"
+              src="/images/prev/atss-1-landscape.webp"
+              alt="Impact Makers Events cinematic showreel — luxury exhibition stand fabrication and concert stagecraft"
               fill
-              sizes="(max-width: 1024px) 100vw, 1024px"
+              sizes="(max-width: 1024px) 100vw, 1200px"
               className={`object-cover transition-transform duration-700 group-hover:scale-105 ${showVideo ? "opacity-0" : "opacity-100"
                 }`}
             />
@@ -214,7 +214,7 @@ export default function ShowreelSection() {
           {isOpen && showVideo && (
             <iframe
               className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${PLACEHOLDER_YOUTUBE_ID}?autoplay=1&mute=1&rel=0`}
+              src={`https://www.youtube.com/embed/${PLACEHOLDER_YOUTUBE_ID}?autoplay=1&controls=0&loop=1&mute=1&rel=0`}
               title="Showreel placeholder video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

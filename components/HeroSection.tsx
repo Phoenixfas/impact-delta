@@ -111,7 +111,8 @@ export default function HeroSection() {
   const handleRevealComplete = () => {
     setRevealed(true);
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.to(".hero-stack-card", { opacity: 1, filter: "blur(0px)", duration: 1.1, stagger: 0.14 })
+    tl.timeScale(1.4)
+      .to(".hero-stack-card", { opacity: 1, filter: "blur(0px)", duration: 1.1, stagger: 0.14 })
       .add(() => {
         brushBackRef.current?.play();
         brushFrontRef.current?.play();

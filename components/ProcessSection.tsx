@@ -56,7 +56,7 @@ const PROCESS_STEPS: ProcessStep[] = [
     description:
       "We deconstruct your exhibition or event requirements into precise 3D walkthroughs, structural load calculations, and official DEC/DWTC/ADNEC venue authority submittals. Every spatial detail is verified under ISO 9001 quality guidelines.",
     icon: Compass,
-    image: "/images/render2.webp",
+    image: "/images/prev/atss-1-landscape.webp",
     alt: "3D spatial design and structural CAD blueprint for exhibition stand",
     deliverables: [
       {
@@ -134,7 +134,7 @@ const PROCESS_STEPS: ProcessStep[] = [
     description:
       "Our logistics team delivers and installs your stand on schedule at the exhibition venue. We provide 24/7 on-site technical standby, live 4K multi-camera streaming, designer furniture placement, VIP gift management, and prompt post-show breakdown.",
     icon: Radio,
-    image: "/images/summit-keynote.jpg",
+    image: "/images/prev/14.webp",
     alt: "Turnkey live event execution and exhibition stand handover at DWTC",
     deliverables: [
       {

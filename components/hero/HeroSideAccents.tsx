@@ -28,30 +28,30 @@ type AccentData = (PhotoAccent | OrbitAccent) & {
 const ACCENTS: AccentData[] = [
   {
     kind: "photo",
-    src: "/images/summit-keynote.jpg",
-    alt: "Stadium-scale keynote light show",
-    tag: "Global AI Summit",
-    stat: "16,500 Seats",
+    src: "/images/prev/04.webp",
+    alt: "High-traffic international exhibition pavilion floor managed by Impact Makers Events",
+    tag: "Trade Show Floor",
+    stat: "50,000+ Visitors",
     side: "left",
     topPercent: 16,
     baseRotate: -7,
   },
   {
     kind: "photo",
-    src: "/images/kinetic-installation.jpg",
-    alt: "Kinetic chandelier gala installation",
-    tag: "Luxury Gala",
-    stat: "400 Kinetic Prisms",
+    src: "/images/prev/booth_2.webp",
+    alt: "Grand multi-portal exhibition stand with illuminated red architecture",
+    tag: "Multi-Portal Build",
+    stat: "100% In-House",
     side: "left",
     topPercent: 58,
     baseRotate: 5,
   },
   {
     kind: "photo",
-    src: "/images/executive-pavilion.jpg",
-    alt: "Executive summit pavilion atrium",
-    tag: "Executive Pavilion",
-    stat: "120+ Countries",
+    src: "/images/prev/16.webp",
+    alt: "VIP executive lounge suite with designer armchairs and timber canopy",
+    tag: "VIP Hospitality",
+    stat: "Turnkey Luxury",
     side: "right",
     topPercent: 18,
     baseRotate: 6,
@@ -202,7 +202,8 @@ export default function HeroSideAccents({ onOpen }: HeroSideAccentsProps) {
                   src={accent.src}
                   alt={accent.alt}
                   fill
-                  sizes="160px"
+                  quality={90}
+                  sizes="320px"
                   className="object-cover grayscale-[60%] group-hover:grayscale-0 scale-105 group-hover:scale-110 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
